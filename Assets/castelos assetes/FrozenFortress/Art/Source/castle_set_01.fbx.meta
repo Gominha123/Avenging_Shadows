@@ -1,0 +1,455 @@
+fileFormatVersion: 2
+guid: 70f74fbf88f2e394181c82e9ffd5859f
+timeCreated: 1476744041
+licenseType: Store
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Mesh
+    100004: Mesh (2)
+    100006: Mesh (3)
+    100008: Mesh (5)
+    100010: Texture Group
+    100012: Mesh (4)
+    100014: Mesh (10)
+    100016: Mesh (11)
+    100018: Mesh (12)
+    100020: Mesh (13)
+    100022: Mesh (14)
+    100024: Mesh (15)
+    100026: Mesh (16)
+    100028: Mesh (17)
+    100030: Mesh (18)
+    100032: Mesh (19)
+    100034: Mesh (2) (2)
+    100036: Mesh (20)
+    100038: Mesh (6)
+    100040: Mesh (7)
+    100042: Mesh (8)
+    100044: Mesh (9)
+    100046: blocks
+    100048: blocks (2)
+    100050: blocks (3)
+    100052: blocks (4)
+    100054: border
+    100056: castle_arch_01
+    100058: castle_arch_wall
+    100060: castle_border_full
+    100062: castle_border_half
+    100064: castle_corner_01
+    100066: castle_crenellation_01
+    100068: castle_gate
+    100070: castle_spire_01
+    100072: castle_spire_02
+    100074: castle_wall_gate
+    100076: castle_wall_half
+    100078: castle_wall_single
+    100080: doodads
+    100082: pillar_01
+    100084: pillar_02
+    100086: top
+    100088: castle_spire_03
+    100090: castle_support_01
+    100092: doodads (2)
+    100094: spikes_01
+    100096: top (2)
+    100098: blocks (5)
+    100100: castle_arch_wall_02
+    100102: castle_staircase_01
+    100104: castle_staircase_02
+    100106: castle_wall_45
+    100108: castle_wall_corner
+    100110: castle_wall_curve
+    100112: castle_wall_trim
+    100114: castle_window_01
+    100116: castle_window_wood_01
+    100118: pillar_base
+    100120: pillar_cap
+    100122: slat
+    100124: torch_stand_01
+    100126: wall_step
+    100128: castle_wall_half_hole
+    100130: castle_arch_02
+    100132: window_01
+    100134: castle_wall_single_window
+    100136: castle_staircase_01_COL
+    100138: castle_staircase_02_COL
+    100140: floor
+    100142: floor (2)
+    100144: floor (3)
+    100146: floor (5)
+    100148: platform_4x2x2
+    100150: platform_4x2x4
+    100152: platform_4x4x2
+    100154: platform_4x4x4
+    400000: //RootNode
+    400002: Mesh
+    400004: Mesh (2)
+    400006: Mesh (3)
+    400008: Mesh (5)
+    400010: Texture Group
+    400012: Mesh (4)
+    400014: Mesh (10)
+    400016: Mesh (11)
+    400018: Mesh (12)
+    400020: Mesh (13)
+    400022: Mesh (14)
+    400024: Mesh (15)
+    400026: Mesh (16)
+    400028: Mesh (17)
+    400030: Mesh (18)
+    400032: Mesh (19)
+    400034: Mesh (2) (2)
+    400036: Mesh (20)
+    400038: Mesh (6)
+    400040: Mesh (7)
+    400042: Mesh (8)
+    400044: Mesh (9)
+    400046: blocks
+    400048: blocks (2)
+    400050: blocks (3)
+    400052: blocks (4)
+    400054: border
+    400056: castle_arch_01
+    400058: castle_arch_wall
+    400060: castle_border_full
+    400062: castle_border_half
+    400064: castle_corner_01
+    400066: castle_crenellation_01
+    400068: castle_gate
+    400070: castle_spire_01
+    400072: castle_spire_02
+    400074: castle_wall_gate
+    400076: castle_wall_half
+    400078: castle_wall_single
+    400080: doodads
+    400082: pillar_01
+    400084: pillar_02
+    400086: top
+    400088: castle_spire_03
+    400090: castle_support_01
+    400092: doodads (2)
+    400094: spikes_01
+    400096: top (2)
+    400098: blocks (5)
+    400100: castle_arch_wall_02
+    400102: castle_staircase_01
+    400104: castle_staircase_02
+    400106: castle_wall_45
+    400108: castle_wall_corner
+    400110: castle_wall_curve
+    400112: castle_wall_trim
+    400114: castle_window_01
+    400116: castle_window_wood_01
+    400118: pillar_base
+    400120: pillar_cap
+    400122: slat
+    400124: torch_stand_01
+    400126: wall_step
+    400128: castle_wall_half_hole
+    400130: castle_arch_02
+    400132: window_01
+    400134: castle_wall_single_window
+    400136: castle_staircase_01_COL
+    400138: castle_staircase_02_COL
+    400140: floor
+    400142: floor (2)
+    400144: floor (3)
+    400146: floor (5)
+    400148: platform_4x2x2
+    400150: platform_4x2x4
+    400152: platform_4x4x2
+    400154: platform_4x4x4
+    2300000: Mesh
+    2300002: Mesh (2)
+    2300004: Mesh (3)
+    2300006: Mesh (5)
+    2300008: Mesh (4)
+    2300010: Mesh (10)
+    2300012: Mesh (11)
+    2300014: Mesh (12)
+    2300016: Mesh (13)
+    2300018: Mesh (14)
+    2300020: Mesh (15)
+    2300022: Mesh (16)
+    2300024: Mesh (17)
+    2300026: Mesh (18)
+    2300028: Mesh (19)
+    2300030: Mesh (2) (2)
+    2300032: Mesh (20)
+    2300034: Mesh (6)
+    2300036: Mesh (7)
+    2300038: Mesh (8)
+    2300040: Mesh (9)
+    2300042: blocks
+    2300044: blocks (2)
+    2300046: blocks (3)
+    2300048: blocks (4)
+    2300050: border
+    2300052: castle_arch_01
+    2300054: castle_arch_wall
+    2300056: castle_border_full
+    2300058: castle_border_half
+    2300060: castle_corner_01
+    2300062: castle_crenellation_01
+    2300064: castle_gate
+    2300066: castle_spire_01
+    2300068: castle_spire_02
+    2300070: castle_wall_gate
+    2300072: castle_wall_half
+    2300074: castle_wall_single
+    2300076: doodads
+    2300078: pillar_01
+    2300080: pillar_02
+    2300082: top
+    2300084: castle_spire_03
+    2300086: castle_support_01
+    2300088: doodads (2)
+    2300090: spikes_01
+    2300092: top (2)
+    2300094: blocks (5)
+    2300096: castle_arch_wall_02
+    2300098: castle_staircase_01
+    2300100: castle_staircase_02
+    2300102: castle_wall_45
+    2300104: castle_wall_corner
+    2300106: castle_wall_curve
+    2300108: castle_wall_trim
+    2300110: castle_window_01
+    2300112: castle_window_wood_01
+    2300114: pillar_base
+    2300116: pillar_cap
+    2300118: slat
+    2300120: torch_stand_01
+    2300122: wall_step
+    2300124: castle_wall_half_hole
+    2300126: castle_arch_02
+    2300128: window_01
+    2300130: castle_wall_single_window
+    2300132: castle_staircase_01_COL
+    2300134: castle_staircase_02_COL
+    2300136: floor
+    2300138: floor (2)
+    2300140: floor (3)
+    2300142: floor (5)
+    2300144: platform_4x2x2
+    2300146: platform_4x2x4
+    2300148: platform_4x4x2
+    2300150: platform_4x4x4
+    3300000: Mesh
+    3300002: Mesh (2)
+    3300004: Mesh (3)
+    3300006: Mesh (5)
+    3300008: Mesh (4)
+    3300010: Mesh (10)
+    3300012: Mesh (11)
+    3300014: Mesh (12)
+    3300016: Mesh (13)
+    3300018: Mesh (14)
+    3300020: Mesh (15)
+    3300022: Mesh (16)
+    3300024: Mesh (17)
+    3300026: Mesh (18)
+    3300028: Mesh (19)
+    3300030: Mesh (2) (2)
+    3300032: Mesh (20)
+    3300034: Mesh (6)
+    3300036: Mesh (7)
+    3300038: Mesh (8)
+    3300040: Mesh (9)
+    3300042: blocks
+    3300044: blocks (2)
+    3300046: blocks (3)
+    3300048: blocks (4)
+    3300050: border
+    3300052: castle_arch_01
+    3300054: castle_arch_wall
+    3300056: castle_border_full
+    3300058: castle_border_half
+    3300060: castle_corner_01
+    3300062: castle_crenellation_01
+    3300064: castle_gate
+    3300066: castle_spire_01
+    3300068: castle_spire_02
+    3300070: castle_wall_gate
+    3300072: castle_wall_half
+    3300074: castle_wall_single
+    3300076: doodads
+    3300078: pillar_01
+    3300080: pillar_02
+    3300082: top
+    3300084: castle_spire_03
+    3300086: castle_support_01
+    3300088: doodads (2)
+    3300090: spikes_01
+    3300092: top (2)
+    3300094: blocks (5)
+    3300096: castle_arch_wall_02
+    3300098: castle_staircase_01
+    3300100: castle_staircase_02
+    3300102: castle_wall_45
+    3300104: castle_wall_corner
+    3300106: castle_wall_curve
+    3300108: castle_wall_trim
+    3300110: castle_window_01
+    3300112: castle_window_wood_01
+    3300114: pillar_base
+    3300116: pillar_cap
+    3300118: slat
+    3300120: torch_stand_01
+    3300122: wall_step
+    3300124: castle_wall_half_hole
+    3300126: castle_arch_02
+    3300128: window_01
+    3300130: castle_wall_single_window
+    3300132: castle_staircase_01_COL
+    3300134: castle_staircase_02_COL
+    3300136: floor
+    3300138: floor (2)
+    3300140: floor (3)
+    3300142: floor (5)
+    3300144: platform_4x2x2
+    3300146: platform_4x2x4
+    3300148: platform_4x4x2
+    3300150: platform_4x4x4
+    4300000: Mesh
+    4300002: Mesh (5)
+    4300004: Mesh (2)
+    4300006: Mesh (3)
+    4300008: Mesh (4)
+    4300010: Mesh (14)
+    4300012: Mesh (15)
+    4300014: Mesh (6)
+    4300016: Mesh (2) (2)
+    4300018: Mesh (7)
+    4300020: Mesh (8)
+    4300022: Mesh (9)
+    4300024: Mesh (10)
+    4300026: Mesh (11)
+    4300028: Mesh (12)
+    4300030: Mesh (13)
+    4300032: Mesh (16)
+    4300034: Mesh (17)
+    4300036: Mesh (18)
+    4300038: Mesh (19)
+    4300040: Mesh (20)
+    4300042: castle_spire_01
+    4300044: top
+    4300046: doodads
+    4300048: blocks
+    4300050: castle_wall_single
+    4300052: blocks (4)
+    4300054: castle_corner_01
+    4300056: castle_gate
+    4300058: castle_wall_half
+    4300060: blocks (3)
+    4300062: castle_arch_01
+    4300064: pillar_01
+    4300066: castle_arch_wall
+    4300068: castle_border_full
+    4300070: castle_wall_gate
+    4300072: border
+    4300074: castle_crenellation_01
+    4300076: castle_border_half
+    4300078: pillar_02
+    4300080: castle_spire_02
+    4300082: blocks (2)
+    4300084: castle_spire_03
+    4300086: doodads (2)
+    4300088: castle_support_01
+    4300090: top (2)
+    4300092: spikes_01
+    4300094: torch_stand_01
+    4300096: castle_staircase_01
+    4300098: castle_staircase_02
+    4300100: castle_window_01
+    4300102: castle_arch_wall_02
+    4300104: castle_wall_curve
+    4300106: blocks (5)
+    4300108: castle_wall_corner
+    4300110: castle_window_wood_01
+    4300112: slat
+    4300114: wall_step
+    4300116: castle_wall_trim
+    4300118: castle_wall_45
+    4300120: pillar_base
+    4300122: pillar_cap
+    4300124: castle_wall_half_hole
+    4300126: castle_arch_02
+    4300128: window_01
+    4300130: castle_wall_single_window
+    4300132: castle_staircase_01_COL
+    4300134: castle_staircase_02_COL
+    4300136: platform_4x4x2
+    4300138: floor
+    4300140: platform_4x2x2
+    4300142: floor (2)
+    4300144: platform_4x4x4
+    4300146: floor (3)
+    4300148: platform_4x2x4
+    4300150: floor (5)
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

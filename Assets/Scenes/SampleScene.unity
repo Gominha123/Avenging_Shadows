@@ -109,7 +109,7 @@ NavMeshSettings:
     agentRadius: 0.3
     agentHeight: 2
     agentSlope: 60
-    agentClimb: 1.2
+    agentClimb: 0.6
     ledgeDropHeight: 0
     maxJumpAcrossDistance: 0
     minRegionArea: 2
@@ -647,8 +647,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 907118073}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.9, y: 1.7, z: -20.2}
-  m_LocalScale: {x: 1.2121, y: 2.3350017, z: 1.2121}
+  m_LocalPosition: {x: -16.54, y: 0.471, z: 5.85}
+  m_LocalScale: {x: 0.55398566, y: 1.0672036, z: 0.55398566}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -1270,7 +1270,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7260864508922427574, guid: 85ceacb81f6c1e044aa9ff3b42f77fce, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.45
+      value: -0.69
       objectReference: {fileID: 0}
     - target: {fileID: 7260864508922427574, guid: 85ceacb81f6c1e044aa9ff3b42f77fce, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1383,6 +1383,37 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5b61615a0effb8941881ab43c9829541, type: 3}
+--- !u!1 &1957146287
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1957146288}
+  m_Layer: 0
+  m_Name: GameObject (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1957146288
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1957146287}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -14.75, y: -0.579, z: 10.71}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 21
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2025034713
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1509,6 +1540,18 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4841793492142877833, guid: 4783e329c35d0df489b2bdc6ff8dc945, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.4152044
+      objectReference: {fileID: 0}
+    - target: {fileID: 4841793492142877833, guid: 4783e329c35d0df489b2bdc6ff8dc945, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.4152044
+      objectReference: {fileID: 0}
+    - target: {fileID: 4841793492142877833, guid: 4783e329c35d0df489b2bdc6ff8dc945, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.4152044
+      objectReference: {fileID: 0}
+    - target: {fileID: 4841793492142877833, guid: 4783e329c35d0df489b2bdc6ff8dc945, type: 3}
       propertyPath: m_LocalPosition.x
       value: 13.5
       objectReference: {fileID: 0}
@@ -1518,7 +1561,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4841793492142877833, guid: 4783e329c35d0df489b2bdc6ff8dc945, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -4.94
+      value: -4.96
       objectReference: {fileID: 0}
     - target: {fileID: 4841793492142877833, guid: 4783e329c35d0df489b2bdc6ff8dc945, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1549,9 +1592,17 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5222575965905434160, guid: 4783e329c35d0df489b2bdc6ff8dc945, type: 3}
+      propertyPath: pursuitRange
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 5222575965905434160, guid: 4783e329c35d0df489b2bdc6ff8dc945, type: 3}
       propertyPath: patrolPoints.Array.data[0]
       value: 
       objectReference: {fileID: 1342757076}
+    - target: {fileID: 5222575965905434160, guid: 4783e329c35d0df489b2bdc6ff8dc945, type: 3}
+      propertyPath: patrolPoints.Array.data[1]
+      value: 
+      objectReference: {fileID: 1957146288}
     - target: {fileID: 5222575965905434163, guid: 4783e329c35d0df489b2bdc6ff8dc945, type: 3}
       propertyPath: m_Name
       value: Happy Idle

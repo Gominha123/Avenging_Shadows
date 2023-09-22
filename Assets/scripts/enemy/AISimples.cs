@@ -14,7 +14,7 @@ public class AISimples : MonoBehaviour
     Vector3 posicInicialDaAI;
     Vector3 ultimaPosicConhecida;
     float timerProcura;
-    float pursuitRange = 40.0f; // Define the pursuit range here
+    public float pursuitRange = 40.0f; // Define the pursuit range here
 
     private Animator anim;
 
@@ -29,7 +29,7 @@ public class AISimples : MonoBehaviour
     };
     estadoDaAI _estadoAI = estadoDaAI.patrulhando;
     int currentPatrolPointIndex = 0;
-    float waitTime = 6.0f; // Time to wait at each patrol point
+    public float waitTime = 6.0f; // Time to wait at each patrol point
     float currentWaitTime = 0.0f; // Current wait time
 
     void Start()
@@ -56,6 +56,13 @@ public class AISimples : MonoBehaviour
     }
 
     void Update()
+    {
+        Navigation();
+    }
+
+
+
+    private void Navigation()
     {
         if (_cabeca)
         {
@@ -144,6 +151,7 @@ public class AISimples : MonoBehaviour
             }
         }
     }
+
 
     // Visualize the pursuit range in the Unity Editor
     private void OnDrawGizmosSelected()

@@ -5,14 +5,16 @@ TagManager:
   serializedVersion: 2
   tags:
   - enemy
+  - Enemy
+  - weapon
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - enemi
+  - enemy
   - Water
   - UI
-  - 
+  - weapon
   - Player
   - whatIsGround
   - 

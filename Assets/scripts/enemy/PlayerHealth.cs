@@ -36,17 +36,6 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
-    public void TakeDamage(int damage)
-    {
-        damaged = true;
-
-        health -= damage;
-
-       // healthSlider.value = health;
-
-        if (health <= 0 && !isDead)
-            Death();
-    }
     void Update()
     {
 
@@ -61,6 +50,17 @@ public class PlayerHealth : MonoBehaviour
         damaged = false;
     }
 
+    public void TakeDamage(int damage)
+    {
+        damaged = true;
+
+        health -= damage;
+
+       // healthSlider.value = health;
+
+        if (health <= 0 && !isDead)
+            Death();
+    }
 
     void Death()
     {

@@ -170,12 +170,29 @@ public class AISimplesRange : MonoBehaviour
             {
                 // Reset attack timer
                 attackTimer = 0.0f;
+                // Calcule a direção do disparo em relação ao alvo
+                Vector3 shootDirection = (target.position - shootPoint.position).normalized;
 
-                Quaternion rotation = Quaternion.Euler(transform.eulerAngles.x, transform.eulerAngles.y, transform.eulerAngles.z);
-                // Attack code here
-                Rigidbody rb = Instantiate(projectilePrefab, shootPoint.position, Quaternion.identity).GetComponent<Rigidbody>();
-                rb.AddForce(transform.forward * 10f, ForceMode.Impulse);
-                rb.AddForce(transform.up * 4f, ForceMode.Impulse);
+                // Calcule a rotação do projetil com base na direção do disparo
+                 Quaternion rotation = Quaternion.LookRotation(-shootDirection);
+                
+                //Quaternion rotation = Quaternion.Euler(0, Mathf.Atan2(shootDirection.x, shootDirection.z) * Mathf.Rad2Deg, 0);
+                // Instancie o projetil no shootPoint
+                Rigidbody rb = Instantiate(projectilePrefab, shootPoint.position, rotation).GetComponent<Rigidbody>();
+                //Rigidbody rb = Instantiate(projectilePrefab, shootPoint.position, Quaternion.identity).GetComponent<Rigidbody>();
+
+                // Corrija a rotação da seta para garantir que a ponta esteja virada para você
+                Vector3 eulerAngles = rb.transform.eulerAngles;
+                eulerAngles.x = 90; // Mantenha a rotação X 
+                eulerAngles.z = 90; // Mantenha a rotação Z
+                rb.transform.eulerAngles = eulerAngles;
+
+                rb.AddForce(-shootDirection * projectileSpeed, ForceMode.Impulse);
+                rb.AddForce(transform.forward * 32f, ForceMode.Impulse);
+                rb.AddForce(transform.up * 3f, ForceMode.Impulse);
+
+                
+                
             }
 
             float distanceToAlvo = Vector3.Distance(transform.position, target.position);
@@ -212,7 +229,7 @@ public class AISimplesRange : MonoBehaviour
         currentStateFunction = stateFunctions[_stateAI];
     }
 
-   
+
 
     // Visualize the pursuit range in the Unity Editor
     private void OnDrawGizmosSelected()

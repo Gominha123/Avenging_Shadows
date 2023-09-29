@@ -1336,8 +1336,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6132928741068446099}
-  m_LocalRotation: {x: 0.053110026, y: -0, z: -0, w: 0.9985887}
-  m_LocalPosition: {x: 0, y: 2.23, z: -5.57}
+  m_LocalRotation: {x: 0.32149103, y: -0.000000042330303, z: 0.000000014371773, w: 0.94691265}
+  m_LocalPosition: {x: 0, y: 4.5, z: -4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1632,7 +1632,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6132928741171604092}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.23, z: -5.57}
+  m_LocalPosition: {x: 0, y: 4.5, z: -4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1683,7 +1683,7 @@ MonoBehaviour:
   m_YAxis:
     Value: 0.5
     m_SpeedMode: 0
-    m_MaxSpeed: 0.5
+    m_MaxSpeed: 0.7
     m_AccelTime: 0.2
     m_DecelTime: 0.1
     m_InputAxisName: Mouse Y
@@ -1736,11 +1736,11 @@ MonoBehaviour:
   m_SplineCurvature: 0.2
   m_Orbits:
   - m_Height: 4.5
-    m_Radius: 2
-  - m_Height: 2.23
-    m_Radius: 5.57
-  - m_Height: 0.11
-    m_Radius: 2
+    m_Radius: 4
+  - m_Height: 2
+    m_Radius: 7
+  - m_Height: -1
+    m_Radius: 4
   m_LegacyHeadingBias: 3.4028235e+38
   m_Rigs:
   - {fileID: 6132928740075308445}
@@ -1760,7 +1760,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_CollideAgainst:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 895
   m_IgnoreTag: Player
   m_TransparentLayers:
     serializedVersion: 2
@@ -2134,9 +2134,9 @@ MonoBehaviour:
   jumpKey: 32
   crouchKey: 306
   sprintKey: 304
-  walkSpeed: 7
-  sprintSpeed: 12
-  crouchSpeed: 5
+  walkSpeed: 2.5
+  sprintSpeed: 7
+  crouchSpeed: 1.75
   crouchYScale: 0.75
   groundDrag: 1
   whatIsGround:

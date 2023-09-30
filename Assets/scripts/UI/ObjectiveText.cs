@@ -12,7 +12,7 @@ public class ObjectiveText : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        SetUp("Find the Map");
+
     }
 
     // Update is called once per frame

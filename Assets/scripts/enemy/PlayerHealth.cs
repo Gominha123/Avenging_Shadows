@@ -26,6 +26,8 @@ public class PlayerHealth : MonoBehaviour
     public string sceneName;
     internal bool isdead;
 
+    public HealthSlider healthbar;
+
     public void Start()
     {
         currentScene = SceneManager.GetActiveScene();
@@ -34,11 +36,11 @@ public class PlayerHealth : MonoBehaviour
         {
             InvokeRepeating("GetHp", 30, 30);
         }
+        healthbar.SetMaxHealth(health);
     }
 
     void Update()
     {
-
         if (damaged && damageImage != null) // Check if damageImage is not null before accessing it
         {
             damageImage.color = flashColour;
@@ -55,6 +57,8 @@ public class PlayerHealth : MonoBehaviour
         damaged = true;
 
         health -= damage;
+
+        healthbar.SetHealth(health);
 
        // healthSlider.value = health;
 

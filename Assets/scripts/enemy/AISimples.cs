@@ -47,7 +47,7 @@ public class AISimples : MonoBehaviour
 
     private void Awake()
     {
-        anim = GetComponent<Animator>();
+        //anim = GetComponent<Animator>();
     }
 
     void Start()
@@ -97,7 +97,7 @@ public class AISimples : MonoBehaviour
             // Start waiting
             _stateAI = stateOfAi.waiting;
             currentWaitTime = 0.0f;
-            anim.SetBool("Walk", false);
+            //anim.SetBool("Walk", false);
         }
 
         CheckForVisibleEnemies();
@@ -112,7 +112,7 @@ public class AISimples : MonoBehaviour
             // Finish waiting, move to the next point
             _stateAI = stateOfAi.patrolling;
             currentPatrolPointIndex = (currentPatrolPointIndex + 1) % patrolPointsPositions.Count;
-            anim.SetBool("Walk", true);
+            //anim.SetBool("Walk", true);
         }
 
         CheckForVisibleEnemies();

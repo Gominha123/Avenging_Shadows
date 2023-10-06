@@ -34,6 +34,14 @@ public class PlayerMovement2 : MonoBehaviour
     bool canJump;
     bool isJumping;
 
+    [Header("Step up")]
+    public GameObject stepRayUpper;
+    public GameObject stepRayLower;
+
+    public float stepHeight;
+    public float stepSmooth;
+    [Space(30)]
+
     public Transform orientation;
 
     float horizontalInput;
@@ -64,6 +72,8 @@ public class PlayerMovement2 : MonoBehaviour
         canJump = true;
 
         startYScale = transform.localScale.y;
+
+        stepRayUpper.transform.position = new Vector3(stepRayUpper.transform.position.x, stepHeight, stepRayUpper.transform.position.z);
     }
 
     private void Update()
@@ -87,6 +97,7 @@ public class PlayerMovement2 : MonoBehaviour
     private void FixedUpdate()
     {
         MovePLayer();
+        stepClimb();
     }
 
     private void MyInput()
@@ -104,23 +115,6 @@ public class PlayerMovement2 : MonoBehaviour
 
             Invoke(nameof(ResetJump), jumpCooldown);
         }
-
-        //if (state != MovementState.air)
-        //{
-        //    //start crouch
-        //    if (Input.GetKeyDown(crouchKey))
-        //    {
-        //        transform.localScale = new Vector3(transform.localScale.x, crouchYScale, transform.localScale.z);
-        //        rb.AddForce(Vector3.down * 5f, ForceMode.Impulse);
-        //    }
-
-        //    //stop Crouch
-        //    if (Input.GetKeyUp(crouchKey))
-        //    {
-        //        transform.localScale = new Vector3(transform.localScale.x, startYScale, transform.localScale.z);
-        //    }
-        //}
-
     }
 
     private void StateHandler()
@@ -255,6 +249,38 @@ public class PlayerMovement2 : MonoBehaviour
     private void ResetJump()
     {
         canJump = true;
+    }
+
+    void stepClimb()
+    {
+        RaycastHit hitLower;
+        if (Physics.Raycast(stepRayLower.transform.position, transform.TransformDirection(moveDirection), out hitLower, 0.1f))
+        {
+            RaycastHit hitUpper;
+            if (!Physics.Raycast(stepRayUpper.transform.position, transform.TransformDirection(moveDirection), out hitUpper, 0.2f))
+            {
+                rb.position -= new Vector3(0f, -stepSmooth, 0f);
+            }
+        }
+        
+        //RaycastHit hitLower45;
+        //if (Physics.Raycast(stepRayLower.transform.position, transform.TransformDirection(1.5f,0,1), out hitLower45, 0.1f))
+        //{
+        //    RaycastHit hitUpper45;
+        //    if (!Physics.Raycast(stepRayUpper.transform.position, transform.TransformDirection(1.5f, 0,1), out hitUpper45, 0.2f))
+        //    {
+        //        rb.position -= new Vector3(0f, -stepSmooth, 0f);
+        //    }
+        //}
+        //RaycastHit hitLowerMinus45;
+        //if (Physics.Raycast(stepRayLower.transform.position, transform.TransformDirection(-1.5f, 0, 1), out hitLowerMinus45, 0.1f))
+        //{
+        //    RaycastHit hitUpperMinus45;
+        //    if (!Physics.Raycast(stepRayUpper.transform.position, transform.TransformDirection(-1.5f, 0, 1), out hitUpperMinus45, 0.2f))
+        //    {
+        //        rb.position -= new Vector3(0f, -stepSmooth, 0f);
+        //    }
+        //}
     }
 
 }

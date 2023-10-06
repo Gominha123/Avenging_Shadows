@@ -51,6 +51,7 @@ public class PlayerMovement2 : MonoBehaviour
     public Animator anim;
 
     Rigidbody rb;
+    BoxCollider boxCollider;
 
 
     public MovementState state;
@@ -67,6 +68,7 @@ public class PlayerMovement2 : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
+        boxCollider = GetComponent<BoxCollider>();
         rb.freezeRotation = true;
 
         canJump = true;
@@ -78,9 +80,7 @@ public class PlayerMovement2 : MonoBehaviour
 
     private void Update()
     {
-        //ground check
-        grounded = Physics.Raycast(transform.position, Vector3.down, 1, whatIsGround);
-
+        IsGrounded();
         MyInput();
         SpeedControl();
         StateHandler();
@@ -91,6 +91,8 @@ public class PlayerMovement2 : MonoBehaviour
             rb.drag = groundDrag;
         else
             rb.drag = 0;
+
+        Debug.Log(grounded);
 
     }
 
@@ -115,6 +117,13 @@ public class PlayerMovement2 : MonoBehaviour
 
             Invoke(nameof(ResetJump), jumpCooldown);
         }
+    }
+
+    private void IsGrounded()
+    {
+        //ground check
+        float extraHeight = 0.1f;
+        grounded = Physics.Raycast(boxCollider.bounds.center, Vector3.down, boxCollider.bounds.extents.y + extraHeight, whatIsGround);
     }
 
     private void StateHandler()
@@ -262,25 +271,6 @@ public class PlayerMovement2 : MonoBehaviour
                 rb.position -= new Vector3(0f, -stepSmooth, 0f);
             }
         }
-        
-        //RaycastHit hitLower45;
-        //if (Physics.Raycast(stepRayLower.transform.position, transform.TransformDirection(1.5f,0,1), out hitLower45, 0.1f))
-        //{
-        //    RaycastHit hitUpper45;
-        //    if (!Physics.Raycast(stepRayUpper.transform.position, transform.TransformDirection(1.5f, 0,1), out hitUpper45, 0.2f))
-        //    {
-        //        rb.position -= new Vector3(0f, -stepSmooth, 0f);
-        //    }
-        //}
-        //RaycastHit hitLowerMinus45;
-        //if (Physics.Raycast(stepRayLower.transform.position, transform.TransformDirection(-1.5f, 0, 1), out hitLowerMinus45, 0.1f))
-        //{
-        //    RaycastHit hitUpperMinus45;
-        //    if (!Physics.Raycast(stepRayUpper.transform.position, transform.TransformDirection(-1.5f, 0, 1), out hitUpperMinus45, 0.2f))
-        //    {
-        //        rb.position -= new Vector3(0f, -stepSmooth, 0f);
-        //    }
-        //}
     }
 
 }

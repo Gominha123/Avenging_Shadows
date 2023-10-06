@@ -1409,7 +1409,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _head: {fileID: 6756984248371314312}
   patrolPointsPositions: []
-  pursuitRange: 40
+  pursuitRange: 20
   attackRange: 2
   waitTime: 6
   attackCooldown: 5
@@ -1428,7 +1428,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4df77862a3a52464b9d9ecd08a673231, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyHead: {fileID: 2700688574579720264}
+  enemyHead: {fileID: 874695402591143078}
   collisionType: 0
   checkFrequency: 2
   visionDistance: 10

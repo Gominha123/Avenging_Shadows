@@ -1566,7 +1566,7 @@ MonoBehaviour:
   patrolPointsPositions:
   - {x: 10.61, y: -0.7399669, z: -4.51}
   - {x: -9.015375, y: -0.7399669, z: -4}
-  pursuitRange: 40
+  pursuitRange: 20
   attackRange: 10
   waitTime: 6
   projectilePrefab: {fileID: 7735030262337322904, guid: 54b50e72741081447a4ce16b66a803a8, type: 3}
@@ -1587,7 +1587,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4df77862a3a52464b9d9ecd08a673231, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyHead: {fileID: 7977711398994083888}
+  enemyHead: {fileID: 8027131190357467120}
   collisionType: 0
   checkFrequency: 2
   visionDistance: 10

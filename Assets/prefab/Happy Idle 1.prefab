@@ -942,7 +942,6 @@ GameObject:
   - component: {fileID: 2801666085664877650}
   - component: {fileID: 2408085544818296382}
   - component: {fileID: 2408085544818296354}
-  - component: {fileID: 2408085544818296355}
   - component: {fileID: 2408085544818296381}
   - component: {fileID: 2408085544818296380}
   - component: {fileID: 3290535775675889387}
@@ -1031,27 +1030,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!95 &2408085544818296355
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3290535775675889384}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: c35babdb528d4234e847b00544d17317, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!195 &2408085544818296381
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1086,7 +1064,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4df77862a3a52464b9d9ecd08a673231, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyHead: {fileID: 6168565339973007036}
+  enemyHead: {fileID: 8110163247611870929}
   collisionType: 0
   checkFrequency: 2
   visionDistance: 10
@@ -1116,7 +1094,7 @@ MonoBehaviour:
   patrolPointsPositions:
   - {x: 1.76, y: -0.555, z: 10.58}
   - {x: -14.75, y: -0.579, z: 10.71}
-  pursuitRange: 30
+  pursuitRange: 20
   attackRange: 2
   waitTime: 6
   attackCooldown: 5

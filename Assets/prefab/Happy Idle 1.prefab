@@ -946,6 +946,7 @@ GameObject:
   - component: {fileID: 2408085544818296380}
   - component: {fileID: 3290535775675889387}
   - component: {fileID: 3290535775675889386}
+  - component: {fileID: 4848972221607553018}
   m_Layer: 3
   m_Name: Happy Idle 1
   m_TagString: Enemy
@@ -1115,6 +1116,20 @@ CapsuleCollider:
   m_Height: 1.7731326
   m_Direction: 1
   m_Center: {x: 0, y: 0.8930778, z: 0}
+--- !u!114 &4848972221607553018
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3290535775675889384}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b4b6858bfe7dde4d97226f6fde6da0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 10
+  isDead: 0
 --- !u!1 &3345679295178724787
 GameObject:
   m_ObjectHideFlags: 0

@@ -2621,7 +2621,7 @@ MonoBehaviour:
     m_DecelTime: 0.1
     m_InputAxisName: Mouse Y
     m_InputAxisValue: 0
-    m_InvertInput: 0
+    m_InvertInput: 1
     m_MinValue: 0
     m_MaxValue: 1
     m_Wrap: 0
@@ -2705,8 +2705,8 @@ MonoBehaviour:
   m_CameraRadius: 0.1
   m_Strategy: 0
   m_MaximumEffort: 4
-  m_SmoothingTime: 0
-  m_Damping: 0
+  m_SmoothingTime: 0.3
+  m_Damping: 0.6
   m_DampingWhenOccluded: 0
   m_OptimalTargetDistance: 0
 --- !u!1 &6132928741185180357
@@ -3076,10 +3076,12 @@ MonoBehaviour:
   sprintSpeed: 7
   crouchSpeed: 1.75
   crouchYScale: 0.75
+  maxSlopeAngle: 45
   groundDrag: 1
   whatIsGround:
     serializedVersion: 2
     m_Bits: 256
+  extraHeight: 0.169
   jumpForce: 5
   jumpCooldown: 0.25
   airMultiplier: 0.4
@@ -4059,7 +4061,7 @@ Animator:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6132928741916563528}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
+  m_Avatar: {fileID: 9000000, guid: 72f5f127afeebd64aaabe7969993aa4b, type: 3}
   m_Controller: {fileID: 9100000, guid: 0d9cd9137805624479135838b47f1c14, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0

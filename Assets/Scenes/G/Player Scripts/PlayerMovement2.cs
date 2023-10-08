@@ -98,7 +98,7 @@ public class PlayerMovement2 : MonoBehaviour
         else
             rb.drag = 0;
 
-        Debug.Log(grounded);
+        //Debug.Log(grounded);
 
     }
 

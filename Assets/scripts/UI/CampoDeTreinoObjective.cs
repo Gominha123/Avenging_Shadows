@@ -5,7 +5,7 @@ using UnityEngine;
 public class CampoDeTreinoObjective : MonoBehaviour
 {
     [SerializeField] ObjectiveText objectiveTextUI;
-    [SerializeField] Inventory inventory;
+    [SerializeField] InventoryManager inventory;
 
     private string objectiveText = "Find and Grab the King´s Letter";
 

@@ -5,7 +5,7 @@ using UnityEngine;
 public class HorseInteraction : MonoBehaviour, IInteractable
 {
     private string prompt = "Find the Letter Before Leaving";
-    [SerializeField] private Inventory inventory;
+    [SerializeField] private InventoryManager inventory;
     public string InteractablePrompt => prompt;
 
     public void Update()

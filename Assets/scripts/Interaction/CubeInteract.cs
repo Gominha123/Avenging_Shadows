@@ -6,10 +6,13 @@ public class CubeInteract : MonoBehaviour, IInteractable
 {
     [SerializeField] private string prompt;
 
+    public Item item;
+
     public string InteractablePrompt => "Press E to " + prompt;
 
     public void Interact()
     {
-        Debug.Log("Open");
+        inventory.Instance.Add(item);
+        Destroy(gameObject);
     }
 }

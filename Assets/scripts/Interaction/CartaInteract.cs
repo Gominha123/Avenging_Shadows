@@ -7,7 +7,7 @@ using UnityEngine;
 public class CartaInteract : MonoBehaviour, IInteractable
 {
     private string prompt = "Press E to Grab the Letter";
-    [SerializeField] private Inventory inventory;
+    [SerializeField] private InventoryManager inventory;
     public string InteractablePrompt => prompt;
 
     public void Interact()

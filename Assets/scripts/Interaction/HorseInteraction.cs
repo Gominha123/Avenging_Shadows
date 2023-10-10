@@ -5,12 +5,14 @@ using UnityEngine;
 public class HorseInteraction : MonoBehaviour, IInteractable
 {
     private string prompt = "Find the Letter Before Leaving";
-    [SerializeField] private InventoryManager inventory;
+    //[SerializeField] private InventoryManager inventory;
+
+    public Item item;
     public string InteractablePrompt => prompt;
 
     public void Update()
     {
-        if (inventory.hasLetter)
+        if (inventory.Instance.FindById(item.id))
         {
             prompt = "Press E to Leave";
         }
@@ -18,7 +20,7 @@ public class HorseInteraction : MonoBehaviour, IInteractable
 
     public void Interact()
     {
-        if (inventory.hasLetter)
+        if (inventory.Instance.FindById(item.id))
         {
             Debug.Log("Leaving");
         }

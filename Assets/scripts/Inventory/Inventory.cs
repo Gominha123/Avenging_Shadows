@@ -48,4 +48,14 @@ public class inventory : MonoBehaviour
             itemIcon.sprite = item.icon;
         }
     }
+
+    public bool FindById(int id)
+    {
+        foreach(Item item in items)
+        {
+            if(item.id == id) return true;
+
+        }
+        return false;
+    }
 }

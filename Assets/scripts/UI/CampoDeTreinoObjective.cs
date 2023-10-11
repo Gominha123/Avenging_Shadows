@@ -19,7 +19,7 @@ public class CampoDeTreinoObjective : MonoBehaviour
     public void Update()   
     {
 
-        if (inventory.Instance.FindById(item.id))
+        if (Inventory.Instance.FindById(item.id))
         {
             objectiveTextUI.SetUp("Go Back to Your Horse and Leave");
         }

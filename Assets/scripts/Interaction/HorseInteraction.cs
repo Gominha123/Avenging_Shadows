@@ -12,7 +12,7 @@ public class HorseInteraction : MonoBehaviour, IInteractable
 
     public void Update()
     {
-        if (inventory.Instance.FindById(item.id))
+        if (Inventory.Instance.FindById(item.id))
         {
             prompt = "Press E to Leave";
         }
@@ -20,7 +20,7 @@ public class HorseInteraction : MonoBehaviour, IInteractable
 
     public void Interact()
     {
-        if (inventory.Instance.FindById(item.id))
+        if (Inventory.Instance.FindById(item.id))
         {
             Debug.Log("Leaving");
         }

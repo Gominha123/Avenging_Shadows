@@ -12,7 +12,7 @@ public class CubeInteract : MonoBehaviour, IInteractable
 
     public void Interact()
     {
-        inventory.Instance.Add(item);
+        Inventory.Instance.Add(item);
         Destroy(gameObject);
     }
 }

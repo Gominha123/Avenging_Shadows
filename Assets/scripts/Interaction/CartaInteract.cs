@@ -22,7 +22,7 @@ public class CartaInteract : MonoBehaviour, IInteractable
         //    Destroy(gameObject);
         //}
 
-        inventory.Instance.Add(item);
+        Inventory.Instance.Add(item);
         Destroy(gameObject);
     }
 }

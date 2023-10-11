@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class inventory : MonoBehaviour
+public class Inventory : MonoBehaviour
 {
-    public static inventory Instance;
+    public static Inventory Instance;
     public List<Item> items = new List<Item>();
 
     public Transform itemContent;
@@ -51,11 +51,13 @@ public class inventory : MonoBehaviour
 
     public bool FindById(int id)
     {
-        foreach(Item item in items)
+        foreach (Item item in items)
         {
-            if(item.id == id) return true;
+            if (item.id == id) return true;
 
         }
         return false;
     }
+
+
 }

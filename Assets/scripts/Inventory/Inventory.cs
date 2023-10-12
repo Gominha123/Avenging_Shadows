@@ -56,12 +56,20 @@ public class Inventory : MonoBehaviour
         return false;
     }
 
-    public void FindItemIndex(GameObject button)
+    public bool FindItemIndex(GameObject button)
     {
         GameObject currentItem = FindParentWithTag(button, "Item");
         int currentIndex = currentItem.transform.GetSiblingIndex();
-        Remove(items[currentIndex]);
-        ListItems();
+        if (items[currentIndex].itemType == Item.ItemType.KeyItem)
+        {
+            return false;
+        }
+        else
+        {
+            Remove(items[currentIndex]);
+            ListItems();
+            return true;
+        }
     }
 
     public static GameObject FindParentWithTag(GameObject childObject, string tag)

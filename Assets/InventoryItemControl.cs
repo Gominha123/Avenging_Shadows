@@ -6,18 +6,14 @@ using UnityEngine.UI;
 
 public class InventoryItemControl : MonoBehaviour
 {
-    public Item item;
     public GameObject RemoveButton;
-
-    public void AddItem(Item newItem)
-    {
-        Debug.Log("item");
-        item = newItem;
-    }
 
     public void ButtonClick()
     {
-        Inventory.Instance.FindItemIndex(RemoveButton);
-        Destroy(gameObject);
+        bool notKey = Inventory.Instance.FindItemIndex(RemoveButton);
+        if (notKey)
+        {
+            Destroy(gameObject);
+        }
     }
 }

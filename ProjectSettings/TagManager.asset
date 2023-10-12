@@ -8,6 +8,7 @@ TagManager:
   - weapon
   - EnemyProjectile
   - Interactable
+  - Item
   layers:
   - Default
   - TransparentFX

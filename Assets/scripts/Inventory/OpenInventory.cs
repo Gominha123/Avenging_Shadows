@@ -17,6 +17,7 @@ public class OpenInventory : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.I))
         {
             CheckInventory();
+            Inventory.Instance.ListItems();
         }
     }
     public void CheckInventory()
@@ -37,10 +38,5 @@ public class OpenInventory : MonoBehaviour
             UnityEngine.Cursor.visible = true;
             isActive = true;
         }
-    }
-
-    public void click()
-    {
-        Debug.Log("click");
     }
 }

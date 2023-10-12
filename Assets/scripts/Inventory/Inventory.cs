@@ -16,11 +16,6 @@ public class Inventory : MonoBehaviour
         Instance = this;
     }
 
-    public void Update()
-    {
-        ListItems();
-    }
-
     public void Add(Item item)
     {
         items.Add(item);
@@ -43,9 +38,11 @@ public class Inventory : MonoBehaviour
             var obj = Instantiate(inventoryItem, itemContent);
             var itemName = obj.transform.Find("ItemName").GetComponent<TMPro.TextMeshProUGUI>();
             var itemIcon = obj.transform.Find("ItemIcon").GetComponent<Image>();
+            var deleteButton = obj.transform.Find("DeleteButton").GetComponent<Button>();
 
             itemName.text = item.itemName;
             itemIcon.sprite = item.icon;
+            deleteButton.gameObject.SetActive(true);
         }
     }
 
@@ -57,6 +54,28 @@ public class Inventory : MonoBehaviour
 
         }
         return false;
+    }
+
+    public void FindItemIndex(GameObject button)
+    {
+        GameObject currentItem = FindParentWithTag(button, "Item");
+        int currentIndex = currentItem.transform.GetSiblingIndex();
+        Remove(items[currentIndex]);
+        ListItems();
+    }
+
+    public static GameObject FindParentWithTag(GameObject childObject, string tag)
+    {
+        Transform t = childObject.transform;
+        while (t.parent != null)
+        {
+            if (t.parent.tag == tag)
+            {
+                return t.parent.gameObject;
+            }
+            t = t.parent.transform;
+        }
+        return null; // Could not find a parent with given tag.
     }
 
 

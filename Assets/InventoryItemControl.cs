@@ -7,26 +7,21 @@ using UnityEngine.UI;
 
 public class InventoryItemControl : MonoBehaviour
 {
-    //public GameObject RemoveButton;
     public GameObject Button;
-
-    //public void ButtonClick()
-    //{
-    //    bool notKey = Inventory.Instance.FindItemIndex(RemoveButton);
-    //    if (notKey)
-    //    {
-    //        Destroy(gameObject);
-    //    }
-    //}
 
     public void ButtonClick()
     {
-        Inventory.Instance.FindItemIndex(Button);//, false);
+        Inventory.Instance.FindItemIndex(Button);
 
     }
 
     public void ButtonClickDelete()
     {
-        Inventory.Instance.FindItemIndex(null);//, true);
+        Inventory.Instance.FindItemIndex(null);
+    }
+
+    public void ButtonCLickUse()
+    {
+        Inventory.Instance.FindItemIndex(null);
     }
 }

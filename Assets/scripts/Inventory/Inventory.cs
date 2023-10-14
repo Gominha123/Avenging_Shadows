@@ -44,11 +44,9 @@ public class Inventory : MonoBehaviour
             var obj = Instantiate(inventoryItem, itemContent);
             var itemName = obj.transform.Find("ItemName").GetComponent<TMPro.TextMeshProUGUI>();
             var itemIcon = obj.transform.Find("ItemIcon").GetComponent<Image>();
-            var deleteButton = obj.transform.Find("DeleteButton").GetComponent<Button>();
 
             itemName.text = item.itemName;
             itemIcon.sprite = item.icon;
-            deleteButton.gameObject.SetActive(true);
         }
     }
 
@@ -62,23 +60,7 @@ public class Inventory : MonoBehaviour
         return false;
     }
 
-    //public bool FindItemIndex(GameObject button)
-    //{
-    //    GameObject currentItem = FindParentWithTag(button, "Item");
-    //    int currentIndex = currentItem.transform.GetSiblingIndex();
-    //    if (items[currentIndex].itemType == Item.ItemType.KeyItem)
-    //    {
-    //        return false;
-    //    }
-    //    else
-    //    {
-    //        Remove(items[currentIndex]);
-    //        ListItems();
-    //        return true;
-    //    }
-    //}
-
-    public void FindItemIndex(GameObject button)//, bool use)
+    public void FindItemIndex(GameObject button)
     {
         if (button != null)
         {
@@ -99,26 +81,8 @@ public class Inventory : MonoBehaviour
             Destroy(button);
             Remove(items[currentIndex]);
             ListItems();
+            invDesciption.Close();
         }
-        //if (use)
-        //{
-        //    Debug.Log("up");
-        //    if (items[currentIndex].itemType == Item.ItemType.KeyItem)
-        //    {
-        //        return;
-        //    }
-        //    Destroy(button);
-        //    Remove(items[currentIndex]);
-        //    ListItems();
-        //}
-        //else
-        //{
-        //    bool interactable = false;
-        //    if (items[currentIndex].itemType == Item.ItemType.KeyItem) { }
-        //    else interactable = true;
-        //    invDesciption.SetUp(items[currentIndex].itemName, items[currentIndex].description, interactable);
-        //    selectedItem = items[currentIndex];
-        //}
     }
 
     public static GameObject FindParentWithTag(GameObject childObject, string tag)

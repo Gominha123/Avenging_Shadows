@@ -6,11 +6,13 @@ using UnityEngine.UIElements;
 public class OpenInventory : MonoBehaviour
 {
     public GameObject scrollView;
+    public GameObject descriptionView;
     public bool isActive = false;
 
     private void Awake()
     {
         scrollView.SetActive(false);
+        descriptionView.SetActive(false);
     }
     private void Update()
     {
@@ -25,6 +27,7 @@ public class OpenInventory : MonoBehaviour
         if (isActive)
         {
             scrollView.SetActive(false);
+            descriptionView.SetActive(false);
             Time.timeScale = 1;
             UnityEngine.Cursor.lockState = CursorLockMode.Locked;
             UnityEngine.Cursor.visible = false;
@@ -33,6 +36,7 @@ public class OpenInventory : MonoBehaviour
         else
         {
             scrollView.SetActive(true);
+            descriptionView.SetActive(true);
             Time.timeScale = 0;
             UnityEngine.Cursor.lockState = CursorLockMode.Confined;
             UnityEngine.Cursor.visible = true;

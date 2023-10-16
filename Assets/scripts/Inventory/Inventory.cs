@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.UIElements;
 
 public class Inventory : MonoBehaviour
 {
@@ -11,15 +13,30 @@ public class Inventory : MonoBehaviour
     public Transform itemContent;
     public GameObject inventoryItem;
 
+    public EquipedInv equipedInventory;
+
     public InvDescription invDesciption;
 
     public Item selectedItem = null;
 
+    public UnityEngine.UI.Button weapon1;
+    public UnityEngine.UI.Button weapon2;
+
+    public OpenInventory openInv;
+
     int currentIndex = 0;
+    int equipedInventoryIndex = 0;
 
     private void Awake()
     {
         Instance = this;
+    }
+
+    private void Update()
+    {
+        if(equipedInventoryIndex != 0) {
+            Debug.Log(equipedInventoryIndex);
+        }
     }
 
     public void Add(Item item)
@@ -43,7 +60,7 @@ public class Inventory : MonoBehaviour
         {
             var obj = Instantiate(inventoryItem, itemContent);
             var itemName = obj.transform.Find("ItemName").GetComponent<TMPro.TextMeshProUGUI>();
-            var itemIcon = obj.transform.Find("ItemIcon").GetComponent<Image>();
+            var itemIcon = obj.transform.Find("ItemIcon").GetComponent<UnityEngine.UI.Image>();
 
             itemName.text = item.itemName;
             itemIcon.sprite = item.icon;
@@ -74,14 +91,31 @@ public class Inventory : MonoBehaviour
         }
         else
         {
-            if (items[currentIndex].itemType == Item.ItemType.KeyItem)
+            switch (items[currentIndex].itemType)
             {
-                return;
+                case Item.ItemType.KeyItem:
+                    return;
+                case Item.ItemType.Weapon:
+                    //equipedInventory.button = 0;
+                    equipedInventoryIndex = 0;
+                    DisableItemButtons();
+                    equipedInventory.ReturnButtonClick();
+                    return;
+                    //equipedInventory.Add(items[currentIndex], equipedInventoryIndex - 1);   ////////   aqui tenho de dar select ao index
+                    Debug.Log(equipedInventoryIndex);
+                    break;
+                case Item.ItemType.NotKeyItem: break;
             }
+
+            //if (items[currentIndex].itemType == Item.ItemType.KeyItem)
+            //{
+            //    return;
+            //}
             Destroy(button);
             Remove(items[currentIndex]);
             ListItems();
             invDesciption.Close();
+            
         }
     }
 
@@ -99,5 +133,14 @@ public class Inventory : MonoBehaviour
         return null; // Could not find a parent with given tag.
     }
 
+    public void DisableItemButtons()
+    {
+        foreach (Transform item in itemContent)
+        {
+            Destroy(item.gameObject);
+            openInv.letDisable = false;
+            invDesciption.SetUp(null, "Please Select an Equiped Item Slot", false);
+        }
+    }
 
 }

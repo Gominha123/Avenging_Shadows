@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class WeaponController : MonoBehaviour
 {
-    public GameObject Weapon;
+    //public GameObject Weapon;
     public float attackCooldown;
     public float damage;
     public bool isAttacking;

@@ -100,21 +100,16 @@ public class Inventory : MonoBehaviour
                     equipedInventoryIndex = 0;
                     DisableItemButtons();
                     equipedInventory.ReturnButtonClick();
-                    return;
-                    //equipedInventory.Add(items[currentIndex], equipedInventoryIndex - 1);   ////////   aqui tenho de dar select ao index
-                    Debug.Log(equipedInventoryIndex);
+                    equipedInventory.tempItem = items[currentIndex];
+                    Remove(items[currentIndex]);
                     break;
-                case Item.ItemType.NotKeyItem: break;
+                case Item.ItemType.NotKeyItem:
+                    Destroy(button);
+                    Remove(items[currentIndex]);
+                    ListItems();
+                    invDesciption.Close();
+                    break;
             }
-
-            //if (items[currentIndex].itemType == Item.ItemType.KeyItem)
-            //{
-            //    return;
-            //}
-            Destroy(button);
-            Remove(items[currentIndex]);
-            ListItems();
-            invDesciption.Close();
             
         }
     }

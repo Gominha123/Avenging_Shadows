@@ -867,9 +867,13 @@ MonoBehaviour:
   items:
   - {fileID: 0}
   - {fileID: 0}
+  tempItem: {fileID: 0}
   weapon1: {fileID: 2149343931313064002}
   weapon2: {fileID: 1727874680304832328}
+  icon1: {fileID: 4957956640875905358}
+  icon2: {fileID: 1703556533178608150}
   openInv: {fileID: 7863478543646644077}
+  invDescription: {fileID: 8658109939429617371}
   button: 0
 --- !u!1 &1852062857231907265
 GameObject:

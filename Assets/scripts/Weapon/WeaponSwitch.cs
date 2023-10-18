@@ -91,4 +91,19 @@ public class WeaponSwitch : MonoBehaviour
             count++;
         }
     }
+
+    public void DeleteWeapon(int i)
+    {
+        int count = 0;
+        foreach (Transform weapon in transform)
+        {
+            if(count == i)
+            {
+                Destroy(weapon.gameObject);
+                return;
+            }
+            count++;
+
+        }
+    }
 }

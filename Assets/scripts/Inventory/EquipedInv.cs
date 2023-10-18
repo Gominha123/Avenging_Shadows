@@ -30,6 +30,8 @@ public class EquipedInv : MonoBehaviour
 
     public bool coroutine = false;
 
+    public WeaponSwitch weaponSwitch;
+
     private void Awake()
     {
         sprites[0] = defaultSprite1;
@@ -49,6 +51,7 @@ public class EquipedInv : MonoBehaviour
     public void Remove()
     {
         items[button] = null;
+        weaponSwitch.DeleteWeapon(button);
         invDescription.Close();
         ShowEquiped();
     }

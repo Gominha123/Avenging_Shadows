@@ -876,6 +876,8 @@ MonoBehaviour:
   invDescription: {fileID: 8658109939429617371}
   currentWeaponIcon: {fileID: 3617531692589556817}
   button: 0
+  coroutine: 0
+  weaponSwitch: {fileID: 3096917067976496965}
 --- !u!1 &1852062857231907265
 GameObject:
   m_ObjectHideFlags: 0

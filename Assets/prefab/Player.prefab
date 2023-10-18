@@ -870,10 +870,9 @@ MonoBehaviour:
   tempItem: {fileID: 0}
   weapon1: {fileID: 2149343931313064002}
   weapon2: {fileID: 1727874680304832328}
-  icon1: {fileID: 4957956640875905358}
-  icon2: {fileID: 1703556533178608150}
   openInv: {fileID: 7863478543646644077}
   invDescription: {fileID: 8658109939429617371}
+  currentWeaponIcon: {fileID: 3617531692589556817}
   button: 0
 --- !u!1 &1852062857231907265
 GameObject:
@@ -1137,6 +1136,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selectedWeapon: 0
+  equipedInv: {fileID: 2463248961632808138}
 --- !u!1 &2830270661736438132
 GameObject:
   m_ObjectHideFlags: 0
@@ -6882,6 +6882,19 @@ MonoBehaviour:
   attackCooldown: 2
   damage: 1
   isAttacking: 0
+--- !u!114 &8914275520906761633
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 731969441201935347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbfa7bccbb1dda549bd5cf95e00612c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item: {fileID: 11400000, guid: fb113a35f4da63140b92a2bbb213757e, type: 2}
 --- !u!1001 &2659242074255199159
 PrefabInstance:
   m_ObjectHideFlags: 0

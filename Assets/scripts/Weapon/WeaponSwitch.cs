@@ -6,10 +6,13 @@ public class WeaponSwitch : MonoBehaviour
 {
     public int selectedWeapon = 0;
 
+    public EquipedInv equipedInv;
+
     // Start is called before the first frame update
     void Start()
     {
         SelectWeapon();
+        StartingWeapons();
     }
 
     // Update is called once per frame
@@ -67,11 +70,25 @@ public class WeaponSwitch : MonoBehaviour
         foreach (Transform weapon in transform)
         {
             if (i == selectedWeapon)
+            {
                 weapon.gameObject.SetActive(true);
+                equipedInv.ChangeCurrentWeaponIcon(i);
+            }
             else
                 weapon.gameObject.SetActive(false);
             i++;
 
+        }
+    }
+
+    public void StartingWeapons()
+    {
+        Item items;
+        int count = 0;
+        foreach(Transform weapon in transform)
+        {
+            equipedInv.Add(weapon.GetComponent<ItemController>().item, count);
+            count++;
         }
     }
 }

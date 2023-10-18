@@ -18,19 +18,25 @@ public class EquipedInv : MonoBehaviour
     public UnityEngine.UI.Button weapon2;
     private Sprite[] sprites = new Sprite[2];
 
+    public Sprite defaultSprite1, defaultSprite2;
+
     public OpenInventory openInv;
 
     public InvDescription invDescription;
+
+    public UnityEngine.UI.Image currentWeaponIcon;
 
     public int button;
 
     private void Awake()
     {
-        for (int i = 0; i < 2; i++) {
-            var weapon = transform.Find("Weapon" + i).GetComponent<UnityEngine.UI.Button>();
-            var icon = weapon.transform.Find("EquipedIcon" + i).GetComponent<UnityEngine.UI.Image>();
-            sprites[i] = icon.sprite;
-        }
+        sprites[0] = defaultSprite1;
+        sprites[1] = defaultSprite2;
+    }
+
+    private void Start()
+    {
+        ShowEquiped();
     }
     public void Add(Item item,  int index)
     {
@@ -87,6 +93,11 @@ public class EquipedInv : MonoBehaviour
     public void CheckForClick2()
     {
         button = 2;
+    }
+
+    public void ChangeCurrentWeaponIcon(int index)
+    {
+        //currentWeaponIcon.sprite = items[index].icon;
     }
 
     IEnumerator GetItemSelect()

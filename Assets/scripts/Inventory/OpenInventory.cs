@@ -12,7 +12,7 @@ public class OpenInventory : MonoBehaviour
 
     public bool letDisable = true;
 
-    private void Awake()
+    private void Start()
     {
         scrollView.SetActive(false);
         descriptionView.SetActive(false);

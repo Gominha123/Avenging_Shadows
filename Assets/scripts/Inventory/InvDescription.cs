@@ -11,6 +11,7 @@ public class InvDescription : MonoBehaviour
     [SerializeField] private TextMeshProUGUI descriptionTextTMP;
     [SerializeField] private Button useButton;
     [SerializeField] private Button deleteButton;
+    [SerializeField] private Button deleteButtonEquiped;
 
     public bool isDisplayed = false;
     // Start is called before the first frame update
@@ -41,6 +42,7 @@ public class InvDescription : MonoBehaviour
         descriptionTextTMP.gameObject.SetActive(true);
         useButton.gameObject.SetActive(true);
         deleteButton.gameObject.SetActive(true);
+        deleteButtonEquiped.gameObject.SetActive(false);
         isDisplayed = true;
     }
 
@@ -51,8 +53,24 @@ public class InvDescription : MonoBehaviour
         descriptionTextTMP.gameObject.SetActive(false);
         useButton.gameObject.SetActive(false);
         deleteButton.gameObject.SetActive(false);
+        deleteButtonEquiped.gameObject.SetActive(false);
         useButton.interactable = false;
         deleteButton.interactable = false;
         isDisplayed = false;
+    }
+
+    public void SetUpForEquiped(string nameItem, string descriptionItem)
+    {
+        nameTextTMP.text = nameItem;
+        descriptionTextTMP.text = descriptionItem;
+        useButton.interactable = false;
+        deleteButton.interactable = false;
+        //uiPanel.SetActive(true);
+        nameTextTMP.gameObject.SetActive(true);
+        descriptionTextTMP.gameObject.SetActive(true);
+        useButton.gameObject.SetActive(false);
+        deleteButton.gameObject.SetActive(false);
+        deleteButtonEquiped.gameObject.SetActive(true);
+        isDisplayed = true;
     }
 }

@@ -28,6 +28,8 @@ public class EquipedInv : MonoBehaviour
 
     public int button;
 
+    public bool coroutine = false;
+
     private void Awake()
     {
         sprites[0] = defaultSprite1;
@@ -44,19 +46,25 @@ public class EquipedInv : MonoBehaviour
 
     }
 
-    public void Remove(Item item, int index)
+    public void Remove()
     {
-        items[index] = null;
+        items[button] = null;
+        invDescription.Close();
+        ShowEquiped();
     }
 
-    public void ListItems()
+    public void ButtonClick1()
     {
-        int currentindex = 0;
-        GameObject[] weapons = weaponHolder.GetComponentsInChildren<GameObject>();
-        foreach (Item item in items)
-        {
-            //item = weapons[currentindex];
-        }
+        if (coroutine) return;
+        invDescription.SetUpForEquiped(items[0].name, items[0].description);
+        button = 0;
+    }
+
+    public void ButtonClick2()
+    {
+        if (coroutine) return;
+        invDescription.SetUpForEquiped(items[1].name, items[1].description);
+        button = 1;
     }
 
     public void ShowEquiped()
@@ -83,21 +91,12 @@ public class EquipedInv : MonoBehaviour
     public void ReturnButtonClick()
     {
         StartCoroutine(GetItemSelect());
-    }
-
-    public void CheckForClick1()
-    {
-        button = 1;
-    }
-
-    public void CheckForClick2()
-    {
-        button = 2;
+        coroutine = true;
     }
 
     public void ChangeCurrentWeaponIcon(int index)
     {
-        //currentWeaponIcon.sprite = items[index].icon;
+        currentWeaponIcon.sprite = items[index].icon;
     }
 
     IEnumerator GetItemSelect()
@@ -107,9 +106,10 @@ public class EquipedInv : MonoBehaviour
         yield return waitForButton.Reset();
         if (waitForButton.PressedButton == weapon1)
         {
-            Debug.Log("1");
+            //Debug.Log("1");
+            Inventory.Instance.Add(items[0]);
             items[0] = tempItem;
-            Debug.Log(items[0]);
+            //Debug.Log(items[0]);
             Inventory.Instance.ListItems();
             invDescription.Close();
             openInv.letDisable = true;
@@ -117,9 +117,10 @@ public class EquipedInv : MonoBehaviour
         }
         else
         {
-            Debug.Log("2");
+            //Debug.Log("2");
+            Inventory.Instance.Add(items[1]);
             items[1] = tempItem;
-            Debug.Log(items[1]);
+            //Debug.Log(items[1]);
             Inventory.Instance.ListItems();
             invDescription.Close();
             openInv.letDisable = true;

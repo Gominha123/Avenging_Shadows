@@ -17,7 +17,7 @@ public class Inventory : MonoBehaviour
 
     public InvDescription invDesciption;
 
-    public Item selectedItem = null;
+    //public Item selectedItem = null;
 
     public UnityEngine.UI.Button weapon1;
     public UnityEngine.UI.Button weapon2;
@@ -25,19 +25,19 @@ public class Inventory : MonoBehaviour
     public OpenInventory openInv;
 
     int currentIndex = 0;
-    int equipedInventoryIndex = 0;
+    //int equipedInventoryIndex = 0;
 
     private void Awake()
     {
         Instance = this;
     }
 
-    private void Update()
-    {
-        if(equipedInventoryIndex != 0) {
-            Debug.Log(equipedInventoryIndex);
-        }
-    }
+    //private void Update()
+    //{
+    //    if(equipedInventoryIndex != 0) {
+    //        Debug.Log(equipedInventoryIndex);
+    //    }
+    //}
 
     public void Add(Item item)
     {
@@ -86,7 +86,7 @@ public class Inventory : MonoBehaviour
             if (items[currentIndex].itemType == Item.ItemType.KeyItem) { }
             else interactable = true;
             invDesciption.SetUp(items[currentIndex].itemName, items[currentIndex].description, interactable);
-            selectedItem = items[currentIndex];
+            //selectedItem = items[currentIndex];
 
         }
         else
@@ -97,7 +97,7 @@ public class Inventory : MonoBehaviour
                     return;
                 case Item.ItemType.Weapon:
                     //equipedInventory.button = 0;
-                    equipedInventoryIndex = 0;
+                    //equipedInventoryIndex = 0;
                     DisableItemButtons();
                     equipedInventory.ReturnButtonClick();
                     equipedInventory.tempItem = items[currentIndex];

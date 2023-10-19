@@ -112,6 +112,8 @@ public class EquipedInv : MonoBehaviour
             //Debug.Log("1");
             Inventory.Instance.Add(items[0]);
             items[0] = tempItem;
+            weaponSwitch.DeleteWeapon(0);
+            weaponSwitch.AddWeapon(items[0].name, true);
             //Debug.Log(items[0]);
             Inventory.Instance.ListItems();
             invDescription.Close();
@@ -123,6 +125,8 @@ public class EquipedInv : MonoBehaviour
             //Debug.Log("2");
             Inventory.Instance.Add(items[1]);
             items[1] = tempItem;
+            weaponSwitch.DeleteWeapon(0);
+            weaponSwitch.AddWeapon(items[0].name, false);
             //Debug.Log(items[1]);
             Inventory.Instance.ListItems();
             invDescription.Close();

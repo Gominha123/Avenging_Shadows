@@ -9,11 +9,19 @@ public class WeaponSwitch : MonoBehaviour
     public EquipedInv equipedInv;
 
     public int onDeleteIndex = 0;
-    public bool onDelete = false;
+    private bool onDelete0 = false;
+    private bool onDelete1 = false;
+
+    public int onDeleteNum = 0;
 
     // Start is called before the first frame update
     void Start()
     {
+        if(transform.childCount == 0)
+        {
+            onDelete0 = true;
+            onDelete1 = true;
+        }
         StartingWeapons();
         SelectWeapon();
     }
@@ -21,52 +29,49 @@ public class WeaponSwitch : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!onDelete)
+        int previousSelectedWeapon = selectedWeapon;
+        if (Input.GetAxis("Mouse ScrollWheel") > 0f)
         {
-            int previousSelectedWeapon = selectedWeapon;
-            if (Input.GetAxis("Mouse ScrollWheel") > 0f)
-            {
-                if (selectedWeapon >= transform.childCount - 1)
-                    selectedWeapon = 0;
-                else
-                    selectedWeapon++;
-            }
-            if (Input.GetAxis("Mouse ScrollWheel") < 0f)
-            {
-                if (selectedWeapon <= 0)
-                    selectedWeapon = transform.childCount - 1;
-                else
-                    selectedWeapon--;
-            }
-
-            if (Input.GetKeyDown(KeyCode.Alpha1))
-            {
+            if (selectedWeapon >= transform.childCount - 1)
                 selectedWeapon = 0;
-            }
-
-            if (Input.GetKeyDown(KeyCode.Alpha2) && transform.childCount >= 2)
-            {
-                selectedWeapon = 1;
-            }
-
-            if (Input.GetKeyDown(KeyCode.Alpha3) && transform.childCount >= 3)
-            {
-                selectedWeapon = 2;
-            }
-
-            if (Input.GetKeyDown(KeyCode.Alpha4) && transform.childCount >= 4)
-            {
-                selectedWeapon = 3;
-            }
-
-
-
-            if (previousSelectedWeapon != selectedWeapon)
-            {
-                SelectWeapon();
-            }
+            else
+                selectedWeapon++;
         }
-        
+        if (Input.GetAxis("Mouse ScrollWheel") < 0f)
+        {
+            if (selectedWeapon <= 0)
+                selectedWeapon = transform.childCount - 1;
+            else
+                selectedWeapon--;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            selectedWeapon = 0;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha2) && transform.childCount >= 2)
+        {
+            selectedWeapon = 1;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha3) && transform.childCount >= 3)
+        {
+            selectedWeapon = 2;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha4) && transform.childCount >= 4)
+        {
+            selectedWeapon = 3;
+        }
+
+
+
+        if (previousSelectedWeapon != selectedWeapon)
+        {
+            SelectWeapon();
+        }
+
 
 
 
@@ -99,6 +104,10 @@ public class WeaponSwitch : MonoBehaviour
             equipedInv.Add(weapon.GetComponent<ItemController>().item, count);
             count++;
         }
+        if(count < 1)                               /////escrever
+        {
+
+        }
     }
 
     public void DeleteWeapon(int i)
@@ -120,6 +129,7 @@ public class WeaponSwitch : MonoBehaviour
         //}
         foreach (Transform weapon in transform)
         {
+            Debug.Log("Here");
             if (count == i)
             {
                 Destroy(weapon.gameObject);
@@ -133,13 +143,14 @@ public class WeaponSwitch : MonoBehaviour
     public void DeleteEquiped(int i)
     {
         int count = 0;
-        GameObject obj = new GameObject("Hold");
+        GameObject obj = new GameObject("Hold" + i);
         onDeleteIndex = i;
-        //onDelete = true;
+        Debug.Log(i);
         foreach (Transform weapon in transform)
         {
             if(count == i)
             {
+                Debug.Log(weapon.gameObject.name);
                 Destroy(weapon.gameObject);
                 obj.transform.parent = transform;
                 if(i == 0)
@@ -152,6 +163,7 @@ public class WeaponSwitch : MonoBehaviour
                 }
                 return;
             }
+            count++;
         }
         //if (selectedWeapon == onDeleteIndex)
         //{

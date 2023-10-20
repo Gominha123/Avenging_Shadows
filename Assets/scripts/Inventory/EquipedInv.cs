@@ -48,6 +48,11 @@ public class EquipedInv : MonoBehaviour
         //nullItems[1].icon = defaultSprite2;
     }
 
+    //private void Update()
+    //{
+    //    Debug.Log(button);
+    //}
+
     public void Add(Item item,  int index)
     {
         items[index] = item;
@@ -72,16 +77,16 @@ public class EquipedInv : MonoBehaviour
 
     public void ButtonClick1()
     {
-        if (coroutine) return;
-        invDescription.SetUpForEquiped(items[0].name, items[0].description);
         button = 0;
+        if (coroutine || items[0] == null) return;
+        invDescription.SetUpForEquiped(items[0].name, items[0].description);
     }
 
     public void ButtonClick2()
     {
-        if (coroutine) return;
-        invDescription.SetUpForEquiped(items[1].name, items[1].description);
         button = 1;
+        if (coroutine || items[1] == null) return;
+        invDescription.SetUpForEquiped(items[1].name, items[1].description);
     }
 
     public void ShowEquiped()
@@ -139,7 +144,11 @@ public class EquipedInv : MonoBehaviour
         {
             //Debug.Log("1");
             coroutine = false;
-            Inventory.Instance.Add(items[0]);
+            if (items[0] != null)
+            {
+                Debug.Log("Isnull");
+                Inventory.Instance.Add(items[0]);
+            }
             items[0] = tempItem;
             weaponSwitch.DeleteWeapon(0);
             weaponSwitch.AddWeapon(items[0].name, true);
@@ -153,7 +162,11 @@ public class EquipedInv : MonoBehaviour
         {
             //Debug.Log("2");
             coroutine = false;
-            Inventory.Instance.Add(items[1]);
+            if (items[1] != null)
+            {
+                Debug.Log("Isnull");
+                Inventory.Instance.Add(items[1]);
+            }
             items[1] = tempItem;
             weaponSwitch.DeleteWeapon(1);
             weaponSwitch.AddWeapon(items[1].name, false);

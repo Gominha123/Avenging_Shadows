@@ -8,11 +8,35 @@ public class HealthPotion : MonoBehaviour, IInteractable
 
     public Item item;
 
+    private string tempPrompt;
+
     public string InteractablePrompt => "Press E to " + prompt;
+
+    private void Start()
+    {
+        tempPrompt = prompt;
+    }
 
     public void Interact()
     {
-        Inventory.Instance.Add(item);
-        Destroy(gameObject);
+        if (Inventory.Instance.Count() < 10)
+        {
+            Inventory.Instance.Add(item);
+            Destroy(gameObject);
+        }
+        else
+        {
+            prompt = "Inventory is Full";
+            StartCoroutine(DoAfterTenSeconds());
+        }
+
+    }
+
+    IEnumerator DoAfterTenSeconds()
+    {
+        yield return new WaitForSeconds(10);
+
+        prompt = tempPrompt;
+
     }
 }

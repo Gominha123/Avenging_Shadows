@@ -8,11 +8,30 @@ public class Artefact : MonoBehaviour, IInteractable
 
     public Item item;
 
-    public string InteractablePrompt => "Press E to Pick Up" + item.name;
+    private string prompt;
+
+    public string InteractablePrompt => "Press E to Pick Up" + prompt;
 
     public void Interact()
     {
-        Inventory.Instance.Add(item);
-        Destroy(gameObject);
+        if (Inventory.Instance.Count() < 10)
+        {
+            Inventory.Instance.Add(item);
+            Destroy(gameObject);
+        }
+        else
+        {
+            prompt = "Inventory is Full";
+            StartCoroutine(DoAfterTenSeconds());
+        }
+
+    }
+
+    IEnumerator DoAfterTenSeconds()
+    {
+        yield return new WaitForSeconds(10);
+
+        prompt = item.name;
+
     }
 }

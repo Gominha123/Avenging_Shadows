@@ -10,6 +10,8 @@ public class Inventory : MonoBehaviour
     public static Inventory Instance;
     public List<Item> items = new List<Item>();
 
+    //public Item[] items = new Item[10];
+
     public Transform itemContent;
     public GameObject inventoryItem;
 
@@ -34,14 +36,27 @@ public class Inventory : MonoBehaviour
         Instance = this;
     }
 
+    public int Count() { return items.Count; }
+
     public void Add(Item item)
     {
         items.Add(item);
+        //for (int i = 0; i < 10; i++) {
+        //    if (items[i] == null) {
+        //        items[i] = item;
+        //    }
+        //}
     }
 
     public void Remove(Item item)
     {
         items.Remove(item);
+
+        //for(int i = 0;i < 10;i++)
+        //{
+        //    if()
+        //}
+
     }
 
     public void ListItems()

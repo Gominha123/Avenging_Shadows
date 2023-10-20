@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering.PostProcessing;
 using UnityEngine.UI;
@@ -11,6 +12,8 @@ public class EquipedInv : MonoBehaviour
 {
     public GameObject weaponHolder;
     public Item[] items = new Item[2];
+
+    //public readonly Item[] nullItems = new Item[2];
 
     public Item tempItem = null;
 
@@ -41,17 +44,28 @@ public class EquipedInv : MonoBehaviour
     private void Start()
     {
         ShowEquiped();
+        //nullItems[0].icon = defaultSprite1;
+        //nullItems[1].icon = defaultSprite2;
     }
+
     public void Add(Item item,  int index)
     {
         items[index] = item;
-
     }
 
     public void Remove()
     {
         items[button] = null;
         weaponSwitch.DeleteWeapon(button);
+        invDescription.Close();
+        ShowEquiped();
+    }
+
+    public void RemoveEquiped()
+    {
+        //items[button] = nullItems[button];
+        items[button] = null;
+        weaponSwitch.DeleteEquiped(button);
         invDescription.Close();
         ShowEquiped();
     }
@@ -77,14 +91,14 @@ public class EquipedInv : MonoBehaviour
         {
             var weapon = transform.Find("Weapon" + count).GetComponent<UnityEngine.UI.Button>();
             var icon = weapon.transform.Find("EquipedIcon" + count).GetComponent<UnityEngine.UI.Image>();
-            if (item != null)
+            if (item != null )//nullItems[0] && item != nullItems[1])
             {
                 icon.sprite = item.icon;
                 icon.color = new Color32 (255, 255, 255, 255);
             }
             else
             {
-                icon.sprite = sprites[count-1];
+                icon.sprite = sprites[count - 1];//nullItems[count-1].icon;
                 icon.color = new Color32(255, 255, 255, 50);
             }
             count++;
@@ -99,8 +113,22 @@ public class EquipedInv : MonoBehaviour
 
     public void ChangeCurrentWeaponIcon(int index)
     {
-        currentWeaponIcon.sprite = items[index].icon;
+        if (items[index] == null)//nullItems[0] || items[index] == nullItems[1])
+        {
+            currentWeaponIcon.sprite = sprites[index];
+            currentWeaponIcon.color = new Color32(255, 255, 255, 50);
+        }
+        else
+        {
+            currentWeaponIcon.sprite = items[index].icon;
+            currentWeaponIcon.color = new Color32(255, 255, 255, 255);
+        }
     }
+
+    //public void ChangeToNullIcon(int index)
+    //{
+    //    currentWeaponIcon.sprite = sprites[index];
+    //}
 
     IEnumerator GetItemSelect()
     {
@@ -110,6 +138,7 @@ public class EquipedInv : MonoBehaviour
         if (waitForButton.PressedButton == weapon1)
         {
             //Debug.Log("1");
+            coroutine = false;
             Inventory.Instance.Add(items[0]);
             items[0] = tempItem;
             weaponSwitch.DeleteWeapon(0);
@@ -123,10 +152,11 @@ public class EquipedInv : MonoBehaviour
         else
         {
             //Debug.Log("2");
+            coroutine = false;
             Inventory.Instance.Add(items[1]);
             items[1] = tempItem;
-            weaponSwitch.DeleteWeapon(0);
-            weaponSwitch.AddWeapon(items[0].name, false);
+            weaponSwitch.DeleteWeapon(1);
+            weaponSwitch.AddWeapon(items[1].name, false);
             //Debug.Log(items[1]);
             Inventory.Instance.ListItems();
             invDescription.Close();

@@ -130,6 +130,43 @@ public class WeaponSwitch : MonoBehaviour
         }
     }
 
+    public void DeleteEquiped(int i)
+    {
+        int count = 0;
+        GameObject obj = new GameObject("Hold");
+        onDeleteIndex = i;
+        //onDelete = true;
+        foreach (Transform weapon in transform)
+        {
+            if(count == i)
+            {
+                Destroy(weapon.gameObject);
+                obj.transform.parent = transform;
+                if(i == 0)
+                {
+                    obj.transform.SetAsFirstSibling();
+                }
+                else
+                {
+                    obj.transform.SetAsLastSibling();
+                }
+                return;
+            }
+        }
+        //if (selectedWeapon == onDeleteIndex)
+        //{
+        //    if (selectedWeapon == 0)
+        //    {
+        //        selectedWeapon = 1;
+        //    }
+        //    else
+        //    {
+        //        selectedWeapon = 0;
+        //    }
+        //    SelectWeapon();
+        //}
+    }
+
     public void AddWeapon(string weaponName, bool firstSibling)
     {
         GameObject weaponPrefab = (GameObject)Resources.Load("Weapons/"+ weaponName);

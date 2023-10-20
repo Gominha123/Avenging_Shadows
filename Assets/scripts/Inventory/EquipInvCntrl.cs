@@ -8,6 +8,6 @@ public class EquipInvCntrl : MonoBehaviour
 
     public void DiscardEquiped()
     {
-        equipedInv.Remove();
+        equipedInv.RemoveEquiped();
     }
 }

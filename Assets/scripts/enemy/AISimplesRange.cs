@@ -34,7 +34,7 @@ public class AISimplesRange : MonoBehaviour
     // Dictionary to map states to their respective state functions
     private Dictionary<stateOfAi, StateFunction> stateFunctions = new Dictionary<stateOfAi, StateFunction>();
 
-    enum stateOfAi
+    public enum stateOfAi
     {
         patrolling, following, searchingLostTarget, waiting, attacking
     };
@@ -69,11 +69,13 @@ public class AISimplesRange : MonoBehaviour
         stateFunctions[stateOfAi.attacking] = Attacking;
         // Set the initial state function
         currentStateFunction = stateFunctions[_stateAI];
+        
     }
 
     void Update()
     {
         currentStateFunction.Invoke();
+        Debug.Log(_stateAI);
         attackTimer += Time.deltaTime;
     }
 
@@ -131,8 +133,8 @@ public class AISimplesRange : MonoBehaviour
             }
             else if (distanceToAlvo <= attackRange) // Check for attack range
             {
-                //_stateAI = stateOfAi.attacking; // Transition to the attack state
-                Attacking();
+                _stateAI = stateOfAi.attacking; // Transition to the attack state
+                //Attacking();
                 _navMesh.ResetPath(); // Clear the current path
             }
         }
@@ -229,6 +231,10 @@ public class AISimplesRange : MonoBehaviour
         currentStateFunction = stateFunctions[_stateAI];
     }
 
+    public AISimplesRange.stateOfAi GetCurrentState()
+    {
+        return _stateAI;
+    }
 
 
     // Visualize the pursuit range in the Unity Editor

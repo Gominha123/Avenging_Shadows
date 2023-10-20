@@ -1,0 +1,119 @@
+# Blender 3.4.1 MTL File: 'None'
+# www.blender.org
+
+newmtl Accessoires
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd Accessoires_BaseColor.jpeg
+map_Ns Accessoires_Roughness.jpeg
+map_refl Accessoires_Metallic.jpeg
+map_Bump Accessoires_Normal.jpeg
+
+newmtl Arms
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd Arm_BaseColor.jpeg
+map_Ns Arm_Roughness.jpeg
+map_refl Arm_Metallic.jpeg
+map_Bump Arm_Normal.jpeg
+
+newmtl Chest
+Ka 1.000000 1.000000 1.000000
+Ks 0.575758 0.575758 0.575758
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd Chest_BaseColor.jpeg
+map_Ns Chest_Roughness.jpeg
+map_refl Chest_Metallic.jpeg
+map_Bump -bm 2.000000 Chest_Normal.jpeg
+
+newmtl Coat
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd Coat_BaseColor.jpeg
+map_Ns Coat_Roughness.jpeg
+map_refl Coat_Metallic.jpeg
+map_Bump Coat_Normal.jpeg
+
+newmtl Coat_Fur
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+illum 2
+map_Kd Coat_Fur_BaseColor.jpeg
+map_Ns Coat_Fur_Roughness.jpeg
+map_d Coat_Fur_Opacity.jpg
+
+newmtl Hair
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+illum 2
+map_Kd Hair_BaseColor.jpeg
+map_Ns Hair_Roughness.jpeg
+map_d Hair_Opacity.png
+map_Bump Hair_Normal.jpeg
+
+newmtl Head
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+illum 2
+map_Kd Head_withpaint_BaseColor.jpeg
+map_Ns Head_Roughness.jpeg
+map_refl Head_Metallic.jpeg
+map_d Head_Opacity.jpeg
+map_Bump Head_Normal.jpeg
+
+newmtl Shoes
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd Shoes_BaseColor.jpeg
+map_Ns Shoes_Roughness.jpeg
+map_refl Shoes_Metallic.jpeg
+map_Bump Shoes_Normal.jpeg
+
+newmtl Tools
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd Tools_BaseColor.jpeg
+map_Ns Tools_Roughness.jpeg
+map_refl Tools_Metallic.jpeg
+map_Bump Tools_Normal.jpeg
+
+newmtl Trousers_Skirt
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd Trousers_skirt_BaseColor.jpeg
+map_Ns Trousers_skirt_Roughness.jpeg
+map_refl Trousers_skirt_Metallic.jpeg
+map_Bump Trousers_skirt_Normal.jpeg

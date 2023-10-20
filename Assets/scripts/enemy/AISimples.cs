@@ -43,9 +43,9 @@ public class AISimples : MonoBehaviour
     private Dictionary<stateOfAi, StateFunction> stateFunctions = new Dictionary<stateOfAi, StateFunction>();
     private List<GameObject> enemiesDetectingPlayer = new List<GameObject>(); // List of enemies detecting the player
 
-    enum stateOfAi
+    public enum stateOfAi
     {
-        patrolling, following, searchingLostTarget, waiting, attacking, waiting_to_attack
+        patrolling, following, searchingLostTarget, waiting, attacking
     };
     stateOfAi _stateAI = stateOfAi.patrolling;
 
@@ -76,7 +76,7 @@ public class AISimples : MonoBehaviour
         stateFunctions[stateOfAi.following] = Following;
         stateFunctions[stateOfAi.searchingLostTarget] = SearchingLostTarget;
         stateFunctions[stateOfAi.attacking] = Attacking; // Add the attacking state
-        stateFunctions[stateOfAi.waiting_to_attack] = WaitingToAttack;
+        
 
         // Set the initial state function
         currentStateFunction = stateFunctions[_stateAI];
@@ -170,32 +170,7 @@ public class AISimples : MonoBehaviour
 
         CheckForVisibleEnemies();
     }
-    private void WaitingToAttack()
-    {
-        // Check if the player is being attacked by an enemy with the "enemy" tag
-        if (IsPlayerBeingAttacked())
-        {
-            // Wait at the specified distance from the player until the attacking enemy is defeated
-            if (enemyAttackingPlayer != null && !enemyAttackingPlayer.activeSelf && IsWithinWaitingRange(enemyAttackingPlayer))
-            {
-                // Attacking enemy is defeated and within waiting range, now attack the player
-                AttackPlayer(target.gameObject);
-                _stateAI = stateOfAi.attacking; // Transition to the attacking state
-                _navMesh.ResetPath(); // Clear the current path
-            }
-            else if (enemyAttackingPlayer != null && IsWithinWaitingRange(enemyAttackingPlayer))
-            {
-                // Wait at the specified distance from the player
-                _navMesh.SetDestination(enemyAttackingPlayer.transform.position);
-            }
-        }
-        else
-        {
-            // No enemy is attacking the player or outside waiting range, transition back to patrolling
-            _stateAI = stateOfAi.patrolling;
-            _navMesh.ResetPath(); // Clear the current path
-        }
-    }
+    
 
 
     private void Attacking()
@@ -304,54 +279,12 @@ public class AISimples : MonoBehaviour
             
         }
     }
-    private bool IsAttackingEnemyDefeated()
+
+
+    public AISimples.stateOfAi GetCurrentState()
     {
-        // Check if the first enemy detecting the player is defeated
-        if (enemiesDetectingPlayer.Count > 0)
-        {
-            GameObject firstEnemy = enemiesDetectingPlayer[0];
-            return firstEnemy == null || !firstEnemy.activeSelf;
-        }
-        return true; // No enemy is attacking, return true to proceed with the attack
+        return _stateAI;
     }
-    private bool IsPlayerBeingAttacked()
-    {
-        // Implement your logic to check if the player is being attacked by an enemy
-        // For example, you can use raycasting to detect if an enemy is attacking the player
-        RaycastHit hit;
-        if (Physics.Raycast(transform.position, target.position - transform.position, out hit, pursuitRange))
-        {
-            if (hit.collider.CompareTag("Enemy"))
-            {
-                GameObject attackingEnemy = hit.collider.gameObject;
-                if (!enemiesDetectingPlayer.Contains(attackingEnemy))
-                {
-                    enemiesDetectingPlayer.Add(attackingEnemy); // Add the enemy to the list if not already present
-                }
-                enemyAttackingPlayer = attackingEnemy;
-                return true;
-            }
-        }
-
-        return false;
-    }
-
-    // Call this method when an enemy stops detecting the player (e.g., enemy is defeated or player moves out of range)
-    private void EnemyStoppedDetectingPlayer(GameObject enemy)
-    {
-        if (enemiesDetectingPlayer.Contains(enemy))
-        {
-            enemiesDetectingPlayer.Remove(enemy);
-        }
-    }
-
-    private bool IsWithinWaitingRange(GameObject enemy)
-    {
-        float distanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
-        return distanceToEnemy <= waitingDistance;
-    }
-
-
 
     private void CheckForVisibleEnemies()
     {

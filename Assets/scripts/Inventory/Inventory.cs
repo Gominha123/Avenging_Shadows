@@ -24,6 +24,8 @@ public class Inventory : MonoBehaviour
 
     public OpenInventory openInv;
 
+    public PlayerHealth playerHealth;
+
     int currentIndex = 0;
     //int equipedInventoryIndex = 0;
 
@@ -31,13 +33,6 @@ public class Inventory : MonoBehaviour
     {
         Instance = this;
     }
-
-    //private void Update()
-    //{
-    //    if(equipedInventoryIndex != 0) {
-    //        Debug.Log(equipedInventoryIndex);
-    //    }
-    //}
 
     public void Add(Item item)
     {
@@ -109,6 +104,17 @@ public class Inventory : MonoBehaviour
                     ListItems();
                     invDesciption.Close();
                     break;
+                case Item.ItemType.Health:
+                    Destroy(button);
+                    Remove(items[currentIndex]);
+                    ListItems();
+                    invDesciption.Close();
+                    playerHealth.GetHp();
+                    break;
+                case Item.ItemType.Artefact:
+                    break;
+
+                    
             }
             
         }

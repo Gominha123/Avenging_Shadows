@@ -17,11 +17,6 @@ public class WeaponSwitch : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if(transform.childCount == 0)
-        {
-            onDelete0 = true;
-            onDelete1 = true;
-        }
         StartingWeapons();
         SelectWeapon();
     }
@@ -104,10 +99,6 @@ public class WeaponSwitch : MonoBehaviour
             equipedInv.Add(weapon.GetComponent<ItemController>().item, count);
             count++;
         }
-        if(count < 1)                               /////escrever
-        {
-
-        }
     }
 
     public void DeleteWeapon(int i)
@@ -145,12 +136,10 @@ public class WeaponSwitch : MonoBehaviour
         int count = 0;
         GameObject obj = new GameObject("Hold" + i);
         onDeleteIndex = i;
-        Debug.Log(i);
         foreach (Transform weapon in transform)
         {
             if(count == i)
             {
-                Debug.Log(weapon.gameObject.name);
                 Destroy(weapon.gameObject);
                 obj.transform.parent = transform;
                 if(i == 0)

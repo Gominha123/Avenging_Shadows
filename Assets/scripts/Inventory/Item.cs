@@ -16,6 +16,8 @@ public class Item : ScriptableObject
     {
         KeyItem,
         NotKeyItem,
-        Weapon
+        Weapon,
+        Health,
+        Artefact
     }
 }

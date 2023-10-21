@@ -38,7 +38,6 @@ public class PlayerMovement2 : MonoBehaviour
     public float jumpCooldown;
     public float airMultiplier;
     bool canJump;
-    bool isJumping;
 
     [Header("Step up")]
     public GameObject stepRayUpper;
@@ -98,7 +97,9 @@ public class PlayerMovement2 : MonoBehaviour
 
         //handle drag
         if (grounded)
+        {
             rb.drag = groundDrag;
+        }
         else
             rb.drag = 0;
 
@@ -123,12 +124,10 @@ public class PlayerMovement2 : MonoBehaviour
         {
             canJump = false;
             Jump();
-            isJumping = true;
-
             Invoke(nameof(ResetJump), jumpCooldown);
         }
 
-        if(Input.GetButtonUp("Fire1"))
+        if (Input.GetButtonUp("Fire1"))
         {
             //wp.enableAttack = true;
             anim.SetTrigger("Attack");
@@ -236,14 +235,11 @@ public class PlayerMovement2 : MonoBehaviour
     {
         if (!grounded)
         {
-            if (state == MovementState.air)
+            if (rb.velocity.y < 0)
             {
-                if (rb.velocity.y < 0)
-                {
-                    anim.SetBool("Falling", true);
-                }
-                else anim.SetBool("Jumping", true);
+                anim.SetBool("Falling", true);
             }
+            else anim.SetBool("Jumping", true);
         }
         else if (grounded)
         {
@@ -285,16 +281,16 @@ public class PlayerMovement2 : MonoBehaviour
             //}*/
 
             //float velocity = (rb.velocity.x + rb.velocity.z);
-            anim.SetBool("Crouch", state == MovementState.crouching);   
+            anim.SetBool("Crouch", state == MovementState.crouching);
 
-            float actualSpeed =  rb.velocity.magnitude;
+            float actualSpeed = rb.velocity.magnitude;
 
             anim.SetFloat("Velocity", actualSpeed);
 
             //anim.SetFloat("VelocityX", rb.velocity.x);
             //anim.SetFloat("VelocityZ", rb.velocity.z);
 
-            if(wp.enableAttack)
+            if (wp.enableAttack)
             {
                 //anim.SetTrigger("Attack");
             }
@@ -315,7 +311,6 @@ public class PlayerMovement2 : MonoBehaviour
     private void ResetJump()
     {
         canJump = true;
-
         exitingSlope = false;
     }
 

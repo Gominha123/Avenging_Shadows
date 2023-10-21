@@ -8,7 +8,8 @@ using UnityEngine.UI;
 public class PlayerHealth : MonoBehaviour
 {
     [Header("Stats")]
-    public int health;
+    public int hp;
+    private float invAmt;
     //public int startingHealth = 100;
     //public int currentHealth;
 
@@ -31,13 +32,13 @@ public class PlayerHealth : MonoBehaviour
 
     public void Start()
     {
-        currentScene = SceneManager.GetActiveScene();
-        sceneName = currentScene.name;
-        if (sceneName == "Level_Open_Remaster")
-        {
-            InvokeRepeating("GetHp", 30, 30);
-        }
-        healthbar.SetMaxHealth(health);
+        //currentScene = SceneManager.GetActiveScene();
+        //sceneName = currentScene.name;
+        //if (sceneName == "Level_Open_Remaster")
+        //{
+        //    InvokeRepeating("GetHp", 30, 30);
+        //}
+        healthbar.SetMaxHealth(hp);
     }
 
     void Update()
@@ -51,19 +52,27 @@ public class PlayerHealth : MonoBehaviour
             damageImage.color = Color.Lerp(damageImage.color, Color.clear, flashSpeed * Time.deltaTime);
         }
         damaged = false;
+
+        //Dodge
+        if(invAmt > 0)
+        {
+            invAmt -= Time.deltaTime;
+        }
+
+
     }
 
     public void TakeDamage(int damage)
     {
         damaged = true;
 
-        health -= damage;
+        hp -= damage;
 
-        healthbar.SetHealth(health);
+        healthbar.SetHealth(hp);
 
        // healthSlider.value = health;
 
-        if (health <= 0 && !isDead)
+        if (hp <= 0 && !isDead)
             Death();
     }
 
@@ -75,14 +84,33 @@ public class PlayerHealth : MonoBehaviour
     {
         int healthPickup = 25;
         playerHealth = GetComponent<PlayerHealth>();
-        if(playerHealth.health + healthPickup <= 100)
+        if(playerHealth.hp + healthPickup <= 100)
         {
-            playerHealth.health += healthPickup;
+            playerHealth.hp += healthPickup;
         }
         else
         {
-            playerHealth.health += 100 - playerHealth.health;
+            playerHealth.hp += 100 - playerHealth.hp;
         }
         //playerHealth.health += 25;
+    }
+
+    public void Invinsible(float delay, float invLength)
+    {
+        if(delay > 0)
+        {
+            StartCoroutine(StartInvinsible(delay, invLength));
+        }
+        else
+        {
+            invAmt = invLength;
+        }
+    }
+
+    IEnumerator StartInvinsible(float delay, float invLength)
+    {
+        yield return new WaitForSeconds(delay);
+        Debug.Log("Invinsible");
+        invAmt = invLength;
     }
 }

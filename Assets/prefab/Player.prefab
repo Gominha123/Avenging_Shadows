@@ -1141,6 +1141,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectedWeapon: 0
   equipedInv: {fileID: 2463248961632808138}
+  onDeleteIndex: 0
+  onDeleteNum: 0
 --- !u!1 &2830270661736438132
 GameObject:
   m_ObjectHideFlags: 0
@@ -1593,6 +1595,7 @@ MonoBehaviour:
   weapon1: {fileID: 2149343931313064002}
   weapon2: {fileID: 1727874680304832328}
   openInv: {fileID: 7863478543646644077}
+  playerHealth: {fileID: 0}
 --- !u!1 &3614908082001443694
 GameObject:
   m_ObjectHideFlags: 0
@@ -4288,9 +4291,9 @@ MonoBehaviour:
   m_CameraRadius: 0.1
   m_Strategy: 0
   m_MaximumEffort: 4
-  m_SmoothingTime: 0.3
+  m_SmoothingTime: 0.2
   m_Damping: 0.6
-  m_DampingWhenOccluded: 0
+  m_DampingWhenOccluded: 0.6
   m_OptimalTargetDistance: 0
 --- !u!1 &6132928741185180357
 GameObject:
@@ -4590,7 +4593,6 @@ GameObject:
   - component: {fileID: 6132928741460335237}
   - component: {fileID: 6132928741460335238}
   - component: {fileID: 6132928741460335257}
-  - component: {fileID: 6806187190997926688}
   - component: {fileID: 7813339806413699603}
   - component: {fileID: 8449485672928539589}
   - component: {fileID: 9221519076874660452}
@@ -4671,6 +4673,10 @@ MonoBehaviour:
   jumpForce: 5
   jumpCooldown: 0.25
   airMultiplier: 0.4
+  invDdelay: 0.2
+  invDuration: 1.2
+  DodgeCd: 2
+  pushAmt: 10
   stepRayUpper: {fileID: 9091749022009794202}
   stepRayLower: {fileID: 325131199559034844}
   stepHeight: 0.5
@@ -4678,19 +4684,6 @@ MonoBehaviour:
   orientation: {fileID: 6132928740207442941}
   anim: {fileID: 6132928741916563521}
   state: 0
---- !u!65 &6806187190997926688
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6132928741460335239}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.41735104, y: 1.8158191, z: 0.4}
-  m_Center: {x: 0.0011223406, y: 0.9034191, z: 0.030000001}
 --- !u!114 &7813339806413699603
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4703,7 +4696,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 627a565d61cc4b241b0048c62199d28a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
+  hp: 0
   healthSlider: {fileID: 0}
   damageImage: {fileID: 0}
   flashSpeed: 5
@@ -7193,7 +7186,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackCooldown: 2
   damage: 1
-  isAttacking: 0
+  enableAttack: 0
 --- !u!114 &8914275520906761633
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7283,7 +7276,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackCooldown: 2
   damage: 1
-  isAttacking: 0
+  enableAttack: 0
 --- !u!4 &719291157179232689 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3250730234609039878, guid: 8f0a38a128c8b034ca28976909bded32, type: 3}

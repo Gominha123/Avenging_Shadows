@@ -39,6 +39,15 @@ public class PlayerMovement2 : MonoBehaviour
     public float airMultiplier;
     bool canJump;
 
+    [Header("Dodge Roll")]
+    public float invDdelay;
+    public float invDuration;
+
+    public float DodgeCd;
+    private float actCd;
+
+    public float pushAmt;
+
     [Header("Step up")]
     public GameObject stepRayUpper;
     public GameObject stepRayLower;
@@ -55,8 +64,10 @@ public class PlayerMovement2 : MonoBehaviour
     Vector3 moveDirection;
     public Animator anim;
 
+    PlayerHealth hp;
     Rigidbody rb;
-    BoxCollider boxCollider;
+    //BoxCollider boxCollider;
+    CapsuleCollider capsuleCollider;
 
     WeaponController wp;
 
@@ -75,7 +86,11 @@ public class PlayerMovement2 : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
-        boxCollider = GetComponent<BoxCollider>();
+        //boxCollider = GetComponent<BoxCollider>();
+        capsuleCollider = GetComponent<CapsuleCollider>();
+        hp = GetComponent<PlayerHealth>();
+        wp = GetComponentInChildren<WeaponController>();
+
         rb.freezeRotation = true;
 
         canJump = true;
@@ -84,7 +99,6 @@ public class PlayerMovement2 : MonoBehaviour
 
         stepRayUpper.transform.position = new Vector3(stepRayUpper.transform.position.x, stepHeight, stepRayUpper.transform.position.z);
 
-        wp = GetComponentInChildren<WeaponController>();
     }
 
     private void Update()
@@ -117,10 +131,11 @@ public class PlayerMovement2 : MonoBehaviour
     {
         horizontalInput = Input.GetAxisRaw("Horizontal");
         verticalInput = Input.GetAxisRaw("Vertical");
+        bool Roll = Input.GetMouseButtonDown(1);
 
 
         //when jump
-        if (Input.GetKey(jumpKey) && canJump && grounded)
+        if (Input.GetKey(jumpKey) && canJump && grounded && state != MovementState.crouching)
         {
             canJump = false;
             Jump();
@@ -133,12 +148,26 @@ public class PlayerMovement2 : MonoBehaviour
             anim.SetTrigger("Attack");
         }
 
+        
+        if (actCd <= 0)
+        {
+            if (Roll)
+            {
+            Dodge();
+
+            }
+        }
+        else
+        {
+            actCd -= Time.deltaTime;
+        }
+
     }
 
     private void IsGrounded()
     {
         //ground 
-        grounded = Physics.Raycast(boxCollider.bounds.center, Vector3.down, boxCollider.bounds.extents.y + extraHeight, whatIsGround);
+        grounded = Physics.Raycast(capsuleCollider.bounds.center, Vector3.down, capsuleCollider.bounds.extents.y + extraHeight, whatIsGround);
 
     }
 
@@ -160,6 +189,10 @@ public class PlayerMovement2 : MonoBehaviour
             if (moveSpeed < sprintSpeed)
                 moveSpeed = walkSpeed;
             else moveSpeed = sprintSpeed;
+        }
+        else if (Input.GetButtonUp("Fire1"))
+        {
+            moveSpeed = 0;
         }
 
         //Mode - Idle
@@ -207,6 +240,8 @@ public class PlayerMovement2 : MonoBehaviour
         //in air
         else if (!grounded)
             rb.AddForce(10f * airMultiplier * moveDirection.normalized, ForceMode.Force);
+
+        rb.useGravity = !OnSlope();
     }
 
 
@@ -329,7 +364,7 @@ public class PlayerMovement2 : MonoBehaviour
 
     private bool OnSlope()
     {
-        if (Physics.Raycast(transform.position, Vector3.down, out slopeHit, boxCollider.bounds.extents.y + 0.3f))
+        if (Physics.Raycast(transform.position, Vector3.down, out slopeHit, capsuleCollider.bounds.extents.y + 0.3f))
         {
             float angle = Vector3.Angle(Vector3.up, slopeHit.normal);
             return angle < maxSlopeAngle && angle != 0;
@@ -340,5 +375,17 @@ public class PlayerMovement2 : MonoBehaviour
     private Vector3 GetSlopeMoveDirection()
     {
         return Vector3.ProjectOnPlane(moveDirection, slopeHit.normal).normalized;
+    }
+
+    private void Dodge()
+    {
+        actCd = DodgeCd;
+
+        hp.Invinsible(invDdelay, invDuration);
+
+
+        rb.AddForce(100f * pushAmt * moveDirection.normalized, ForceMode.Force);
+
+        anim.SetTrigger("Roll");
     }
 }

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerMovement2 : MonoBehaviour
@@ -56,13 +57,14 @@ public class PlayerMovement2 : MonoBehaviour
     public float stepSmooth;
     [Space(30)]
 
-    public Transform orientation;
 
     float horizontalInput;
     float verticalInput;
 
     Vector3 moveDirection;
+    public Transform orientation;
     public Animator anim;
+    public Transform playerObj;
 
     PlayerHealth hp;
     Rigidbody rb;
@@ -148,12 +150,12 @@ public class PlayerMovement2 : MonoBehaviour
             anim.SetTrigger("Attack");
         }
 
-        
+
         if (actCd <= 0)
         {
             if (Roll)
             {
-            Dodge();
+                Dodge();
 
             }
         }
@@ -320,6 +322,9 @@ public class PlayerMovement2 : MonoBehaviour
 
             float actualSpeed = rb.velocity.magnitude;
 
+            if (actualSpeed < 0)
+                actualSpeed = 0;
+
             anim.SetFloat("Velocity", actualSpeed);
 
             //anim.SetFloat("VelocityX", rb.velocity.x);
@@ -383,8 +388,7 @@ public class PlayerMovement2 : MonoBehaviour
 
         hp.Invinsible(invDdelay, invDuration);
 
-
-        rb.AddForce(100f * pushAmt * moveDirection.normalized, ForceMode.Force);
+        rb.AddForce(100f * pushAmt * playerObj.forward * Time.deltaTime, ForceMode.Force);
 
         anim.SetTrigger("Roll");
     }

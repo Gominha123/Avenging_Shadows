@@ -3931,6 +3931,7 @@ MonoBehaviour:
   playerObj: {fileID: 6132928741916563523}
   rb: {fileID: 6132928741460335238}
   rotationSpeed: 7
+  viewDir: {x: 0, y: 0, z: 0}
 --- !u!114 &6132928741068446103
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4683,6 +4684,7 @@ MonoBehaviour:
   stepSmooth: 0.1
   orientation: {fileID: 6132928740207442941}
   anim: {fileID: 6132928741916563521}
+  tp: {fileID: 6132928741068446102}
   state: 0
 --- !u!114 &7813339806413699603
 MonoBehaviour:

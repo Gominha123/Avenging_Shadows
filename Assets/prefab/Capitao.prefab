@@ -2264,7 +2264,7 @@ MonoBehaviour:
   attackCooldown: 5
   damage: 10
   waitingDistance: 10
-  _navMesh: {fileID: 0}
+  _navMesh: {fileID: 3714645564597570403}
   lastAttackTime: 5
 --- !u!95 &3714645564597570413
 Animator:

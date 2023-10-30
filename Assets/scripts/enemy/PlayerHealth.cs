@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -84,14 +85,13 @@ public class PlayerHealth : MonoBehaviour
     {
         int healthPickup = 25;
         playerHealth = GetComponent<PlayerHealth>();
-        if(playerHealth.hp + healthPickup <= 100)
-        {
-            playerHealth.hp += healthPickup;
-        }
-        else
-        {
-            playerHealth.hp += 100 - playerHealth.hp;
-        }
+
+        playerHealth.hp += healthPickup;
+
+        if(playerHealth.hp > 100)
+            playerHealth.hp = 100;
+
+        healthbar.SetHealth(hp);
         //playerHealth.health += 25;
     }
 

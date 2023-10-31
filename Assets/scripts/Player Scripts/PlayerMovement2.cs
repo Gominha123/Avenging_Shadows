@@ -146,8 +146,8 @@ public class PlayerMovement2 : MonoBehaviour
 
         if (Input.GetButtonUp("Fire1"))
         {
-            //wp.enableAttack = true;
             anim.SetTrigger("Attack");
+            anim.SetBool("isAttacking", true);
         }
 
 
@@ -330,12 +330,9 @@ public class PlayerMovement2 : MonoBehaviour
             //anim.SetFloat("VelocityX", rb.velocity.x);
             //anim.SetFloat("VelocityZ", rb.velocity.z);
 
-            if (wp.enableAttack)
-            {
-                //anim.SetTrigger("Attack");
-            }
 
         }
+        wp.enableAttack = anim.GetBool("isAttacking");
     }
 
     private void Jump()

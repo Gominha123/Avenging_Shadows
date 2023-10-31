@@ -9,6 +9,9 @@ TagManager:
   - EnemyProjectile
   - Interactable
   - Item
+  - BFSword
+  - Sword
+  - Spear
   layers:
   - Default
   - TransparentFX

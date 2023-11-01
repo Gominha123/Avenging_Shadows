@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df73fccf484edbc4cb436cb74e9ce49d, type: 3}
   m_Name: Map
   m_EditorClassIdentifier: 
-  id: 0
-  itemName: 
+  id: 8
+  itemName: Map
   value: 0
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 9667055d1ed084846b0cdb2767ea0eec, type: 3}
   itemType: 0
-  description: 
+  description: "Map of the king\xB4s soldier\xB4s training camp"

@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df73fccf484edbc4cb436cb74e9ce49d, type: 3}
   m_Name: MomLetter
   m_EditorClassIdentifier: 
-  id: 0
-  itemName: 
+  id: 7
+  itemName: "Mother\xB4s Letter"
   value: 0
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: c5a0fa714fafde64db1f5c1666c70edf, type: 3}
   itemType: 0
-  description: 
+  description: "This is the letter you found in your mother\xB4s hand."

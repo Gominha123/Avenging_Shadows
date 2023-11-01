@@ -5442,7 +5442,7 @@ MonoBehaviour:
   stepSmooth: 0.1
   orientation: {fileID: 6132928740207442941}
   anim: {fileID: 6132928741916563521}
-  playerObj: {fileID: 0}
+  playerObj: {fileID: 6132928741916563523}
   state: 0
 --- !u!114 &7813339806413699603
 MonoBehaviour:

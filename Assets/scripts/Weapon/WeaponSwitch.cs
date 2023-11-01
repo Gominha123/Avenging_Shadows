@@ -8,6 +8,13 @@ public class WeaponSwitch : MonoBehaviour
 
     public EquipedInv equipedInv;
 
+    PlayerMovement2 playerMovement;
+    WeaponController weaponController;
+
+    public AnimatorOverrideController animSword;
+    public AnimatorOverrideController animBFSword;
+    public AnimatorOverrideController animSpear;
+
     public int onDeleteIndex = 0;
     private bool onDelete0 = false;
     private bool onDelete1 = false;
@@ -17,6 +24,8 @@ public class WeaponSwitch : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        playerMovement = GetComponentInParent<PlayerMovement2>();
+
         StartingWeapons();
         SelectWeapon();
     }
@@ -67,10 +76,6 @@ public class WeaponSwitch : MonoBehaviour
             SelectWeapon();
         }
 
-
-
-
-
     }
 
     public void SelectWeapon()
@@ -82,6 +87,8 @@ public class WeaponSwitch : MonoBehaviour
             {
                 weapon.gameObject.SetActive(true);
                 equipedInv.ChangeCurrentWeaponIcon(i);
+
+                ChooseAnimator(weapon.tag);
             }
             else
                 weapon.gameObject.SetActive(false);
@@ -94,7 +101,7 @@ public class WeaponSwitch : MonoBehaviour
     {
         Item items;
         int count = 0;
-        foreach(Transform weapon in transform)
+        foreach (Transform weapon in transform)
         {
             equipedInv.Add(weapon.GetComponent<ItemController>().item, count);
             count++;
@@ -138,11 +145,11 @@ public class WeaponSwitch : MonoBehaviour
         onDeleteIndex = i;
         foreach (Transform weapon in transform)
         {
-            if(count == i)
+            if (count == i)
             {
                 Destroy(weapon.gameObject);
                 obj.transform.parent = transform;
-                if(i == 0)
+                if (i == 0)
                 {
                     obj.transform.SetAsFirstSibling();
                 }
@@ -170,13 +177,13 @@ public class WeaponSwitch : MonoBehaviour
 
     public void AddWeapon(string weaponName, bool firstSibling)
     {
-        GameObject weaponPrefab = (GameObject)Resources.Load("Weapons/"+ weaponName);
+        GameObject weaponPrefab = (GameObject)Resources.Load("Weapons/" + weaponName);
         GameObject weapon = Instantiate(weaponPrefab);
         Vector3 tempPos = weapon.transform.position;
         Quaternion tempRot = weapon.transform.rotation;
         weapon.transform.parent = transform;
         weapon.transform.SetLocalPositionAndRotation(tempPos, tempRot);
-        if(firstSibling)
+        if (firstSibling)
         {
             weapon.transform.SetAsFirstSibling();
         }
@@ -185,4 +192,22 @@ public class WeaponSwitch : MonoBehaviour
             weapon.transform.SetAsLastSibling();
         }
     }
+
+    private void ChooseAnimator(string chooseWeaponVar)
+    {
+        if (chooseWeaponVar == "BFSword")
+        {
+            playerMovement.anim.runtimeAnimatorController = animBFSword;
+        }
+        else if (chooseWeaponVar == "Sword")
+        {
+            playerMovement.anim.runtimeAnimatorController = animSword;
+        }
+        else if (chooseWeaponVar == "Spear")
+        {
+            playerMovement.anim.runtimeAnimatorController = animSpear;
+        }
+    }
+
+
 }

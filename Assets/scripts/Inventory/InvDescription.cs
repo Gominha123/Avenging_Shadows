@@ -31,12 +31,12 @@ public class InvDescription : MonoBehaviour
 
     }
 
-    public void SetUp(string nameItem, string descriptionItem, bool interactable)
+    public void SetUp(string nameItem, string descriptionItem, bool useButtoninteractable, bool deleteButtoninteractable)
     {
         nameTextTMP.text = nameItem;
         descriptionTextTMP.text = descriptionItem;
-        useButton.interactable = interactable;
-        deleteButton.interactable = interactable;
+        useButton.interactable = useButtoninteractable;
+        deleteButton.interactable = deleteButtoninteractable;
         //uiPanel.SetActive(true);
         nameTextTMP.gameObject.SetActive(true);
         descriptionTextTMP.gameObject.SetActive(true);

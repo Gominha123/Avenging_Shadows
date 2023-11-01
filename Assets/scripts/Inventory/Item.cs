@@ -18,6 +18,7 @@ public class Item : ScriptableObject
         NotKeyItem,
         Weapon,
         Health,
-        Artefact
+        Artefact,
+        Tooth
     }
 }

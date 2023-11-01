@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
@@ -87,47 +88,78 @@ public class Inventory : MonoBehaviour
         return false;
     }
 
-    public void FindItemIndex(GameObject button)
+    public void FindItemIndex(GameObject button, [ Optional ] bool delete)
     {
         if (button != null)
         {
             currentIndex = button.transform.GetSiblingIndex();
-            bool interactable = false;
-            if (items[currentIndex].itemType == Item.ItemType.KeyItem) { }
-            else interactable = true;
-            invDesciption.SetUp(items[currentIndex].itemName, items[currentIndex].description, interactable);
-            //selectedItem = items[currentIndex];
+            switch (items[currentIndex].itemType)
+            {
+                case Item.ItemType.KeyItem:
+                    invDesciption.SetUp(items[currentIndex].itemName, items[currentIndex].description, false, false);
+                    break;
+                case Item.ItemType.Artefact:
+                    invDesciption.SetUp(items[currentIndex].itemName, items[currentIndex].description, false, true);
+                    break;
+                default:
+                    invDesciption.SetUp(items[currentIndex].itemName, items[currentIndex].description, true, true);
+                    break;
+
+            }
+            //bool interactable = false;
+            //if (items[currentIndex].itemType == Item.ItemType.KeyItem) { }
+            //else interactable = true;
+            //invDesciption.SetUp(items[currentIndex].itemName, items[currentIndex].description, interactable);
+            ////selectedItem = items[currentIndex];
 
         }
         else
         {
-            switch (items[currentIndex].itemType)
+            if(delete)
             {
-                case Item.ItemType.KeyItem:
-                    return;
-                case Item.ItemType.Weapon:
-                    //equipedInventory.button = 0;
-                    //equipedInventoryIndex = 0;
-                    DisableItemButtons();
-                    equipedInventory.ReturnButtonClick();
-                    equipedInventory.tempItem = items[currentIndex];
-                    Remove(items[currentIndex]);
-                    break;
-                case Item.ItemType.NotKeyItem:
-                    Destroy(button);
-                    Remove(items[currentIndex]);
-                    ListItems();
-                    invDesciption.Close();
-                    break;
-                case Item.ItemType.Health:
-                    Destroy(button);
-                    Remove(items[currentIndex]);
-                    ListItems();
-                    invDesciption.Close();
-                    playerHealth.GetHp();
-                    break;
-                case Item.ItemType.Artefact:
-                    break;
+                Destroy(button);
+                Remove(items[currentIndex]);
+                ListItems();
+                invDesciption.Close();
+            }
+            else
+            {
+                switch (items[currentIndex].itemType)
+                {
+                    case Item.ItemType.KeyItem:
+                        return;
+                    case Item.ItemType.Weapon:
+                        //equipedInventory.button = 0;
+                        //equipedInventoryIndex = 0;
+                        DisableItemButtons();
+                        equipedInventory.ReturnButtonClick();
+                        equipedInventory.tempItem = items[currentIndex];
+                        Remove(items[currentIndex]);
+                        break;
+                    case Item.ItemType.NotKeyItem:
+                        Destroy(button);
+                        Remove(items[currentIndex]);
+                        ListItems();
+                        invDesciption.Close();
+                        break;
+                    case Item.ItemType.Health:
+                        Destroy(button);
+                        Remove(items[currentIndex]);
+                        ListItems();
+                        invDesciption.Close();
+                        playerHealth.GetHp();
+                        break;
+                    case Item.ItemType.Artefact:
+                        break;
+                    case Item.ItemType.Tooth:
+                        Destroy(button);
+                        Remove(items[currentIndex]);
+                        ListItems();
+                        invDesciption.Close();
+
+                        break;
+                }
+            
 
                     
             }
@@ -155,7 +187,7 @@ public class Inventory : MonoBehaviour
         {
             Destroy(item.gameObject);
             openInv.letDisable = false;
-            invDesciption.SetUp(null, "Please Select an Equiped Item Slot", false);
+            invDesciption.SetUp(null, "Please Select an Equiped Item Slot", false, false);
         }
     }
 

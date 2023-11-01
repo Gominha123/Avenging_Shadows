@@ -41,8 +41,6 @@ public class Settings : MonoBehaviour
         resolutionDropdown.RefreshShownValue();
 
         graphicsDropdown.value = QualitySettings.GetQualityLevel();
-
-        SetVolume(-40F);
     }
 
     public void SetResolution(int ResolutionIndex)
@@ -59,6 +57,11 @@ public class Settings : MonoBehaviour
     public void SetQuality(int qualityIndex)
     {
         QualitySettings.SetQualityLevel(qualityIndex);
+    }
+
+    public void SettingsGoback()
+    {
+        gameObject.SetActive(false);
     }
 
     public void SetFullscreen(bool fullscreen)

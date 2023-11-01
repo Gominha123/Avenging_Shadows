@@ -564,6 +564,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EquipedIcon2
       objectReference: {fileID: 0}
+    - target: {fileID: 2349299529799257099, guid: fbb07006db3e7cb46a306737cf9dd4e3, type: 3}
+      propertyPath: m_Value
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3497018404971444046, guid: fbb07006db3e7cb46a306737cf9dd4e3, type: 3}
       propertyPath: m_TagString
       value: Untagged
@@ -604,6 +608,10 @@ PrefabInstance:
       propertyPath: m_Color.a
       value: 0.19607843
       objectReference: {fileID: 0}
+    - target: {fileID: 5779605520110973276, guid: fbb07006db3e7cb46a306737cf9dd4e3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5835783508651494534, guid: fbb07006db3e7cb46a306737cf9dd4e3, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -162.5
@@ -642,15 +650,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6132928740852757984, guid: fbb07006db3e7cb46a306737cf9dd4e3, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.0042922185
+      value: 0.004292218
       objectReference: {fileID: 0}
     - target: {fileID: 6132928740852757984, guid: fbb07006db3e7cb46a306737cf9dd4e3, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 9.648022e-10
+      value: -0.0000000011897126
       objectReference: {fileID: 0}
     - target: {fileID: 6132928740852757984, guid: fbb07006db3e7cb46a306737cf9dd4e3, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -4.1411826e-12
+      value: 5.106558e-12
       objectReference: {fileID: 0}
     - target: {fileID: 6132928741068446096, guid: fbb07006db3e7cb46a306737cf9dd4e3, type: 3}
       propertyPath: m_LocalPosition.x
@@ -750,19 +758,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6461113945879240893, guid: fbb07006db3e7cb46a306737cf9dd4e3, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 6461113945879240893, guid: fbb07006db3e7cb46a306737cf9dd4e3, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6461113945879240893, guid: fbb07006db3e7cb46a306737cf9dd4e3, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 6636754445165424052, guid: fbb07006db3e7cb46a306737cf9dd4e3, type: 3}
       propertyPath: m_Name
       value: EquipedIcon1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7021496293096185504, guid: fbb07006db3e7cb46a306737cf9dd4e3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7133283977948244985, guid: fbb07006db3e7cb46a306737cf9dd4e3, type: 3}
       propertyPath: m_AnchorMax.y
@@ -830,11 +842,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7695793541620045786, guid: fbb07006db3e7cb46a306737cf9dd4e3, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7695793541620045786, guid: fbb07006db3e7cb46a306737cf9dd4e3, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8983538246644970986, guid: fbb07006db3e7cb46a306737cf9dd4e3, type: 3}
       propertyPath: m_AnchorMax.y

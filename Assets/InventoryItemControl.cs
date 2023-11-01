@@ -17,7 +17,7 @@ public class InventoryItemControl : MonoBehaviour
 
     public void ButtonClickDelete()
     {
-        Inventory.Instance.FindItemIndex(null);
+        Inventory.Instance.FindItemIndex(null, true);
     }
 
     public void ButtonCLickUse()

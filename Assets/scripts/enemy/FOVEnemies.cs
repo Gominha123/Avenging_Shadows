@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class FOVEnemies : MonoBehaviour
@@ -40,6 +41,9 @@ public class FOVEnemies : MonoBehaviour
     LayerMask obstacleLayer;
     float checkTimer = 0;
 
+    public GameObject player;
+    public float hearRadius;
+
     private void Start()
     {
         checkTimer = 0;
@@ -74,6 +78,12 @@ public class FOVEnemies : MonoBehaviour
         if (checkFrequency == CheckFrequency.AllTheTime)
         {
             CheckEnemies();
+        }
+
+        float hearDistance = Vector3.Distance(transform.position, player.transform.position);
+        if (player.GetComponent<PlayerMovement2>().walkSpeed>0.5 && hearDistance < hearRadius)
+        {
+            Debug.Log("I can hear you");
         }
     }
 
@@ -180,6 +190,9 @@ public class FOVEnemies : MonoBehaviour
             float angle = Vector3.Angle(transform.forward, rayDirection1);
             Vector3 pos = enemyHead.position + (enemyHead.forward * visionDistance * Mathf.Cos(angle * Mathf.Deg2Rad));
             UnityEditor.Handles.DrawWireDisc(pos, enemyHead.transform.forward, visionDistance * Mathf.Sin(angle * Mathf.Deg2Rad));
+
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireSphere(transform.position, hearRadius);
         }
     }
 }

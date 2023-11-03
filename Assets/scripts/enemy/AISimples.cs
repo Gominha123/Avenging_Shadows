@@ -9,6 +9,7 @@ using static TMPro.SpriteAssetUtilities.TexturePacker_JsonArray;
 using UnityEngine.TextCore.Text;
 using static UnityEngine.EventSystems.EventTrigger;
 using static UnityEngine.UIElements.VisualElement;
+using System.Collections;
 
 [RequireComponent(typeof(NavMeshAgent))]
 
@@ -33,7 +34,9 @@ public class AISimples : MonoBehaviour
     public float lastAttackTime = 5.0f; // Time of the last attack
     private bool isAttacking = false;
     private GameObject enemyAttackingPlayer;
-   
+    private AttackManager attackManager;
+    
+
 
     // Define the delegate for state functions
     private delegate void StateFunction();
@@ -52,6 +55,7 @@ public class AISimples : MonoBehaviour
     private void Awake()
     {
         //anim = GetComponent<Animator>();
+        attackManager = FindObjectOfType<AttackManager>();
     }
 
     void Start()
@@ -76,7 +80,7 @@ public class AISimples : MonoBehaviour
         stateFunctions[stateOfAi.following] = Following;
         stateFunctions[stateOfAi.searchingLostTarget] = SearchingLostTarget;
         stateFunctions[stateOfAi.attacking] = Attacking; // Add the attacking state
-        
+
 
         // Set the initial state function
         currentStateFunction = stateFunctions[_stateAI];
@@ -170,7 +174,7 @@ public class AISimples : MonoBehaviour
 
         CheckForVisibleEnemies();
     }
-    
+
 
 
     private void Attacking()
@@ -258,27 +262,28 @@ public class AISimples : MonoBehaviour
     //}
     private void OnTriggerEnter(Collider other)
     {
-        
-
-        if (other.gameObject.tag == "Player")
+        if (other.gameObject.CompareTag("Player") && !attackManager.IsEnemyAttacking(gameObject))
         {
-            
             PlayerHealth player = other.gameObject.GetComponent<PlayerHealth>();
 
-            if (player != null)
+            if (player != null && lastAttackTime >= attackCooldown)
             {
-                
-
-                if (lastAttackTime >= attackCooldown)
-                {
-                    
-                    player.TakeDamage(damage);
-                    lastAttackTime = 0f;
-                }
+                player.TakeDamage(damage);
+                lastAttackTime = 0f;
+                attackManager.RegisterAttackingEnemy(gameObject);
+                StartCoroutine(ResetAttackCooldown());
             }
-            
         }
     }
+
+    private IEnumerator ResetAttackCooldown()
+    {
+        yield return new WaitForSeconds(attackCooldown);
+        attackManager.UnregisterAttackingEnemy(gameObject);
+    }
+
+
+
 
 
     public AISimples.stateOfAi GetCurrentState()

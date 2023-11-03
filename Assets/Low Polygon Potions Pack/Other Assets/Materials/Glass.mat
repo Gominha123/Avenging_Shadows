@@ -92,10 +92,10 @@ Material:
     - _UVSec: 0
     - _ZWrite: 0
     m_Colors:
-    - _Color: {r: 0.9705882, g: 0.9705882, b: 0.9705882, a: 0.378}
+    - _Color: {r: 0.8867924, g: 0.8867924, b: 0.8867924, a: 0.378}
     - _Colour: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _ReflectColour: {r: 0.7352941, g: 0.7352941, b: 0.7352941, a: 0.5}
     - _RimColour: {r: 0, g: 0, b: 0, a: 0}
-    - _SpecColor: {r: 0.11764705, g: 0.11764705, b: 0.11764705, a: 1}
+    - _SpecColor: {r: 0.49428335, g: 1, b: 0.4292453, a: 1}
   m_BuildTextureStacks: []

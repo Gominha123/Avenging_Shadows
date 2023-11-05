@@ -6,10 +6,12 @@ public class EnemyHealth : MonoBehaviour
 {
     public float health;
     public bool isDead;
+    Animator anim;
 
     public void Start()
     {
-        isDead = false;
+        //isDead = false;
+        anim = GetComponent<Animator>();
     }
 
 
@@ -17,10 +19,12 @@ public class EnemyHealth : MonoBehaviour
     public void TakeDamage(float damage)
     {
         health -= damage;
+        //anim.SetBool("TakeDamage", true);
+        anim.SetTrigger("TakeDamage");
         if (health <= 0)
         {
-            isDead = true;
-            Destroy(gameObject);
+            //isDead = true;
+            anim.SetTrigger("isDead");
         }
     }
 

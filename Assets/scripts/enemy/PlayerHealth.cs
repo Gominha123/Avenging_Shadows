@@ -23,6 +23,7 @@ public class PlayerHealth : MonoBehaviour
 
     PlayerMovement2 playermovement;
     PlayerHealth playerHealth;
+    public Animator anim;
     public bool isDead;
     bool damaged;
     Scene currentScene;
@@ -55,7 +56,7 @@ public class PlayerHealth : MonoBehaviour
         damaged = false;
 
         //Dodge
-        if(invAmt > 0)
+        if (invAmt > 0)
         {
             invAmt -= Time.deltaTime;
         }
@@ -67,20 +68,22 @@ public class PlayerHealth : MonoBehaviour
     {
         damaged = true;
 
-        hp -= damage;
+        if (invAmt <= 0)
+        {
+            hp -= damage;
+        }
 
         healthbar.SetHealth(hp);
 
-       // healthSlider.value = health;
+        // healthSlider.value = health;
 
         if (hp <= 0 && !isDead)
-            Death();
+        {
+            anim.SetTrigger("isDead");
+            isDead = true;
+        }
     }
 
-    void Death()
-    {
-        isDead = true;
-    }
     public void GetHp()
     {
         int healthPickup = 25;
@@ -88,7 +91,7 @@ public class PlayerHealth : MonoBehaviour
 
         playerHealth.hp += healthPickup;
 
-        if(playerHealth.hp > 100)
+        if (playerHealth.hp > 100)
             playerHealth.hp = 100;
 
         healthbar.SetHealth(hp);
@@ -97,7 +100,7 @@ public class PlayerHealth : MonoBehaviour
 
     public void Invinsible(float delay, float invLength)
     {
-        if(delay > 0)
+        if (delay > 0)
         {
             StartCoroutine(StartInvinsible(delay, invLength));
         }
@@ -110,7 +113,6 @@ public class PlayerHealth : MonoBehaviour
     IEnumerator StartInvinsible(float delay, float invLength)
     {
         yield return new WaitForSeconds(delay);
-        Debug.Log("Invinsible");
         invAmt = invLength;
     }
 }

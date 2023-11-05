@@ -105,11 +105,12 @@ public class PlayerMovement2 : MonoBehaviour
 
     private void Update()
     {
-        IsGrounded();
         MyInput();
+        Animations();
+        IsGrounded();
+
         SpeedControl();
         StateHandler();
-        Animations();
 
         //handle drag
         if (grounded)
@@ -125,8 +126,12 @@ public class PlayerMovement2 : MonoBehaviour
 
     private void FixedUpdate()
     {
-        MovePLayer();
-        stepClimb();
+        if (!anim.GetBool("isAttacking"))
+        {
+            MovePLayer();
+            stepClimb();
+        }
+
     }
 
     private void MyInput()

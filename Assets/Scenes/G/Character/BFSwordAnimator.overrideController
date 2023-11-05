@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: BFSwordAnimator
+  m_Controller: {fileID: 9100000, guid: 0d9cd9137805624479135838b47f1c14, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 83b117baf7ad94343ac4130e429cc7fe, type: 2}
+    m_OverrideClip: {fileID: -203655887218126122, guid: 5b7a258e8ecee5948ba60103399e6eea, type: 3}
+  - m_OriginalClip: {fileID: 7400000, guid: 73b535932ab3e4848a8882084a065061, type: 2}
+    m_OverrideClip: {fileID: -203655887218126122, guid: 77a2d5ca94dc08745bc845f57ae1221a, type: 3}
+  - m_OriginalClip: {fileID: 7400000, guid: c9c92a543a774eb47be1b69e39c9eae8, type: 2}
+    m_OverrideClip: {fileID: -203655887218126122, guid: d178e537c310059439e8b6a0b3b60cc6, type: 3}
+  - m_OriginalClip: {fileID: 7400000, guid: 4a7e226569847a0439e6ce0dc9456d1e, type: 2}
+    m_OverrideClip: {fileID: -203655887218126122, guid: 42983f05d075034499341985fcabceab, type: 3}
+  - m_OriginalClip: {fileID: 7400000, guid: c891b75fdd2e78241b4f527f209f3a4c, type: 2}
+    m_OverrideClip: {fileID: -203655887218126122, guid: 42b8c742158dbff4d8eef5422b68c04e, type: 3}
+  - m_OriginalClip: {fileID: 7400000, guid: 9e45463430ce69a4ba2ceec168bc7fdd, type: 2}
+    m_OverrideClip: {fileID: -203655887218126122, guid: 64bce71197d82a94ca33f3de667cc0d6, type: 3}
+  - m_OriginalClip: {fileID: 7400000, guid: 9b6791b3a16cf7243a87e23ca4ca0b4e, type: 2}
+    m_OverrideClip: {fileID: -203655887218126122, guid: 74ff7b066bd6ac244ba08c4b4f8ba156, type: 3}
+  - m_OriginalClip: {fileID: 7400000, guid: d7558c1f9398e4e47be663afd584f1c4, type: 2}
+    m_OverrideClip: {fileID: -203655887218126122, guid: cb3b97ad92365464194a3f1c49fcf052, type: 3}

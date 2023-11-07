@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: LongSword
   m_EditorClassIdentifier: 
   upgradeDamage: 1
+  durability: 1000
   weaponType: 0

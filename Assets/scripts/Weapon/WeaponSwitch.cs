@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.Progress;
 
 public class WeaponSwitch : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class WeaponSwitch : MonoBehaviour
 
     PlayerMovement2 playerMovement;
     WeaponController weaponController;
+    public InteractionPromptUI interactionPromptUI;
 
     public AnimatorOverrideController animSword;
     public AnimatorOverrideController animBFSword;
@@ -107,6 +109,7 @@ public class WeaponSwitch : MonoBehaviour
         {
             //
             equipedInv.Add(weapon?.GetComponent<ItemController>()?.item, count);
+            weapon.gameObject.layer = 0;
             count++;
         }
     }
@@ -178,10 +181,38 @@ public class WeaponSwitch : MonoBehaviour
         //}
     }
 
+    public void DeleteEquipedOnDurability(Transform currentWeapon)
+    {
+        int i = 0;
+        //GameObject obj = new GameObject("Hold" + i);
+        foreach (Transform weapon in transform)
+        {
+            if (currentWeapon == weapon)
+            {
+                interactionPromptUI.SetUp("Weapon Broke");
+                StartCoroutine(DoAfterFiveSeconds());
+                GameObject obj = new GameObject("Hold" + i);
+                Destroy(weapon.gameObject);
+                obj.transform.parent = transform;
+                if (i == 0)
+                {
+                    obj.transform.SetAsFirstSibling();
+                }
+                else
+                {
+                    obj.transform.SetAsLastSibling();
+                }
+                return;
+            }
+            i++;
+        }
+    }
+
     public void AddWeapon(string weaponName, bool firstSibling)
     {
         GameObject weaponPrefab = (GameObject)Resources.Load("Weapons/" + weaponName);
         GameObject weapon = Instantiate(weaponPrefab);
+        weapon.layer = 0;
         Vector3 tempPos = weapon.transform.position;
         Quaternion tempRot = weapon.transform.rotation;
         weapon.transform.parent = transform;
@@ -233,6 +264,14 @@ public class WeaponSwitch : MonoBehaviour
         {
             playerMovement.anim.runtimeAnimatorController = animSpear;
         }
+    }
+
+    IEnumerator DoAfterFiveSeconds()
+    {
+        yield return new WaitForSeconds(5);
+
+        interactionPromptUI.Close();
+
     }
 
 

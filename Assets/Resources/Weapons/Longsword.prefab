@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -179584833823931377}
   - component: {fileID: -1929958495508996403}
   - component: {fileID: 63886924049106488}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Longsword
   m_TagString: BFSword
   m_Icon: {fileID: 0}
@@ -115,6 +115,8 @@ MonoBehaviour:
   attackCooldown: 2
   damage: 1
   enableAttack: 0
+  durability: 0
+  item: {fileID: 11400000, guid: fb113a35f4da63140b92a2bbb213757e, type: 2}
 --- !u!114 &63886924049106488
 MonoBehaviour:
   m_ObjectHideFlags: 0

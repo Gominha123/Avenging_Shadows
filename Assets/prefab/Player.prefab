@@ -1244,6 +1244,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8504267286400166422}
   - component: {fileID: 3096917067976496965}
+  - component: {fileID: 4000164097871561321}
   m_Layer: 0
   m_Name: WeaponHolder
   m_TagString: Untagged
@@ -1281,11 +1282,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectedWeapon: 0
   equipedInv: {fileID: 2463248961632808138}
+  interactionPromptUI: {fileID: 2458608417354853027}
   animSword: {fileID: 22100000, guid: 4804e802261138a43bc114270b4fcbdb, type: 2}
   animBFSword: {fileID: 22100000, guid: 387ad675c5b70084eaba2629bb2a53d8, type: 2}
   animSpear: {fileID: 22100000, guid: 8298159e25966ce43a9831c8987ae2c6, type: 2}
   onDeleteIndex: 0
   onDeleteNum: 0
+--- !u!114 &4000164097871561321
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2302788472374457251}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28e03f429c0155e428e5fb5652c206c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2563130556815762358
 GameObject:
   m_ObjectHideFlags: 0
@@ -7761,6 +7775,7 @@ MonoBehaviour:
   attackCooldown: 0
   damage: 0
   enableAttack: 0
+  durability: 0
 --- !u!1 &8460284157867484839
 GameObject:
   m_ObjectHideFlags: 0

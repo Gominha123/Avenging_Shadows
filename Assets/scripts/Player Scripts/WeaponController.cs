@@ -26,22 +26,36 @@ public class CurrentWeapon : IWeapon
     }
 }
 
-public class WeaponController : MonoBehaviour, IWeapon
+public class WeaponController : MonoBehaviour, IWeapon, IInteractable
 {
     [SerializeField] Weapon weaponItem;
     public IWeapon weapon { get; set; }
     public float attackCooldown;
     public float damage;
     public bool enableAttack;
+    public int durability;
 
     private void Awake()
     {
         weapon = WeaponFactory.Create(weaponItem);
+        damage = weaponItem.upgradeDamage;
+        durability = weaponItem.durability;
     }
 
     public float UpdateDamage()
     {
         return weapon.UpdateDamage();
+    }
+
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.Mouse0) && GetComponentInParent<WeaponSwitch>()) {
+            durability--;
+            if (durability <= 0)
+            {
+                this.GetComponentInParent<WeaponSwitch>().DeleteEquipedOnDurability(this.transform);
+            }
+        }
     }
 
 
@@ -56,28 +70,41 @@ public class WeaponController : MonoBehaviour, IWeapon
         {
             EnemyHealth enemy = other.GetComponent<EnemyHealth>();
             enemy.TakeDamage(damage);
+            durability--;
+            if(durability <= 0) {
+                this.GetComponentInParent<WeaponSwitch>().DeleteEquipedOnDurability(this.transform);
+            }
         }
     }
+
+    public Item item;
+
+    private string prompt;
+
+    public string InteractablePrompt => "Press E to Pick Up" + prompt;
+
+    public void Interact()
+    {
+        if (Inventory.Instance.Count() < 10)
+        {
+            Inventory.Instance.Add(item);
+            
+            gameObject.SetActive(false);
+            Inventory.Instance.AddObject(gameObject);
+        }
+        else
+        {
+            prompt = "Inventory is Full";
+            StartCoroutine(DoAfterFiveSeconds());
+        }
+
+    }
+
+    IEnumerator DoAfterFiveSeconds()
+    {
+        yield return new WaitForSeconds(5);
+
+        prompt = item.name;
+
+    }
 }
-
-//public class WeaponController : MonoBehaviour
-//{
-//    //public GameObject Weapon;
-//    public float attackCooldown;
-//    public float damage;
-//    public bool enableAttack;
-
-//    public void Start()
-//    {
-//        enableAttack = false;
-//    }
-
-//    public void OnTriggerEnter(Collider other)
-//    {
-//        if(other.tag == "Enemy" && enableAttack)
-//        {
-//            EnemyHealth enemy = other.GetComponent<EnemyHealth>();
-//            enemy.TakeDamage(damage);
-//        }
-//    }
-//}

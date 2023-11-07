@@ -10,6 +10,11 @@ using static UnityEditor.Progress;
 
 public class EquipedInv : MonoBehaviour
 {
+    [SerializeField] Weapon Tooth;
+    public IWeapon tooth;
+
+    public GameObject toothObject;
+
     public GameObject weaponHolder;
     public Item[] items = new Item[2];
 
@@ -135,6 +140,12 @@ public class EquipedInv : MonoBehaviour
     //    currentWeaponIcon.sprite = sprites[index];
     //}
 
+    public void ReturnButtonClickForUpgrade()
+    {
+        StartCoroutine(GetItemSelectForUpgrade());
+        coroutine = true;
+    }
+
     IEnumerator GetItemSelect()
     {
         // ...
@@ -175,6 +186,45 @@ public class EquipedInv : MonoBehaviour
             invDescription.Close();
             openInv.letDisable = true;
             ShowEquiped();
+        }
+        // ...
+    }
+
+    IEnumerator GetItemSelectForUpgrade()
+    {
+        // ...
+        var waitForButton = new WaitForUIButtons(weapon1, weapon2);
+        yield return waitForButton.Reset();
+        if (waitForButton.PressedButton == weapon1)
+        {
+            //Debug.Log("1");
+            coroutine = false;
+            if (items[0] != null)
+            {
+                //tooth = WeaponFactory.Create(Tooth);
+                weaponSwitch.UpgradeWeapon(0, toothObject);
+                Inventory.Instance.ListItems();
+                invDescription.Close();
+                openInv.letDisable = true;
+                ShowEquiped();
+            }
+        }
+        else
+        {
+            //Debug.Log("2");
+            coroutine = false;
+            if (items[1] != null)
+            {
+                //tooth = new ToothDecorator(tempItem.value);
+                //tooth = WeaponFactory.Create(Tooth);
+                weaponSwitch.UpgradeWeapon(1, toothObject);
+
+
+                Inventory.Instance.ListItems();
+                invDescription.Close();
+                openInv.letDisable = true;
+                ShowEquiped();
+            }
         }
         // ...
     }

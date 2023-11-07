@@ -10,6 +10,14 @@ public class ToothInteraction : MonoBehaviour, IInteractable
 
     private string prompt;
 
+
+    //public IWeapon tooth;
+
+    //private void Awake()
+    //{
+    //    tooth = new ToothDecorator(item.value);
+    //}
+
     public string InteractablePrompt => "Press E to Pick Up";//+ prompt;
 
     public void Interact()
@@ -17,7 +25,11 @@ public class ToothInteraction : MonoBehaviour, IInteractable
         if (Inventory.Instance.Count() < 10)
         {
             Inventory.Instance.Add(item);
-            Destroy(gameObject);
+            //Destroy(gameObject);
+
+            gameObject.SetActive(false);
+            Inventory.Instance.AddObject(gameObject);
+            //tooth = new ToothDecorator(damage);
         }
         else
         {

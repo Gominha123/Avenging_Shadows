@@ -11,6 +11,8 @@ public class Inventory : MonoBehaviour
     public static Inventory Instance;
     public List<Item> items = new List<Item>();
 
+    public List<GameObject> teeth = new List<GameObject>();
+
     //public Item[] items = new Item[10];
 
     public Transform itemContent;
@@ -57,6 +59,17 @@ public class Inventory : MonoBehaviour
         //{
         //    if()
         //}
+
+    }
+
+    public void AddObject(GameObject tooth)
+    {
+        teeth.Add(tooth);
+    }
+
+    public void RemoveObject(GameObject tooth)
+    {
+        teeth.Remove(tooth);
 
     }
 
@@ -132,8 +145,8 @@ public class Inventory : MonoBehaviour
                         //equipedInventory.button = 0;
                         //equipedInventoryIndex = 0;
                         DisableItemButtons();
-                        equipedInventory.ReturnButtonClick();
                         equipedInventory.tempItem = items[currentIndex];
+                        equipedInventory.ReturnButtonClick();
                         Remove(items[currentIndex]);
                         break;
                     case Item.ItemType.NotKeyItem:
@@ -152,10 +165,12 @@ public class Inventory : MonoBehaviour
                     case Item.ItemType.Artefact:
                         break;
                     case Item.ItemType.Tooth:
-                        Destroy(button);
+                        //Destroy(button);
+                        DisableItemButtons();
+                        equipedInventory.toothObject = teeth[0];
+                        equipedInventory.ReturnButtonClickForUpgrade();
                         Remove(items[currentIndex]);
-                        ListItems();
-                        invDesciption.Close();
+                        RemoveObject(teeth[0]);
 
                         break;
                 }

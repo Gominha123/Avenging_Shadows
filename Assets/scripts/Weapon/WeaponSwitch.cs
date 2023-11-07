@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class WeaponSwitch : MonoBehaviour
 {
+    //public IWeapon Weapon {  get; set; }
+
     public int selectedWeapon = 0;
 
     public EquipedInv equipedInv;
@@ -103,7 +105,8 @@ public class WeaponSwitch : MonoBehaviour
         int count = 0;
         foreach (Transform weapon in transform)
         {
-            equipedInv.Add(weapon.GetComponent<ItemController>().item, count);
+            //
+            equipedInv.Add(weapon?.GetComponent<ItemController>()?.item, count);
             count++;
         }
     }
@@ -190,6 +193,29 @@ public class WeaponSwitch : MonoBehaviour
         else
         {
             weapon.transform.SetAsLastSibling();
+        }
+    }
+
+    public void UpgradeWeapon(int i, GameObject tooth)
+    {
+        int count = 0;
+        onDeleteIndex = i;
+        WeaponController toothcontroller = tooth.GetComponent<WeaponController>();
+        foreach (Transform weapon in transform)
+        {
+            if (count == i)
+            {
+                if (toothcontroller.weapon is WeaponDecorator decorator)
+                {
+                    WeaponController weaponController = weapon.GetComponent<WeaponController>();
+                    WeaponManager.Instance.SelectedWeapon = toothcontroller;
+                    WeaponManager.Instance.Decorate(weaponController);
+                    WeaponManager.Instance.SelectedWeapon.weapon.UpdateDamage();
+                    weaponController.damage = weaponController.UpdateDamage();
+
+                }
+            }
+            count++;
         }
     }
 

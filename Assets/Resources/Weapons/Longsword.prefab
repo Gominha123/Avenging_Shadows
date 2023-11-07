@@ -111,6 +111,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d8d4ba507747794e91c50a82cd5c2ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  weaponItem: {fileID: 11400000, guid: 52da79f62ad25d2459e8e0a4af217db3, type: 2}
   attackCooldown: 2
   damage: 1
   enableAttack: 0

@@ -863,6 +863,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78d56361f54e2994e985460ea06d8087, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Tooth: {fileID: 0}
+  toothObject: {fileID: 0}
   weaponHolder: {fileID: 2302788472374457251}
   items:
   - {fileID: 0}
@@ -1999,6 +2001,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   items: []
+  teeth: []
   itemContent: {fileID: 4062366270827711444}
   inventoryItem: {fileID: 1061410304554872200, guid: 8b78edcdfb5a7dd47b027b44d819a3d6, type: 3}
   equipedInventory: {fileID: 2463248961632808138}
@@ -7754,6 +7757,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d8d4ba507747794e91c50a82cd5c2ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  weaponItem: {fileID: 11400000, guid: 52da79f62ad25d2459e8e0a4af217db3, type: 2}
   attackCooldown: 0
   damage: 0
   enableAttack: 0

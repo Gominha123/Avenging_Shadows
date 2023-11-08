@@ -35,7 +35,8 @@ public class AISimples : MonoBehaviour
     private bool isAttacking = false;
     private GameObject enemyAttackingPlayer;
     private AttackManager attackManager;
-    
+    private EnemyHealth enemyHealth;
+
 
 
     // Define the delegate for state functions
@@ -48,7 +49,7 @@ public class AISimples : MonoBehaviour
 
     public enum stateOfAi
     {
-        patrolling, following, searchingLostTarget, waiting, attacking
+        patrolling, following, searchingLostTarget, waiting, attacking, dead
     };
     stateOfAi _stateAI = stateOfAi.patrolling;
 
@@ -61,6 +62,7 @@ public class AISimples : MonoBehaviour
     void Start()
     {
         _navMesh = GetComponent<NavMeshAgent>();
+        enemyHealth = GetComponent<EnemyHealth>();
         target = null;
         lastPosKnown = Vector3.zero;
         _stateAI = stateOfAi.patrolling;
@@ -92,7 +94,14 @@ public class AISimples : MonoBehaviour
 
         currentStateFunction.Invoke();
 
-    }
+        if (enemyHealth != null && enemyHealth.health <= 0)
+        {
+            _stateAI = stateOfAi.dead;
+            currentStateFunction = Dead;
+            return;
+        }
+
+        }
 
     private void Patrolling()
     {
@@ -283,7 +292,10 @@ public class AISimples : MonoBehaviour
     }
 
 
-
+    private void Dead()
+    {
+        // No actions are performed in this state
+    }
 
 
     public AISimples.stateOfAi GetCurrentState()
@@ -293,6 +305,13 @@ public class AISimples : MonoBehaviour
 
     private void CheckForVisibleEnemies()
     {
+        if (enemyHealth != null && enemyHealth.health <= 0)
+        {
+            _stateAI = stateOfAi.dead;
+            currentStateFunction = Dead;
+            return;
+        }
+
         if (_head.visibleEnemies.Count > 0)
         {
             target = _head.visibleEnemies[0];

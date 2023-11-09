@@ -47,18 +47,6 @@ public class WeaponController : MonoBehaviour, IWeapon, IInteractable
         return weapon.UpdateDamage();
     }
 
-    private void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.Mouse0) && GetComponentInParent<WeaponSwitch>()) {
-            durability--;
-            if (durability <= 0)
-            {
-                this.GetComponentInParent<WeaponSwitch>().DeleteEquipedOnDurability(this.transform);
-            }
-        }
-    }
-
-
     public void Start()
     {
         enableAttack = false;
@@ -66,7 +54,7 @@ public class WeaponController : MonoBehaviour, IWeapon, IInteractable
 
     public void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Enemy" && enableAttack && weaponItem.weaponType != WeaponType.tooth)
+        if (other.tag == "Enemy" && enableAttack && weaponItem.weaponType == WeaponType.weapon)
         {
             EnemyHealth enemy = other.GetComponent<EnemyHealth>();
             enemy.TakeDamage(damage);

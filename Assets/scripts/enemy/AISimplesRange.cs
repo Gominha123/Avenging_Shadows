@@ -75,7 +75,7 @@ public class AISimplesRange : MonoBehaviour
     void Update()
     {
         currentStateFunction.Invoke();
-        Debug.Log(_stateAI);
+        //Debug.Log(_stateAI);
         attackTimer += Time.deltaTime;
     }
 

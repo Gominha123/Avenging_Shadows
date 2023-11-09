@@ -129,9 +129,8 @@ public class PlayerMovement2 : MonoBehaviour
         if (!anim.GetBool("isAttacking"))
         {
             MovePLayer();
-            stepClimb();
+            StepClimb();
         }
-
     }
 
     private void MyInput()
@@ -149,6 +148,7 @@ public class PlayerMovement2 : MonoBehaviour
             Invoke(nameof(ResetJump), jumpCooldown);
         }
 
+        //when presses mouse button1 attacks
         if (Input.GetButtonUp("Fire1"))
         {
             anim.SetTrigger("Attack");
@@ -272,11 +272,13 @@ public class PlayerMovement2 : MonoBehaviour
             }
         }
     }
-
+    
     private void Animations()
     {
+        //if in air, plays jump or fall animation
         if (!grounded)
         {
+            //if going down, plays falling
             if (rb.velocity.y < 0)
             {
                 anim.SetBool("Falling", true);
@@ -327,15 +329,10 @@ public class PlayerMovement2 : MonoBehaviour
 
             float actualSpeed = rb.velocity.magnitude;
 
-            if (actualSpeed < 0)
-                actualSpeed = 0;
+            //if (actualSpeed < 0)
+            //    actualSpeed = 0;
 
             anim.SetFloat("Velocity", actualSpeed);
-
-            //anim.SetFloat("VelocityX", rb.velocity.x);
-            //anim.SetFloat("VelocityZ", rb.velocity.z);
-
-
         }
         wp.enableAttack = anim.GetBool("isAttacking");
     }
@@ -356,7 +353,7 @@ public class PlayerMovement2 : MonoBehaviour
         exitingSlope = false;
     }
 
-    void stepClimb()
+    void StepClimb()
     {
         RaycastHit hitLower;
         if (Physics.Raycast(stepRayLower.transform.position, transform.TransformDirection(moveDirection), out hitLower, 0.1f))
@@ -390,7 +387,7 @@ public class PlayerMovement2 : MonoBehaviour
 
         hp.Invinsible(invDdelay, invDuration);
 
-        rb.AddForce(100f * pushAmt * playerObj.forward * Time.deltaTime, ForceMode.Force);
+        rb.AddForce(100f * pushAmt * Time.deltaTime * playerObj.forward, ForceMode.Force);
 
         anim.SetTrigger("Roll");
     }

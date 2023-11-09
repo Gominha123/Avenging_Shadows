@@ -9,6 +9,7 @@ public class AIAnimAudio : MonoBehaviour
     public AudioClip Attacking, Waiting, Patrolling, Following, SearchingLostTarget;
 
     private Animator _animator;
+    private Rigidbody rb;
     private AudioSource _audioSource;
     private bool _isAudioPlaying;
 
@@ -18,6 +19,8 @@ public class AIAnimAudio : MonoBehaviour
     {
         _animator = GetComponent<Animator>();
         _audioSource = GetComponent<AudioSource>();
+        
+        rb = GetComponent<Rigidbody>();
 
         // Inicializa o dicionário de clipes de áudio
         audioClips[AISimples.stateOfAi.patrolling] = Patrolling;
@@ -41,6 +44,8 @@ public class AIAnimAudio : MonoBehaviour
         _animator.SetBool("Patrolling", currentState == AISimples.stateOfAi.patrolling);
         _animator.SetBool("Following", currentState == AISimples.stateOfAi.following);
         _animator.SetBool("Waiting", currentState == AISimples.stateOfAi.waiting);
+
+        
     }
 
     void UpdateAudio()

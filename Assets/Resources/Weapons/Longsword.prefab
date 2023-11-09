@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: -6631469245550612396}
   - component: {fileID: 6841737587018828544}
   - component: {fileID: -179584833823931377}
-  - component: {fileID: -1929958495508996403}
   - component: {fileID: 63886924049106488}
+  - component: {fileID: -1929958495508996403}
   m_Layer: 10
   m_Name: Longsword
   m_TagString: BFSword
@@ -99,6 +99,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.41539028, y: 0.05699509, z: 2.0000005}
   m_Center: {x: 0.00000011920929, y: 0, z: 0.00000017881393}
+--- !u!114 &63886924049106488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 244185780078440454}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbfa7bccbb1dda549bd5cf95e00612c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item: {fileID: 11400000, guid: fb113a35f4da63140b92a2bbb213757e, type: 2}
 --- !u!114 &-1929958495508996403
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -116,17 +129,4 @@ MonoBehaviour:
   damage: 1
   enableAttack: 0
   durability: 0
-  item: {fileID: 11400000, guid: fb113a35f4da63140b92a2bbb213757e, type: 2}
---- !u!114 &63886924049106488
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 244185780078440454}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cbfa7bccbb1dda549bd5cf95e00612c1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
   item: {fileID: 11400000, guid: fb113a35f4da63140b92a2bbb213757e, type: 2}

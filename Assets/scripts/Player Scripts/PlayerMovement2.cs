@@ -23,7 +23,7 @@ public class PlayerMovement2 : MonoBehaviour
 
     [Header("Crouching")]
     public float crouchSpeed;
-    public float crouchYScale;
+    private float crouchYScale;
     private float startYScale;
 
     [Header("Slope Handling")]
@@ -102,7 +102,8 @@ public class PlayerMovement2 : MonoBehaviour
 
         canJump = true;
 
-        startYScale = transform.localScale.y;
+        startYScale = capsuleCollider.height;
+        crouchYScale = capsuleCollider.height * 0.75f;
 
         stepRayUpper.transform.position = new Vector3(stepRayUpper.transform.position.x, stepHeight, stepRayUpper.transform.position.z);
 
@@ -116,16 +117,6 @@ public class PlayerMovement2 : MonoBehaviour
 
         SpeedControl();
         StateHandler();
-
-        //handle drag
-        if (grounded)
-        {
-            rb.drag = groundDrag;
-        }
-        else
-            rb.drag = 0;
-
-        //Debug.Log(grounded);
 
     }
 
@@ -144,29 +135,31 @@ public class PlayerMovement2 : MonoBehaviour
         verticalInput = Input.GetAxisRaw("Vertical");
         bool Roll = Input.GetMouseButtonDown(1);
 
-
-        //when jump
-        if (Input.GetKey(jumpKey) && canJump && grounded && state != MovementState.crouching)
+        if (grounded)
         {
-            canJump = false;
-            Jump();
-            Invoke(nameof(ResetJump), jumpCooldown);
-        }
 
-        //when presses mouse button1 attacks
-        if (Input.GetButtonUp("Fire1"))
-        {
-            anim.SetTrigger("Attack");
-            anim.SetBool("isAttacking", true);
-        }
+            //when jump
+            if (Input.GetKey(jumpKey) && canJump && grounded && state != MovementState.crouching)
+            {
+                canJump = false;
+                Jump();
+                Invoke(nameof(ResetJump), jumpCooldown);
+            }
 
+
+            //when presses mouse button1 attacks
+            if (Input.GetButtonUp("Fire1"))
+            {
+                anim.SetTrigger("Attack");
+                anim.SetBool("isAttacking", true);
+            }
+        }
 
         if (actCd <= 0)
         {
             if (Roll)
             {
                 Dodge();
-
             }
         }
         else
@@ -181,6 +174,10 @@ public class PlayerMovement2 : MonoBehaviour
         //ground 
         grounded = Physics.Raycast(capsuleCollider.bounds.center, Vector3.down, capsuleCollider.bounds.extents.y + extraHeight, whatIsGround);
 
+        //handle drag
+        if (grounded) rb.drag = groundDrag;
+        else
+            rb.drag = 0;
     }
 
     private void StateHandler()
@@ -191,6 +188,7 @@ public class PlayerMovement2 : MonoBehaviour
         {
             state = MovementState.crouching;
             moveSpeed = crouchSpeed;
+            capsuleCollider.height = crouchYScale;
         }
 
         //Mode - Air
@@ -226,6 +224,7 @@ public class PlayerMovement2 : MonoBehaviour
             state = MovementState.walking;
             moveSpeed = walkSpeed;
         }
+        if (state != MovementState.crouching) capsuleCollider.height = startYScale;
     }
 
     private void MovePLayer()
@@ -237,7 +236,7 @@ public class PlayerMovement2 : MonoBehaviour
         //on slope
         if (OnSlope() && !exitingSlope)
         {
-            rb.AddForce(GetSlopeMoveDirection() * moveSpeed * 10f, ForceMode.Force);
+            rb.AddForce(10f * moveSpeed * GetSlopeMoveDirection(), ForceMode.Force);
 
             if (rb.velocity.y > 0)
                 rb.AddForce(Vector3.down * 20f, ForceMode.Force);
@@ -267,7 +266,7 @@ public class PlayerMovement2 : MonoBehaviour
 
         else
         {
-            Vector3 flatVel = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
+            Vector3 flatVel = new(rb.velocity.x, 0f, rb.velocity.z);
 
             //limit velocity if needed
             if (flatVel.magnitude > moveSpeed)
@@ -277,7 +276,7 @@ public class PlayerMovement2 : MonoBehaviour
             }
         }
     }
-    
+
     private void Animations()
     {
         //if in air, plays jump or fall animation

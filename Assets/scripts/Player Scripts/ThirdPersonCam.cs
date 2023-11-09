@@ -9,12 +9,13 @@ public class ThirdPersonCam : MonoBehaviour
     public Transform player;
     public Transform playerObj;
     public Rigidbody rb;
+    PlayerMovement2 pM;
 
-    public float rotationSpeed;
     public Vector3 viewDir;
 
     private void Start()
     {
+        pM = GetComponentInParent<PlayerMovement2>();
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
@@ -31,6 +32,6 @@ public class ThirdPersonCam : MonoBehaviour
         Vector3 inputDir = orientation.forward * verticalInput + orientation.right * horizontalInput;
 
         if (inputDir != Vector3.zero)
-            playerObj.forward = Vector3.Slerp(playerObj.forward, inputDir.normalized, Time.deltaTime * rotationSpeed);
+            playerObj.forward = Vector3.Slerp(playerObj.forward, inputDir.normalized, Time.deltaTime * pM.rSpeed);
     }
 }

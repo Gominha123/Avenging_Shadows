@@ -16,6 +16,11 @@ public class PlayerMovement2 : MonoBehaviour
     public float walkSpeed;
     public float sprintSpeed;
 
+    public float rSpeed;
+    private readonly float rStop = 0.1f;
+    private readonly float rMove = 7f;
+
+
     [Header("Crouching")]
     public float crouchSpeed;
     public float crouchYScale;
@@ -335,6 +340,11 @@ public class PlayerMovement2 : MonoBehaviour
             anim.SetFloat("Velocity", actualSpeed);
         }
         wp.enableAttack = anim.GetBool("isAttacking");
+
+        if (wp.enableAttack) rSpeed = rStop;
+        else rSpeed = rMove;
+
+
     }
 
     private void Jump()

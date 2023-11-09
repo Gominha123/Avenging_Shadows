@@ -2216,7 +2216,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 2
   drawSphere: 1
-  enemyTag: Enemy
+  enemyTag: Player
   extraRaysPerLayer: 20
   fieldOfViewAngle: 120
   numberOfLayers: 3

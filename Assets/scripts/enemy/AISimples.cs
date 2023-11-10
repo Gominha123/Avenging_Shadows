@@ -23,7 +23,7 @@ public class AISimples : MonoBehaviour
     public float attackCooldown = 5.0f; // Time between attacks
     public int damage = 10;
     public float waitingDistance = 10.0f;
-    
+
 
     private Animator anim;
     public NavMeshAgent _navMesh;
@@ -87,7 +87,7 @@ public class AISimples : MonoBehaviour
         stateFunctions[stateOfAi.following] = Following;
         stateFunctions[stateOfAi.searchingLostTarget] = SearchingLostTarget;
         stateFunctions[stateOfAi.attacking] = Attacking; // Add the attacking state
-        stateFunctions[stateOfAi.attacking] = Dead;
+        stateFunctions[stateOfAi.dead] = Dead;
 
 
         // Set the initial state function
@@ -99,11 +99,16 @@ public class AISimples : MonoBehaviour
 
         Debug.Log(_stateAI);
 
-        
+
 
         lastAttackTime += Time.deltaTime;
 
-        currentStateFunction.Invoke();
+       
+
+        if (_stateAI != stateOfAi.dead)
+        {
+            currentStateFunction.Invoke();
+        }
 
 
 
@@ -217,8 +222,15 @@ public class AISimples : MonoBehaviour
             {
                 Debug.Log("ataking");
                 // attack animation
-                StartCoroutine(StartDeathDelay());
+
+                // Check enemy health here
+                if (enemyHealth.health <= 0)
+                {
+                    StartCoroutine(StartDeathDelay());
+                }
+                
             }
+            
         }
         else
         {
@@ -233,7 +245,7 @@ public class AISimples : MonoBehaviour
         if (!isDying)
         {
             isDying = true;
-            _stateAI = stateOfAi.dead;
+            
             currentStateFunction = Dead;
         }
     }
@@ -315,12 +327,16 @@ public class AISimples : MonoBehaviour
     private void Dead()
     {
 
-        if (isDying ) 
+        if (isDying)
         {
-            capsuleCollider.enabled = false;
+            Debug.Log("Entering Dead state");
+            Vector3 currentPosition = transform.position;
             rb.useGravity = false;
+            rb.isKinematic = true;
+            capsuleCollider.enabled = false;
             _navMesh.enabled = false;
             _head.enabled = false;
+            transform.position = currentPosition;
             // Outras ações que você deseja realizar ao entrar no estado Dead
         }
 
@@ -334,7 +350,7 @@ public class AISimples : MonoBehaviour
 
     private void CheckForVisibleEnemies()
     {
-        
+
 
         if (_head.visibleEnemies.Count > 0)
         {

@@ -23,6 +23,7 @@ public class AISimples : MonoBehaviour
     public float attackCooldown = 5.0f; // Time between attacks
     public int damage = 10;
     public float waitingDistance = 10.0f;
+    
 
     private Animator anim;
     public NavMeshAgent _navMesh;
@@ -36,7 +37,9 @@ public class AISimples : MonoBehaviour
     private GameObject enemyAttackingPlayer;
     private AttackManager attackManager;
     private EnemyHealth enemyHealth;
-
+    private Rigidbody rb;
+    private CapsuleCollider capsuleCollider;
+    private bool isDying = false;
 
 
     // Define the delegate for state functions
@@ -63,6 +66,8 @@ public class AISimples : MonoBehaviour
     {
         _navMesh = GetComponent<NavMeshAgent>();
         enemyHealth = GetComponent<EnemyHealth>();
+        rb = GetComponent<Rigidbody>();
+        capsuleCollider = GetComponent<CapsuleCollider>();
         target = null;
         lastPosKnown = Vector3.zero;
         _stateAI = stateOfAi.patrolling;
@@ -82,6 +87,7 @@ public class AISimples : MonoBehaviour
         stateFunctions[stateOfAi.following] = Following;
         stateFunctions[stateOfAi.searchingLostTarget] = SearchingLostTarget;
         stateFunctions[stateOfAi.attacking] = Attacking; // Add the attacking state
+        stateFunctions[stateOfAi.attacking] = Dead;
 
 
         // Set the initial state function
@@ -90,18 +96,20 @@ public class AISimples : MonoBehaviour
 
     void Update()
     {
+
+        Debug.Log(_stateAI);
+
+        
+
         lastAttackTime += Time.deltaTime;
 
         currentStateFunction.Invoke();
 
-        if (enemyHealth != null && enemyHealth.health <= 0)
-        {
-            _stateAI = stateOfAi.dead;
-            currentStateFunction = Dead;
-            return;
-        }
 
-        }
+
+
+
+    }
 
     private void Patrolling()
     {
@@ -209,6 +217,7 @@ public class AISimples : MonoBehaviour
             {
                 Debug.Log("ataking");
                 // attack animation
+                StartCoroutine(StartDeathDelay());
             }
         }
         else
@@ -218,6 +227,17 @@ public class AISimples : MonoBehaviour
 
         CheckForVisibleEnemies();
     }
+    private IEnumerator StartDeathDelay()
+    {
+        yield return new WaitForSeconds(0.5f); // Ajuste o valor conforme necessário
+        if (!isDying)
+        {
+            isDying = true;
+            _stateAI = stateOfAi.dead;
+            currentStateFunction = Dead;
+        }
+    }
+
 
     private void AttackPlayer(GameObject player)
     {
@@ -294,7 +314,16 @@ public class AISimples : MonoBehaviour
 
     private void Dead()
     {
-        // No actions are performed in this state
+
+        if (isDying ) 
+        {
+            capsuleCollider.enabled = false;
+            rb.useGravity = false;
+            _navMesh.enabled = false;
+            _head.enabled = false;
+            // Outras ações que você deseja realizar ao entrar no estado Dead
+        }
+
     }
 
 
@@ -305,12 +334,7 @@ public class AISimples : MonoBehaviour
 
     private void CheckForVisibleEnemies()
     {
-        if (enemyHealth != null && enemyHealth.health <= 0)
-        {
-            _stateAI = stateOfAi.dead;
-            currentStateFunction = Dead;
-            return;
-        }
+        
 
         if (_head.visibleEnemies.Count > 0)
         {

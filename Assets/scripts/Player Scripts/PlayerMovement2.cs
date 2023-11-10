@@ -12,7 +12,7 @@ public class PlayerMovement2 : MonoBehaviour
     public KeyCode sprintKey = KeyCode.LeftShift;
 
     [Header("Movement")]
-    private float moveSpeed;
+    public float moveSpeed;
     public float walkSpeed;
     public float sprintSpeed;
 

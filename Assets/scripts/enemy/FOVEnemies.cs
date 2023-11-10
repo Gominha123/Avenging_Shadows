@@ -81,7 +81,7 @@ public class FOVEnemies : MonoBehaviour
         }
 
         float hearDistance = Vector3.Distance(transform.position, player.transform.position);
-        if (player.GetComponent<PlayerMovement2>().walkSpeed>0.5 && hearDistance < hearRadius)
+        if (player.GetComponent<PlayerMovement2>().moveSpeed > player.GetComponent<PlayerMovement2>().crouchSpeed && hearDistance < hearRadius)
         {
             //Debug.Log("I can hear you");
         }

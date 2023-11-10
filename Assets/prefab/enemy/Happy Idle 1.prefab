@@ -991,7 +991,7 @@ MonoBehaviour:
   attackCooldown: 2
   damage: 10
   waitingDistance: 10
-  _navMesh: {fileID: 0}
+  _navMesh: {fileID: 8636859261626341439}
   lastAttackTime: 5
 --- !u!136 &7748421757690730692
 CapsuleCollider:

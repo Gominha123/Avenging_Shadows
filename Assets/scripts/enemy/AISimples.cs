@@ -103,7 +103,7 @@ public class AISimples : MonoBehaviour
 
         lastAttackTime += Time.deltaTime;
 
-       
+
 
         if (_stateAI != stateOfAi.dead)
         {
@@ -153,29 +153,34 @@ public class AISimples : MonoBehaviour
     {
         if (target != null)
         {
-            _navMesh.SetDestination(target.position);
+            float distanceToAlvo = Vector3.Distance(transform.position, target.position);
 
             if (!_head.visibleEnemies.Contains(target))
             {
                 lastPosKnown = target.position;
             }
 
-            float distanceToAlvo = Vector3.Distance(transform.position, target.position);
-
             if (distanceToAlvo > pursuitRange)
             {
-                // Target moved out of sight, recalculate the path
+                // Player moved out of pursuit range, start searching
                 _stateAI = stateOfAi.searchingLostTarget;
                 _navMesh.ResetPath(); // Clear the current path
             }
-            else if (distanceToAlvo <= attackRange) // Check for attack range
+            else if (distanceToAlvo <= attackRange)
             {
-                _stateAI = stateOfAi.attacking; // Transition to the attack state
+                // Player is within attack range, attack
+                _stateAI = stateOfAi.attacking;
                 _navMesh.ResetPath(); // Clear the current path
+            }
+            else
+            {
+                // Player is within pursuit range but outside attack range, continue following
+                _navMesh.SetDestination(target.position);
             }
         }
         else
         {
+            // No target, go back to patrolling
             _stateAI = stateOfAi.patrolling;
         }
 
@@ -212,28 +217,29 @@ public class AISimples : MonoBehaviour
 
             float distanceToAlvo = Vector3.Distance(transform.position, target.position);
 
-            if (distanceToAlvo > pursuitRange)
+            if (distanceToAlvo > attackRange)
             {
-                // Target moved out of sight, recalculate the path
-                _stateAI = stateOfAi.searchingLostTarget;
+                // Player moved out of attack range, start pursuing
+                _stateAI = stateOfAi.following;
                 _navMesh.ResetPath(); // Clear the current path
             }
-            else if (distanceToAlvo <= attackRange && lastAttackTime >= attackCooldown)
+            else if (lastAttackTime >= attackCooldown)
             {
-                Debug.Log("ataking");
-                // attack animation
-
-                // Check enemy health here
-                if (enemyHealth.health <= 0)
-                {
-                    StartCoroutine(StartDeathDelay());
-                }
-                
+                // Perform the attack when the cooldown is met
+                Debug.Log("Attacking");
+                AttackPlayer(target.gameObject);
+                lastAttackTime = 0;
             }
-            
+
+            // Check enemy health here
+            if (enemyHealth.health <= 0)
+            {
+                StartCoroutine(StartDeathDelay());
+            }
         }
         else
         {
+            // No target, go back to patrolling
             _stateAI = stateOfAi.patrolling;
         }
 
@@ -245,7 +251,7 @@ public class AISimples : MonoBehaviour
         if (!isDying)
         {
             isDying = true;
-            
+
             currentStateFunction = Dead;
         }
     }

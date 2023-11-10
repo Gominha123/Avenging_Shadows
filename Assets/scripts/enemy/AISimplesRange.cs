@@ -26,6 +26,11 @@ public class AISimplesRange : MonoBehaviour
     private int currentPatrolPointIndex = 0;
     private float currentWaitTime = 0.0f;
     public float attackTimer = 0.0f;
+    private EnemyHealth enemyHealth;
+    private Rigidbody rb;
+    private CapsuleCollider capsuleCollider;
+    private bool isDying = false;
+
 
     // Define the delegate for state functions
     private delegate void StateFunction();
@@ -36,7 +41,7 @@ public class AISimplesRange : MonoBehaviour
 
     public enum stateOfAi
     {
-        patrolling, following, searchingLostTarget, waiting, attacking
+        patrolling, following, searchingLostTarget, waiting, attacking, dead
     };
     stateOfAi _stateAI = stateOfAi.patrolling;
 
@@ -48,6 +53,9 @@ public class AISimplesRange : MonoBehaviour
     void Start()
     {
         _navMesh = GetComponent<NavMeshAgent>();
+        enemyHealth = GetComponent<EnemyHealth>();
+        rb = GetComponent<Rigidbody>();
+        capsuleCollider = GetComponent<CapsuleCollider>();
         target = null;
         lastPosKnown = Vector3.zero;
         _stateAI = stateOfAi.patrolling;
@@ -67,6 +75,7 @@ public class AISimplesRange : MonoBehaviour
         stateFunctions[stateOfAi.following] = Following;
         stateFunctions[stateOfAi.searchingLostTarget] = SearchingLostTarget;
         stateFunctions[stateOfAi.attacking] = Attacking;
+        stateFunctions[stateOfAi.dead] = Dead;
         // Set the initial state function
         currentStateFunction = stateFunctions[_stateAI];
         
@@ -74,9 +83,13 @@ public class AISimplesRange : MonoBehaviour
 
     void Update()
     {
-        currentStateFunction.Invoke();
-        //Debug.Log(_stateAI);
+        
         attackTimer += Time.deltaTime;
+
+        if (_stateAI != stateOfAi.dead)
+        {
+            currentStateFunction.Invoke();
+        }
     }
 
     private void Patrolling()
@@ -190,11 +203,14 @@ public class AISimplesRange : MonoBehaviour
                 rb.transform.eulerAngles = eulerAngles;
 
                 rb.AddForce(-shootDirection * projectileSpeed, ForceMode.Impulse);
-                rb.AddForce(transform.forward * 32f, ForceMode.Impulse);
-                rb.AddForce(transform.up * 3f, ForceMode.Impulse);
+                rb.AddForce(transform.forward * 23, ForceMode.Impulse);
+                rb.AddForce(transform.up * 1.5f, ForceMode.Impulse);
 
-                
-                
+                if (enemyHealth.health <= 0)
+                {
+                    StartCoroutine(StartDeathDelay());
+                }
+
             }
 
             float distanceToAlvo = Vector3.Distance(transform.position, target.position);
@@ -213,6 +229,34 @@ public class AISimplesRange : MonoBehaviour
         CheckForVisibleEnemies();
     }
 
+    private IEnumerator StartDeathDelay()
+    {
+        yield return new WaitForSeconds(0.5f); // Ajuste o valor conforme necessário
+        if (!isDying)
+        {
+            isDying = true;
+
+            currentStateFunction = Dead;
+        }
+    }
+
+    private void Dead()
+    {
+
+        if (isDying)
+        {
+            Debug.Log("Entering Dead state");
+            Vector3 currentPosition = transform.position;
+            rb.useGravity = false;
+            rb.isKinematic = true;
+            capsuleCollider.enabled = false;
+            _navMesh.enabled = false;
+            _head.enabled = false;
+            transform.position = currentPosition;
+            // Outras ações que você deseja realizar ao entrar no estado Dead
+        }
+
+    }
 
     private void CheckForVisibleEnemies()
     {

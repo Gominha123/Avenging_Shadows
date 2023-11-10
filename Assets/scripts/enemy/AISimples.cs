@@ -97,7 +97,7 @@ public class AISimples : MonoBehaviour
     void Update()
     {
 
-        Debug.Log(_stateAI);
+        //Debug.Log(_stateAI);
 
 
 

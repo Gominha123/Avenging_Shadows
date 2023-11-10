@@ -317,11 +317,11 @@ Animator:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 364964983173831212}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Avatar: {fileID: 9000000, guid: 4642c74eb740767448a26977932ea92a, type: 3}
+  m_Controller: {fileID: 22100000, guid: 2d826e89d08300c499019e9e7eacccfe, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_WarningMessage: 
@@ -437,7 +437,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bbea62aed1c2f0469870691fcde506c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Navgador: {fileID: 0}
+  Navgador: {fileID: 2594569806102708929}
   Attacking: {fileID: 0}
   Waiting: {fileID: 0}
   Patrolling: {fileID: 0}
@@ -1653,6 +1653,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5320933635998248851}
   - component: {fileID: 6873038129432455690}
+  - component: {fileID: 3204484637311971937}
   m_Layer: 0
   m_Name: BattleAxe_GEO
   m_TagString: Untagged
@@ -1800,6 +1801,19 @@ SkinnedMeshRenderer:
     m_Center: {x: 1.1764908, y: 0.44559845, z: 0.22406363}
     m_Extent: {x: 0.37039196, y: 0.0867109, z: 0.73957247}
   m_DirtyAABB: 0
+--- !u!65 &3204484637311971937
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2753993328086616785}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.7409946, y: 0.17413002, z: 1.4791687}
+  m_Center: {x: 1.1760601, y: 1.66539, z: 0.22027598}
 --- !u!1 &2838591410087396091
 GameObject:
   m_ObjectHideFlags: 0

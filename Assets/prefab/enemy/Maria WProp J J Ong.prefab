@@ -1357,11 +1357,11 @@ Animator:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3977229788406915790}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Avatar: {fileID: 9000000, guid: 04bf100816ef7bb4fbc623bd476d32cd, type: 3}
+  m_Controller: {fileID: 22100000, guid: 865214871a81ef14890d1c55424a2480, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_WarningMessage: 
@@ -1477,7 +1477,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bbea62aed1c2f0469870691fcde506c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Navgador: {fileID: 0}
+  Navgador: {fileID: 1033572454177110447}
   Attacking: {fileID: 0}
   Waiting: {fileID: 0}
   Patrolling: {fileID: 0}

@@ -23,6 +23,7 @@ public class AISimples : MonoBehaviour
     public float attackCooldown = 5.0f; // Time between attacks
     public int damage = 10;
     public float waitingDistance = 10.0f;
+    public List<Quaternion> patrolPointsRotations;
 
 
     private Animator anim;
@@ -72,6 +73,22 @@ public class AISimples : MonoBehaviour
         lastPosKnown = Vector3.zero;
         _stateAI = stateOfAi.patrolling;
         timerProcura = 0;
+
+        if (patrolPointsPositions.Count != patrolPointsRotations.Count)
+        {
+            Debug.LogError("Number of patrol points must be equal to the number of rotations.");
+            return;
+        }
+
+        if (patrolPointsRotations.Count == 0)
+        {
+            Debug.LogWarning("No patrol rotations assigned. Adding default patrol rotations.");
+
+            // Add default patrol rotations (you can customize these)
+            patrolPointsRotations.Add(Quaternion.Euler(0, 0, 0));
+            patrolPointsRotations.Add(Quaternion.Euler(0, 180, 0));
+        }
+
 
         if (patrolPointsPositions.Count == 0)
         {
@@ -125,6 +142,9 @@ public class AISimples : MonoBehaviour
 
         if (distanceToPatrolPoint < 1.0f)
         {
+            // Apply rotation when reaching the patrol point
+            transform.rotation = patrolPointsRotations[currentPatrolPointIndex];
+
             // Start waiting
             _stateAI = stateOfAi.waiting;
             currentWaitTime = 0.0f;

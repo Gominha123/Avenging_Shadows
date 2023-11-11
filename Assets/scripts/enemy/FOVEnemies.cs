@@ -43,6 +43,7 @@ public class FOVEnemies : MonoBehaviour
 
     public GameObject player;
     public float hearRadius;
+    public float downwardOffset = 0.3f;
 
     private void Start()
     {
@@ -97,7 +98,7 @@ public class FOVEnemies : MonoBehaviour
                 for (float y = -halfLayerCount + 0.5f; y <= halfLayerCount; y++)
                 {
                     float angleToRay = x * (fieldOfViewAngle / extraRaysPerLayer) + ((180.0f - fieldOfViewAngle) * 0.5f);
-                    Vector3 directionMultiplier = (-enemyHead.right) + (enemyHead.up * y * layerSpacing);
+                    Vector3 directionMultiplier = (-enemyHead.right) + (enemyHead.up * y * layerSpacing) - (enemyHead.up * downwardOffset);
                     Vector3 rayDirection = Quaternion.AngleAxis(angleToRay, enemyHead.up) * directionMultiplier;
                     //
                     RaycastHit hitRaycast;

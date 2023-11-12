@@ -22,7 +22,7 @@ public class ToothInteraction : MonoBehaviour, IInteractable
 
     public void Interact()
     {
-        if (Inventory.Instance.Count() < 10)
+        if (Inventory.Instance.upgradeCount < 3)
         {
             Inventory.Instance.Add(item);
             //Destroy(gameObject);

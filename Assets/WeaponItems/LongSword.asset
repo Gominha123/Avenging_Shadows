@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc67b12448ff9aa419fd3fbc8a1b3439, type: 3}
   m_Name: LongSword
   m_EditorClassIdentifier: 
-  upgradeDamage: 1
+  upgradeDamage: 2
   durability: 1000
   weaponType: 0

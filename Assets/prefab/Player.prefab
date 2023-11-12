@@ -1598,7 +1598,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78d56361f54e2994e985460ea06d8087, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Tooth: {fileID: 0}
   toothObject: {fileID: 0}
   weaponHolder: {fileID: 2302788472374457251}
   items:
@@ -3416,6 +3415,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   items: []
+  keyItems: []
+  weaponItems: []
+  upgradeItems: []
+  potionItems: []
   teeth: []
   itemContent: {fileID: 4062366270827711444}
   inventoryItem: {fileID: 1061410304554872200, guid: 8b78edcdfb5a7dd47b027b44d819a3d6, type: 3}
@@ -3425,6 +3428,15 @@ MonoBehaviour:
   weapon2: {fileID: 1727874680304832328}
   openInv: {fileID: 7863478543646644077}
   playerHealth: {fileID: 7813339806413699603}
+  weaponContent: {fileID: 0}
+  potionContent: {fileID: 0}
+  keyItemContent: {fileID: 0}
+  upgradeContent: {fileID: 0}
+  weaponCount: 0
+  potionCount: 0
+  keyItemCount: 0
+  artifactCount: 0
+  upgradeCount: 0
 --- !u!1 &3516815385093055980
 GameObject:
   m_ObjectHideFlags: 0
@@ -6689,6 +6701,7 @@ MonoBehaviour:
   jumpKey: 32
   crouchKey: 306
   sprintKey: 304
+  moveSpeed: 0
   walkSpeed: 2.5
   sprintSpeed: 7
   rSpeed: 0
@@ -7475,8 +7488,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -40}
-  m_SizeDelta: {x: -17, y: -80}
+  m_AnchoredPosition: {x: 0, y: -603}
+  m_SizeDelta: {x: -17, y: -610.7}
   m_Pivot: {x: 0, y: 1}
 --- !u!222 &849068534793822751
 CanvasRenderer:

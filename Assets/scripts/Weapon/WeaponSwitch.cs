@@ -23,6 +23,7 @@ public class WeaponSwitch : MonoBehaviour
     private bool onDelete0 = false;
     private bool onDelete1 = false;
 
+
     public int onDeleteNum = 0;
 
     // Start is called before the first frame update
@@ -93,6 +94,8 @@ public class WeaponSwitch : MonoBehaviour
                 equipedInv.ChangeCurrentWeaponIcon(i);
 
                 ChooseAnimator(weapon.tag);
+
+                playerMovement.wp = weapon.GetComponent<WeaponController>();
             }
             else
                 weapon.gameObject.SetActive(false);
@@ -110,6 +113,7 @@ public class WeaponSwitch : MonoBehaviour
             //
             equipedInv.Add(weapon?.GetComponent<ItemController>()?.item, count);
             weapon.gameObject.layer = 0;
+            weapon.GetComponent<WeaponController>().SetWeapon();
             count++;
         }
     }
@@ -133,7 +137,7 @@ public class WeaponSwitch : MonoBehaviour
         //}
         foreach (Transform weapon in transform)
         {
-            Debug.Log("Here");
+            //Debug.Log("Here");
             if (count == i)
             {
                 Destroy(weapon.gameObject);
@@ -208,7 +212,7 @@ public class WeaponSwitch : MonoBehaviour
         }
     }
 
-    public void AddWeapon(string weaponName, bool firstSibling)
+    public void AddWeapon(string weaponName, bool firstSibling, float damage, int durability)
     {
         GameObject weaponPrefab = (GameObject)Resources.Load("Weapons/" + weaponName);
         GameObject weapon = Instantiate(weaponPrefab);
@@ -217,6 +221,13 @@ public class WeaponSwitch : MonoBehaviour
         Quaternion tempRot = weapon.transform.rotation;
         weapon.transform.parent = transform;
         weapon.transform.SetLocalPositionAndRotation(tempPos, tempRot);
+        WeaponController wpc = weapon.GetComponent<WeaponController>();
+        Weapon wpcw = wpc.GetWeaponItem();
+        wpcw.upgradeDamage = damage;
+        wpcw.durability = durability;
+        wpc.weaponItem = wpcw;
+        wpc.SetWeapon();
+
         if (firstSibling)
         {
             weapon.transform.SetAsFirstSibling();
@@ -264,6 +275,24 @@ public class WeaponSwitch : MonoBehaviour
         {
             playerMovement.anim.runtimeAnimatorController = animSpear;
         }
+    }
+
+    public void GetWeaponItem(int i) 
+    {
+        int count = 0;
+        foreach (Transform weapon in transform)
+        {
+            //Debug.Log("Here");
+            if (count == i)
+            {
+                WeaponController wpc = weapon.GetComponent<WeaponController>();
+                equipedInv.tempOldWeaponDamage = wpc.damage;
+                equipedInv.tempOldWeaponDurability = wpc.durability;
+            }
+            count++;
+
+        }
+        //return null;
     }
 
     IEnumerator DoAfterFiveSeconds()

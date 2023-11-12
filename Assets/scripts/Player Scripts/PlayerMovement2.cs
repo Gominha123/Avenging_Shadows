@@ -76,7 +76,7 @@ public class PlayerMovement2 : MonoBehaviour
     //BoxCollider boxCollider;
     CapsuleCollider capsuleCollider;
 
-    WeaponController wp;
+    public WeaponController wp;
 
 
     public MovementState state;

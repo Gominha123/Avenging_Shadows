@@ -219,9 +219,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5506397915039306801}
-  - component: {fileID: 4030360229162794746}
   - component: {fileID: 6531078092419655115}
   - component: {fileID: 7499557721576455345}
+  - component: {fileID: 6598234347663088001}
   m_Layer: 10
   m_Name: Map
   m_TagString: Interactable
@@ -245,20 +245,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4030360229162794746
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6990129758837321437}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 148cf61380a34d04cbb6da114c365eab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  prompt: Pick Up Map
-  item: {fileID: 11400000, guid: 452a01238213bdf4ab0dde6f58e6e768, type: 2}
 --- !u!114 &6531078092419655115
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -285,6 +271,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 4.7082944, y: 1, z: 2.7136016}
   m_Center: {x: 0.0011283162, y: 0, z: -0.12781778}
+--- !u!114 &6598234347663088001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6990129758837321437}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e0fb31b066af4746a596a0298c3e7c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item: {fileID: 11400000, guid: 452a01238213bdf4ab0dde6f58e6e768, type: 2}
 --- !u!1 &7787044627275870065
 GameObject:
   m_ObjectHideFlags: 0

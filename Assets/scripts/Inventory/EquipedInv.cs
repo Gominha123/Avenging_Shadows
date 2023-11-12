@@ -10,8 +10,10 @@ using static UnityEditor.Progress;
 
 public class EquipedInv : MonoBehaviour
 {
-    [SerializeField] Weapon Tooth;
-    public IWeapon tooth;
+    public float tempCurrentWeaponDamage;
+    public int tempCurrentWeaponDurability;
+    public float tempOldWeaponDamage;
+    public int tempOldWeaponDurability;
 
     public GameObject toothObject;
 
@@ -44,6 +46,8 @@ public class EquipedInv : MonoBehaviour
     {
         sprites[0] = defaultSprite1;
         sprites[1] = defaultSprite2;
+        //tempCurrentWeapon = new Weapon();
+        //tempOldWeapon = new Weapon();
     }
 
     private void Start()
@@ -145,7 +149,7 @@ public class EquipedInv : MonoBehaviour
         StartCoroutine(GetItemSelectForUpgrade());
         coroutine = true;
     }
-
+    ///                                              mudar AQUI PARA AS WEAPONS GUARDAREM UPGRADES
     IEnumerator GetItemSelect()
     {
         // ...
@@ -157,13 +161,13 @@ public class EquipedInv : MonoBehaviour
             coroutine = false;
             if (items[0] != null)
             {
-                Debug.Log("Isnull");
+                weaponSwitch.GetWeaponItem(0);
                 Inventory.Instance.Add(items[0]);
+                Inventory.Instance.SetUpDamageDurability(tempOldWeaponDamage,tempOldWeaponDurability);
             }
             items[0] = tempItem;
             weaponSwitch.DeleteWeapon(0);
-            weaponSwitch.AddWeapon(items[0].name, true);
-            //Debug.Log(items[0]);
+            weaponSwitch.AddWeapon(items[0].name, true, tempCurrentWeaponDamage, tempCurrentWeaponDurability);
             Inventory.Instance.ListItems();
             invDescription.Close();
             openInv.letDisable = true;
@@ -175,13 +179,13 @@ public class EquipedInv : MonoBehaviour
             coroutine = false;
             if (items[1] != null)
             {
-                Debug.Log("Isnull");
+                weaponSwitch.GetWeaponItem(1);
                 Inventory.Instance.Add(items[1]);
+                Inventory.Instance.SetUpDamageDurability(tempOldWeaponDamage, tempOldWeaponDurability);
             }
             items[1] = tempItem;
             weaponSwitch.DeleteWeapon(1);
-            weaponSwitch.AddWeapon(items[1].name, false);
-            //Debug.Log(items[1]);
+            weaponSwitch.AddWeapon(items[1].name, false, tempCurrentWeaponDamage, tempCurrentWeaponDurability);
             Inventory.Instance.ListItems();
             invDescription.Close();
             openInv.letDisable = true;

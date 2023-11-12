@@ -28,7 +28,8 @@ public class CurrentWeapon : IWeapon
 
 public class WeaponController : MonoBehaviour, IWeapon, IInteractable
 {
-    [SerializeField] Weapon weaponItem;
+    public Weapon weaponItem;
+
     public IWeapon weapon { get; set; }
     public float attackCooldown;
     public float damage;
@@ -37,14 +38,36 @@ public class WeaponController : MonoBehaviour, IWeapon, IInteractable
 
     private void Awake()
     {
-        weapon = WeaponFactory.Create(weaponItem);
-        damage = weaponItem.upgradeDamage;
-        durability = weaponItem.durability;
+        if(weaponItem.weaponType == WeaponType.tooth)
+        {
+            SetWeapon();
+        }
+        
     }
 
     public float UpdateDamage()
     {
         return weapon.UpdateDamage();
+    }
+
+    public void SetWeapon()
+    {
+        weapon = WeaponFactory.Create(weaponItem);
+        damage = weaponItem.upgradeDamage;
+        durability = weaponItem.durability;
+
+    }
+
+    public Weapon GetWeaponItem()
+    {
+        Weapon weaponItemCopy = new()
+        {
+            upgradeDamage = damage,
+            durability = durability,
+            weaponType = weaponItem.weaponType
+        };
+
+        return (weaponItemCopy);
     }
 
     public void Start()
@@ -57,7 +80,9 @@ public class WeaponController : MonoBehaviour, IWeapon, IInteractable
         if (other.tag == "Enemy" && enableAttack && weaponItem.weaponType == WeaponType.weapon)
         {
             EnemyHealth enemy = other.GetComponent<EnemyHealth>();
-            enemy.TakeDamage(damage);
+            Debug.Log("Here");
+            //tirar isto
+            //enemy.TakeDamage(damage);
             durability--;
             if(durability <= 0) {
                 this.GetComponentInParent<WeaponSwitch>().DeleteEquipedOnDurability(this.transform);
@@ -73,10 +98,18 @@ public class WeaponController : MonoBehaviour, IWeapon, IInteractable
 
     public void Interact()
     {
-        if (Inventory.Instance.Count() < 10)
+        if (Inventory.Instance.weaponCount < 2 && weaponItem.weaponType != WeaponType.tooth)
         {
+            Inventory.Instance.Add(item, weaponItem);
+
+            Inventory.Instance.invWeaponDamage[Inventory.Instance.weaponCount - 1] = weaponItem.upgradeDamage;
+            Inventory.Instance.invWeaponDurability[Inventory.Instance.weaponCount - 1] = weaponItem.durability;
+
+            Destroy(gameObject);
+        }
+        else if(Inventory.Instance.upgradeCount < 3 && weaponItem.weaponType == WeaponType.tooth) {
             Inventory.Instance.Add(item);
-            
+
             gameObject.SetActive(false);
             Inventory.Instance.AddObject(gameObject);
         }
@@ -85,6 +118,7 @@ public class WeaponController : MonoBehaviour, IWeapon, IInteractable
             prompt = "Inventory is Full";
             StartCoroutine(DoAfterFiveSeconds());
         }
+        
 
     }
 

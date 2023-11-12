@@ -14,7 +14,7 @@ public class Artefact : MonoBehaviour, IInteractable
 
     public void Interact()
     {
-        if (Inventory.Instance.Count() < 10)
+        if (Inventory.Instance.artifactCount < 4)
         {
             Inventory.Instance.Add(item);
             Destroy(gameObject);

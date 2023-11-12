@@ -11,6 +11,8 @@ public class CubeInteract : MonoBehaviour, IInteractable
 
     public Item item;
 
+    public Weapon weapon;
+
     public string InteractablePrompt => tempPrompt;
 
 
@@ -34,8 +36,10 @@ public class CubeInteract : MonoBehaviour, IInteractable
     public void Interact()
     {
         Debug.Log(tempPrompt + " " + Inventory.Instance.Count());
-        if(Inventory.Instance.Count() < 10) {
+        if(Inventory.Instance.weaponCount < 2) {
             Inventory.Instance.Add(item);
+            Inventory.Instance.invWeaponDamage[Inventory.Instance.weaponCount - 1] = weapon.upgradeDamage;
+            Inventory.Instance.invWeaponDurability[Inventory.Instance.weaponCount - 1] = weapon.durability;
             Destroy(gameObject);
         }
         else

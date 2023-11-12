@@ -40,7 +40,7 @@ public class AIAnimAudio : MonoBehaviour
     {
         AISimples.stateOfAi currentState = Navgador.GetCurrentState();
         _animator.SetBool("Attack", currentState == AISimples.stateOfAi.attacking);
-        //_animator.SetBool("Searching", currentState == AISimples.stateOfAi.searchingLostTarget);
+        _animator.SetBool("Searching", currentState == AISimples.stateOfAi.searchingLostTarget);
         _animator.SetBool("Patrolling", currentState == AISimples.stateOfAi.patrolling);
         _animator.SetBool("Following", currentState == AISimples.stateOfAi.following);
         _animator.SetBool("Waiting", currentState == AISimples.stateOfAi.waiting);

@@ -38,7 +38,7 @@ public class AIAnimAudioRange : MonoBehaviour
     {
         AISimplesRange.stateOfAi currentState = Navgador.GetCurrentState();
         _animator.SetBool("Attack", currentState == AISimplesRange.stateOfAi.attacking);
-        //_animator.SetBool("Searching", currentState == AISimplesRange.stateOfAi.searchingLostTarget);
+        _animator.SetBool("Searching", currentState == AISimplesRange.stateOfAi.searchingLostTarget);
         _animator.SetBool("Patrolling", currentState == AISimplesRange.stateOfAi.patrolling);
         _animator.SetBool("Following", currentState == AISimplesRange.stateOfAi.following);
         _animator.SetBool("Waiting", currentState == AISimplesRange.stateOfAi.waiting);

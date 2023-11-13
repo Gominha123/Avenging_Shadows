@@ -20,11 +20,13 @@ public class PlayerMovement2 : MonoBehaviour
     private readonly float rStop = 0.1f;
     private readonly float rMove = 7f;
 
+    private bool attacking;
 
     [Header("Crouching")]
     public float crouchSpeed;
     private float crouchYScale;
     private float startYScale;
+    bool crouching;
 
     [Header("Slope Handling")]
     public float maxSlopeAngle;
@@ -101,6 +103,7 @@ public class PlayerMovement2 : MonoBehaviour
         rb.freezeRotation = true;
 
         canJump = true;
+        crouching = false;
 
         startYScale = capsuleCollider.height;
         crouchYScale = capsuleCollider.height * 0.75f;
@@ -111,6 +114,7 @@ public class PlayerMovement2 : MonoBehaviour
 
     private void Update()
     {
+        attacking = anim.GetBool("isAttacking");
         MyInput();
         Animations();
         IsGrounded();
@@ -122,7 +126,7 @@ public class PlayerMovement2 : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (!anim.GetBool("isAttacking"))
+        if (!attacking)
         {
             MovePLayer();
             StepClimb();
@@ -138,35 +142,30 @@ public class PlayerMovement2 : MonoBehaviour
         if (grounded)
         {
 
-            //when jump
-            if (Input.GetKey(jumpKey) && canJump && grounded && state != MovementState.crouching)
-            {
-                canJump = false;
-                Jump();
-                Invoke(nameof(ResetJump), jumpCooldown);
-            }
-
-
             //when presses mouse button1 attacks
             if (Input.GetButtonUp("Fire1"))
             {
                 anim.SetTrigger("Attack");
                 anim.SetBool("isAttacking", true);
             }
+
+            //when jump
+            else if (Input.GetKey(jumpKey) && canJump && !crouching)
+            {
+                canJump = false;
+                Jump();
+                Invoke(nameof(ResetJump), jumpCooldown);
+            }
+
+            else if (Input.GetKeyDown(crouchKey))
+                crouching = !crouching;
         }
 
         if (actCd <= 0)
         {
-            if (Roll)
-            {
-                Dodge();
-            }
+            if (Roll) Dodge();
         }
-        else
-        {
-            actCd -= Time.deltaTime;
-        }
-
+        else actCd -= Time.deltaTime;
     }
 
     private void IsGrounded()
@@ -184,7 +183,7 @@ public class PlayerMovement2 : MonoBehaviour
     {
 
         //Mode - Crouching
-        if (Input.GetKey(crouchKey) && grounded)
+        if (crouching)
         {
             state = MovementState.crouching;
             moveSpeed = crouchSpeed;
@@ -224,7 +223,7 @@ public class PlayerMovement2 : MonoBehaviour
             state = MovementState.walking;
             moveSpeed = walkSpeed;
         }
-        if (state != MovementState.crouching) capsuleCollider.height = startYScale;
+        if (!crouching) capsuleCollider.height = startYScale;
     }
 
     private void MovePLayer()
@@ -294,41 +293,6 @@ public class PlayerMovement2 : MonoBehaviour
             anim.SetBool("Falling", false);
             anim.SetBool("Jumping", false);
 
-            /*
-            //anim.SetBool("Falling", false);
-            //anim.SetBool("Jumping", false);
-            //if (state == MovementState.idle)
-            //{
-            //    anim.SetBool("Walking", false);
-            //    anim.SetBool("Sprinting", false);
-            //}
-            //else if (state != MovementState.crouching)
-            //{
-            //    anim.SetBool("Walking", true);
-            //    anim.SetBool("Crouching", false);
-            //}
-
-            ////crouching
-            //if (state == MovementState.crouching)
-            //{
-            //    anim.SetBool("Walking", false);
-            //    anim.SetBool("Sprinting", false);
-            //    anim.SetBool("Crouching", true);
-            //    if (moveDirection == Vector3.zero)
-            //        anim.SetBool("CrouchWalk", false);
-            //    else anim.SetBool("CrouchWalk", true);
-            //}
-            ////sprinting
-            //else if (state == MovementState.sprinting)
-            //    anim.SetBool("Sprinting", true);
-            //else
-            //{
-            //    anim.SetBool("Sprinting", false);
-            //    anim.SetBool("Crouching", false);
-            //    anim.SetBool("CrouchWalk", false);
-            //}*/
-
-            //float velocity = (rb.velocity.x + rb.velocity.z);
             anim.SetBool("Crouch", state == MovementState.crouching);
 
             float actualSpeed = rb.velocity.magnitude;
@@ -338,7 +302,7 @@ public class PlayerMovement2 : MonoBehaviour
 
             anim.SetFloat("Velocity", actualSpeed);
         }
-        wp.enableAttack = anim.GetBool("isAttacking");
+        wp.enableAttack = attacking;
 
         if (wp.enableAttack) rSpeed = rStop;
         else rSpeed = rMove;

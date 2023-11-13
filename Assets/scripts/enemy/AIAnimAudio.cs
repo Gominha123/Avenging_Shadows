@@ -43,9 +43,7 @@ public class AIAnimAudio : MonoBehaviour
         _animator.SetBool("Searching", currentState == AISimples.stateOfAi.searchingLostTarget);
         _animator.SetBool("Patrolling", currentState == AISimples.stateOfAi.patrolling);
         _animator.SetBool("Following", currentState == AISimples.stateOfAi.following);
-        _animator.SetBool("Waiting", currentState == AISimples.stateOfAi.waiting);
-
-        
+        _animator.SetBool("Waiting", currentState == AISimples.stateOfAi.waiting);   
     }
 
     void UpdateAudio()

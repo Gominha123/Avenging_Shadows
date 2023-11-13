@@ -44,6 +44,8 @@ public class FOVEnemies : MonoBehaviour
     public GameObject player;
     public float hearRadius;
     public float downwardOffset = 0.3f;
+    Animator anim;
+    PlayerMovement2 pM;
 
     private void Start()
     {
@@ -54,6 +56,8 @@ public class FOVEnemies : MonoBehaviour
         }
         // The ~ operator inverts the bits (0 becomes 1, and vice versa)
         obstacleLayer = ~enemyLayers;
+        anim = GetComponent<Animator>();
+        pM = player.GetComponent<PlayerMovement2>();
     }
 
     void Update()
@@ -82,9 +86,10 @@ public class FOVEnemies : MonoBehaviour
         }
 
         float hearDistance = Vector3.Distance(transform.position, player.transform.position);
-        if (player.GetComponent<PlayerMovement2>().moveSpeed > player.GetComponent<PlayerMovement2>().crouchSpeed && hearDistance < hearRadius)
+        if (pM.moveSpeed > pM.crouchSpeed && hearDistance < hearRadius)
         {
-            //Debug.Log("I can hear you");
+            Debug.Log("I can hear you");
+            anim.SetTrigger("Hearing");
         }
     }
 

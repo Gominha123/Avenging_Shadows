@@ -7,6 +7,8 @@ public class WeaponSwitch : MonoBehaviour
 {
     //public IWeapon Weapon {  get; set; }
 
+    public bool isScrollable = true;
+
     public int selectedWeapon = 0;
 
     public EquipedInv equipedInv;
@@ -38,48 +40,52 @@ public class WeaponSwitch : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        int previousSelectedWeapon = selectedWeapon;
-        if (Input.GetAxis("Mouse ScrollWheel") > 0f)
+        if(isScrollable)
         {
-            if (selectedWeapon >= transform.childCount - 1)
+            int previousSelectedWeapon = selectedWeapon;
+            if (Input.GetAxis("Mouse ScrollWheel") > 0f)
+            {
+                if (selectedWeapon >= transform.childCount - 1)
+                    selectedWeapon = 0;
+                else
+                    selectedWeapon++;
+            }
+            if (Input.GetAxis("Mouse ScrollWheel") < 0f)
+            {
+                if (selectedWeapon <= 0)
+                    selectedWeapon = transform.childCount - 1;
+                else
+                    selectedWeapon--;
+            }
+
+            if (Input.GetKeyDown(KeyCode.Alpha1))
+            {
                 selectedWeapon = 0;
-            else
-                selectedWeapon++;
-        }
-        if (Input.GetAxis("Mouse ScrollWheel") < 0f)
-        {
-            if (selectedWeapon <= 0)
-                selectedWeapon = transform.childCount - 1;
-            else
-                selectedWeapon--;
-        }
+            }
 
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            selectedWeapon = 0;
-        }
+            if (Input.GetKeyDown(KeyCode.Alpha2) && transform.childCount >= 2)
+            {
+                selectedWeapon = 1;
+            }
 
-        if (Input.GetKeyDown(KeyCode.Alpha2) && transform.childCount >= 2)
-        {
-            selectedWeapon = 1;
-        }
+            if (Input.GetKeyDown(KeyCode.Alpha3) && transform.childCount >= 3)
+            {
+                selectedWeapon = 2;
+            }
 
-        if (Input.GetKeyDown(KeyCode.Alpha3) && transform.childCount >= 3)
-        {
-            selectedWeapon = 2;
-        }
-
-        if (Input.GetKeyDown(KeyCode.Alpha4) && transform.childCount >= 4)
-        {
-            selectedWeapon = 3;
-        }
+            if (Input.GetKeyDown(KeyCode.Alpha4) && transform.childCount >= 4)
+            {
+                selectedWeapon = 3;
+            }
 
 
 
-        if (previousSelectedWeapon != selectedWeapon)
-        {
-            SelectWeapon();
+            if (previousSelectedWeapon != selectedWeapon)
+            {
+                SelectWeapon();
+            }
         }
+        
 
     }
 
@@ -148,64 +154,187 @@ public class WeaponSwitch : MonoBehaviour
         }
     }
 
+    //public void DeleteEquiped(int i)
+    //{
+    //    int count = 0;
+    //    GameObject obj = new GameObject("Hold");// + i);
+    //    if (isDeletable)
+    //    {
+    //        onDeleteIndex = i;
+    //        foreach (Transform weapon in transform)
+    //        {
+    //            if (count == i)
+    //            {
+    //                Destroy(weapon.gameObject);
+    //                obj.transform.parent = transform;
+    //                if (i == 0)
+    //                {
+    //                    obj.transform.SetAsFirstSibling();
+    //                }
+    //                else
+    //                {
+    //                    obj.transform.SetAsLastSibling();
+    //                }
+    //                isDeletable = false;
+    //                return;
+    //            }
+    //            count++;
+    //        }
+    //    }
+    //    else
+    //    {
+    //        Destroy(obj.gameObject);
+    //        interactionPromptUI.SetUp("You only have this weapon make sure you dont lose it");
+    //        StartCoroutine(DoAfterFiveSeconds());
+    //    }
+    //}
+
+    //public void DeleteEquipedOnDurability(Transform currentWeapon)
+    //{
+    //    int i = 0;
+    //    if (isDeletable)
+    //    {
+    //        foreach (Transform weapon in transform)
+    //        {
+    //            if (currentWeapon == weapon)
+    //            {
+    //                interactionPromptUI.SetUp("Weapon Broke");
+    //                StartCoroutine(DoAfterFiveSeconds());
+    //                GameObject obj = new GameObject("Hold");
+    //                Destroy(weapon.gameObject);
+    //                obj.transform.parent = transform;
+    //                if (i == 0)
+    //                {
+    //                    obj.transform.SetAsFirstSibling();
+    //                }
+    //                else
+    //                {
+    //                    obj.transform.SetAsLastSibling();
+    //                }
+    //                selectedWeapon++;
+    //                isDeletable = false;
+    //                return;
+    //            }
+    //            i++;
+    //        }
+    //    }
+    //    else
+    //    {
+    //        interactionPromptUI.SetUp("Weapon Broke Find Another to Deal Damage");
+    //        StartCoroutine(DoAfterFiveSeconds());
+    //        currentWeapon.GetComponent<WeaponController>().damage = 0;
+    //    }
+
+    //}
+
     public void DeleteEquiped(int i)
     {
         int count = 0;
-        GameObject obj = new GameObject("Hold" + i);
+        GameObject obj = new GameObject("Hold");// + i);
+        
+
         onDeleteIndex = i;
         foreach (Transform weapon in transform)
         {
             if (count == i)
             {
-                Destroy(weapon.gameObject);
-                obj.transform.parent = transform;
-                if (i == 0)
+                if (transform.GetChild(1).name == "Hold")
                 {
-                    obj.transform.SetAsFirstSibling();
+                    Destroy(obj.gameObject);
+                    interactionPromptUI.SetUp("You only have this weapon make sure you dont lose it");
+                    StartCoroutine(DoAfterFiveSeconds());
+                    return;
                 }
                 else
                 {
-                    obj.transform.SetAsLastSibling();
+                    
+                    if (i == 0)
+                    {
+                        if (selectedWeapon == i)
+                        {
+                            selectedWeapon++;
+                            SelectWeapon();
+                        }
+                        Destroy(weapon.gameObject);
+                        obj.transform.parent = transform;
+                        obj.transform.SetAsFirstSibling();
+                        
+                    }
+                    else
+                    {
+                        if (selectedWeapon == i)
+                        {
+                            selectedWeapon--;
+                            SelectWeapon();
+                        }
+                        Destroy(weapon.gameObject);
+                        obj.transform.parent = transform;
+                        obj.transform.SetAsFirstSibling();
+                    }
+                    isScrollable = false;
+                    return;
                 }
+                
+            }
+            if (weapon.name == "Hold")
+            {
+                Destroy(obj.gameObject);
+                interactionPromptUI.SetUp("You only have this weapon make sure you dont lose it");
+                StartCoroutine(DoAfterFiveSeconds());
                 return;
             }
             count++;
         }
-        //if (selectedWeapon == onDeleteIndex)
-        //{
-        //    if (selectedWeapon == 0)
-        //    {
-        //        selectedWeapon = 1;
-        //    }
-        //    else
-        //    {
-        //        selectedWeapon = 0;
-        //    }
-        //    SelectWeapon();
-        //}
     }
 
     public void DeleteEquipedOnDurability(Transform currentWeapon)
     {
         int i = 0;
-        //GameObject obj = new GameObject("Hold" + i);
         foreach (Transform weapon in transform)
         {
             if (currentWeapon == weapon)
             {
-                interactionPromptUI.SetUp("Weapon Broke");
-                StartCoroutine(DoAfterFiveSeconds());
-                GameObject obj = new GameObject("Hold" + i);
-                Destroy(weapon.gameObject);
-                obj.transform.parent = transform;
-                if (i == 0)
+                if (transform.GetChild(1).name == "Hold")
                 {
-                    obj.transform.SetAsFirstSibling();
+                    interactionPromptUI.SetUp("Weapon Broke Find Another to Deal Damage");
+                    StartCoroutine(DoAfterFiveSeconds());
+                    currentWeapon.GetComponent<WeaponController>().damage = 0;
+                    return;
                 }
                 else
                 {
-                    obj.transform.SetAsLastSibling();
+                    interactionPromptUI.SetUp("Weapon Broke");
+                    StartCoroutine(DoAfterFiveSeconds());
+
+                    equipedInv.button = i;
+                    equipedInv.RemoveEquiped();
+                    
+                    //isScrollable = false;
+                    //GameObject obj = new GameObject("Hold");
+                    //obj.transform.parent = transform;
+                    //if (i == 0)
+                    //{
+                    //    selectedWeapon++;
+                    //    SelectWeapon();
+                    //    obj.transform.SetAsFirstSibling();
+                    //}
+                    //else
+                    //{
+                    //    selectedWeapon--;
+                    //    SelectWeapon();
+                    //    obj.transform.SetAsLastSibling();
+                    //}
+                    //Destroy(weapon.gameObject);
+                    //equipedInv.ChangeCurrentWeaponIcon(i);
+                    //return;
                 }
+                
+            }
+            if (weapon.name == "Hold")
+            {
+                interactionPromptUI.SetUp("Weapon Broke Find Another to Deal Damage");
+                StartCoroutine(DoAfterFiveSeconds());
+                currentWeapon.GetComponent<WeaponController>().damage = 0;
                 return;
             }
             i++;

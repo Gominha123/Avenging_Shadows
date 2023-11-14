@@ -81,11 +81,12 @@ public class WeaponController : MonoBehaviour, IWeapon, IInteractable
         {
             EnemyHealth enemy = other.GetComponent<EnemyHealth>();
             Debug.Log("Here");
-            //tirar isto
-            //enemy.TakeDamage(damage);
+            //se tiver como comentário passar a codigo se não não dá damage
+            enemy.TakeDamage(damage);
             durability--;
             if(durability <= 0) {
-                this.GetComponentInParent<WeaponSwitch>().DeleteEquipedOnDurability(this.transform);
+                StartCoroutine(DoAfterOneSeconds());
+                //this.GetComponentInParent<WeaponSwitch>().DeleteEquipedOnDurability(this.transform);
             }
         }
     }
@@ -127,6 +128,14 @@ public class WeaponController : MonoBehaviour, IWeapon, IInteractable
         yield return new WaitForSeconds(5);
 
         prompt = item.name;
+
+    }
+
+    IEnumerator DoAfterOneSeconds()
+    {
+        yield return new WaitForSeconds(1);
+
+        this.GetComponentInParent<WeaponSwitch>().DeleteEquipedOnDurability(this.transform);
 
     }
 }

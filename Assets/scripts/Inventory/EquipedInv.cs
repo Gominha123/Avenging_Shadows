@@ -78,7 +78,10 @@ public class EquipedInv : MonoBehaviour
     public void RemoveEquiped()
     {
         //items[button] = nullItems[button];
-        items[button] = null;
+        if(weaponSwitch.isScrollable)
+        {
+            items[button] = null;
+        }
         weaponSwitch.DeleteEquiped(button);
         invDescription.Close();
         ShowEquiped();

@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2127730883011295234}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: ring_03_r
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 252684324096586612}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: foot_r
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72,7 +72,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 205205476079005864}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: ring_02_r
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -104,7 +104,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5102910599159663682}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: pinky_03_l
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -135,7 +135,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2928460149783805177}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: pinky_03_r
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -166,7 +166,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 711310565288940241}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: middle_01_l
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -199,7 +199,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4257033602964197554}
   - component: {fileID: 4119610925509852873}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Pirate_Skull_Hat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -284,7 +284,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6802376441300449060}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: ring_03_l
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -316,7 +316,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5421001407368794360}
   - component: {fileID: 4799513256267118699}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Pirate_Beard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -401,7 +401,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5002680389529464984}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: ball_l
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -433,7 +433,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1670672991739263666}
   - component: {fileID: 3478217828268270560}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Pirate_Pistol_In_Belt_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -527,7 +527,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6811147954930394370}
   - component: {fileID: 3785891439280294612}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Pirate_Eyes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -613,7 +613,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1197706423703552291}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: index_01_r
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -645,7 +645,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5626104935028971671}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: thumb_02_r
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -678,7 +678,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2021270299612730100}
   - component: {fileID: 1636203642947018479}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Pirate_Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -817,7 +817,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2629346216141115770}
   - component: {fileID: 820012389910901828}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Pirate_Cloak_Up
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -932,7 +932,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 89306951743275007}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: pinky_01_r
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -965,7 +965,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4847381903499915674}
   - component: {fileID: 7643576425691195989}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Pirate_Belt_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1056,7 +1056,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5056659097577983589}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: pinky_02_l
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1088,7 +1088,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8669571105314656643}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: neck_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1121,7 +1121,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5590777800723301308}
   - component: {fileID: 339267921086666355}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Pirate_Cloth_Legs_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1215,7 +1215,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5429325058300932394}
   - component: {fileID: 2765829664202445565}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Pirate_Cloth_Body_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1331,7 +1331,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8355464879271150976}
   - component: {fileID: 3878233460307131472}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Pirate_Hat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1416,7 +1416,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 242420920890716446}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: thumb_02_l
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1449,7 +1449,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6132679779465533938}
   - component: {fileID: 8244308622130927765}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Pirate_Shoes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1542,7 +1542,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8032978533587175430}
   - component: {fileID: 1340202867357421459}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Pirate_Pants
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1635,7 +1635,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7133465614406851698}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: middle_02_r
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1667,7 +1667,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1469487840471137988}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: upperarm_r
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1699,7 +1699,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6097708000322221940}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: spine_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1731,7 +1731,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4747788871678547425}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: ring_01_l
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1764,7 +1764,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3874993142884643718}
   - component: {fileID: 9196535875886553787}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Pirate_Cloth_Body_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1861,7 +1861,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5639224266026755713}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: clavicle_l
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1893,7 +1893,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1306014671610118558}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: pinky_01_l
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1925,7 +1925,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1293373030364344953}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: middle_03_r
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1958,7 +1958,7 @@ GameObject:
   - component: {fileID: 5539918413799419340}
   - component: {fileID: 1455431969701763739}
   - component: {fileID: 4924555483361678144}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Pirate_Cloak_Down
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6719,7 +6719,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2688178898598761727}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: lowerarm_twist_01_l
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6750,7 +6750,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 596465135621434446}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: thumb_01_l
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6782,7 +6782,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 893909014183527860}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: index_03_l
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6813,7 +6813,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1960036424878113026}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: hand_r
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6849,7 +6849,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7677044005914701328}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: hand_l
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6885,7 +6885,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3918137339076388013}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: index_01_l
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6917,7 +6917,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7492274190587682158}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: lowerarm_twist_01_r
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6948,7 +6948,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7140219883662266536}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: upperarm_l
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6981,7 +6981,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3114698156323109528}
   - component: {fileID: 6076464158055842999}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Pirate_Torso
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7112,7 +7112,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4873777350942459325}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: pinky_02_r
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7144,7 +7144,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6994031614126285599}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: ring_01_r
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7176,7 +7176,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7062051703625664891}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: ring_02_l
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7208,7 +7208,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1978562438871377983}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: clavicle_r
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7241,7 +7241,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5134764120192264185}
   - component: {fileID: 8348813164929180543}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Pirate_Ring_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7338,7 +7338,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2463602063640966111}
   - component: {fileID: 8429625605566208833}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Pirate_Belt_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7434,7 +7434,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8857219764673383506}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: foot_l
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7476,9 +7476,9 @@ GameObject:
   - component: {fileID: 8478717173147954706}
   - component: {fileID: 2614297197568620894}
   - component: {fileID: 3950932083646520246}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Pirate_03
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7673,7 +7673,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bbea62aed1c2f0469870691fcde506c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Navgador: {fileID: 0}
+  Navgador: {fileID: 4329825846090683350}
   Attacking: {fileID: 0}
   Waiting: {fileID: 0}
   Patrolling: {fileID: 0}
@@ -7721,6 +7721,7 @@ MonoBehaviour:
   attackCooldown: 5
   damage: 10
   waitingDistance: 10
+  patrolPointsRotations: []
   _navMesh: {fileID: 8624224677984834944}
   lastAttackTime: 5
 --- !u!114 &3106511602498131617
@@ -7751,6 +7752,7 @@ MonoBehaviour:
   visibleEnemies: []
   player: {fileID: 0}
   hearRadius: 10
+  downwardOffset: 0.3
 --- !u!136 &8478717173147954706
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -7833,7 +7835,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8537529252989988185}
   - component: {fileID: 4924555482203685190}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: calf_r
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7880,7 +7882,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4785353731347721778}
   - component: {fileID: 5723843671236625567}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Pirate_Body_Cloth_Detail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7973,7 +7975,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4347159059103302156}
   - component: {fileID: 7028837694691304019}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Pirate_Pistol_In_Belt_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8067,7 +8069,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3395634011435965584}
   - component: {fileID: 6899277837770024689}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Pirate_Belt_04
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8159,7 +8161,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7856467424508303440}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: index_02_r
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8192,7 +8194,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9179918590321893546}
   - component: {fileID: 4924555483315021547}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: thigh_r
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8239,7 +8241,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8116287082525717312}
   - component: {fileID: 5952890215711615942}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Pirate_Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8368,7 +8370,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7948670240800001483}
   - component: {fileID: 8689084241991257088}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Pirate_Shoes_Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8461,7 +8463,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7792438435347779919}
   - component: {fileID: 4924555483225738131}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: thigh_l
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8507,7 +8509,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2924369521809832693}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: middle_03_l
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8539,7 +8541,7 @@ GameObject:
   m_Component:
   - component: {fileID: 574559041626016748}
   - component: {fileID: 9058895033107343604}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Pirate_Cloth_Legs_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8633,7 +8635,7 @@ GameObject:
   m_Component:
   - component: {fileID: 405286584191168722}
   - component: {fileID: 6986931167288409228}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Pirate_Sword_In_Belt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8734,7 +8736,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6891054316343954607}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: lowerarm_l
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8767,7 +8769,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7074210554000133628}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: index_03_r
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8798,7 +8800,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6807675891277651607}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8830,7 +8832,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2395950465994751958}
   - component: {fileID: 4924555482593466229}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: calf_l
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8877,7 +8879,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5856216614608413721}
   - component: {fileID: 7210922942120606376}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Pirate_Belt_05
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8968,7 +8970,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1186688784142413155}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: lowerarm_r
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9001,7 +9003,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2177795121191326491}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: spine_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9035,7 +9037,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7133654868097508044}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: thumb_01_r
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9068,7 +9070,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4303902171297917637}
   - component: {fileID: 3616082366724149525}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Pirate_Ring_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9166,7 +9168,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6503239720192626052}
   - component: {fileID: 4924555482605973879}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: pelvis
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9214,7 +9216,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3997546555266500522}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: thumb_03_r
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9245,7 +9247,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 108926633532775398}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: index_02_l
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9278,7 +9280,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5705024539558892562}
   - component: {fileID: 3245054660809126950}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Pirate_Ring_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9363,7 +9365,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 878288773942499787}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: thumb_03_l
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9394,7 +9396,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3091548418739147769}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: middle_01_r
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9426,7 +9428,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6606177275490123927}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9458,7 +9460,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5402430788527182184}
   - component: {fileID: 633007823384848759}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Pirate_Legs
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9550,7 +9552,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3947474677509170789}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: ball_r
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9581,7 +9583,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6757846555308166062}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: spine_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9613,7 +9615,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8774483362162867529}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: root
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9646,7 +9648,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7774000363149490420}
   - component: {fileID: 1371679134271309252}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Pirate_Belt_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9743,7 +9745,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5075184650542980897}
   - component: {fileID: 7427215601052920311}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Pirate_Jaw
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9828,7 +9830,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9161467702569631564}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: middle_02_l
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9861,7 +9863,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5862176646938949971}
   - component: {fileID: 2586815376573253953}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Pirate_Mustache
   m_TagString: Untagged
   m_Icon: {fileID: 0}

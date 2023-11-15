@@ -106,7 +106,7 @@ public class PlayerMovement2 : MonoBehaviour
         crouching = false;
 
         startYScale = capsuleCollider.height;
-        crouchYScale = capsuleCollider.height * 0.75f;
+        crouchYScale = capsuleCollider.height;
 
         stepRayUpper.transform.position = new Vector3(stepRayUpper.transform.position.x, stepHeight, stepRayUpper.transform.position.z);
 
@@ -114,6 +114,7 @@ public class PlayerMovement2 : MonoBehaviour
 
     private void Update()
     {
+        if(hp.isDead) return;
         attacking = anim.GetBool("isAttacking");
         MyInput();
         Animations();

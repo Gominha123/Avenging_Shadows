@@ -249,7 +249,7 @@ Transform:
   m_Children:
   - {fileID: 3030926981071056946}
   m_Father: {fileID: 3714645564597570411}
-  m_RootOrder: 30
+  m_RootOrder: 29
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &944010006364656364
 GameObject:
@@ -1589,108 +1589,6 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.20681424, y: 0.017244622, z: 0.0003813058}
     m_Extent: {x: 0.40665358, y: 0.20515127, z: 0.28446162}
   m_DirtyAABB: 0
---- !u!1 &3100726330469064653
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 8489280996172877156}
-  - component: {fileID: 1199843124231094586}
-  m_Layer: 3
-  m_Name: Pirate_Sword_In_Belt
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &8489280996172877156
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3100726330469064653}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 3714645564597570411}
-  m_RootOrder: 28
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!137 &1199843124231094586
-SkinnedMeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3100726330469064653}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 3
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 58155e7370df36a4bb5d6667cc79647b, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  serializedVersion: 2
-  m_Quality: 0
-  m_UpdateWhenOffscreen: 0
-  m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: 7835904597018885049, guid: 067eed6340abfa94383b955a0cb27fad, type: 3}
-  m_Bones:
-  - {fileID: 5841171289731334752}
-  - {fileID: 3030926981071056946}
-  - {fileID: 3285538334068471320}
-  - {fileID: 2050386251628457209}
-  - {fileID: 1095990184871058716}
-  - {fileID: 2652421206412266178}
-  - {fileID: 7955950732507213485}
-  - {fileID: 1389090217422957854}
-  - {fileID: 4472829251906722615}
-  - {fileID: 5057585471492610331}
-  - {fileID: 3454774892127547673}
-  - {fileID: 8759280440846479207}
-  - {fileID: 3581393890992334935}
-  - {fileID: 8653442346244313592}
-  - {fileID: 8290390916422274216}
-  - {fileID: 1934987424400642982}
-  - {fileID: 6133469901677390153}
-  m_BlendShapeWeights: []
-  m_RootBone: {fileID: 3030926981071056946}
-  m_AABB:
-    m_Center: {x: -0.07101452, y: 0.15255758, z: -0.19509082}
-    m_Extent: {x: 0.35013288, y: 0.4825149, z: 0.07414858}
-  m_DirtyAABB: 0
 --- !u!1 &3207905572399278848
 GameObject:
   m_ObjectHideFlags: 0
@@ -2191,7 +2089,6 @@ Transform:
   - {fileID: 2687388741221901380}
   - {fileID: 2170589259507150973}
   - {fileID: 5423503384650771716}
-  - {fileID: 8489280996172877156}
   - {fileID: 6586940441623136046}
   - {fileID: 690484741515968767}
   m_Father: {fileID: 0}
@@ -2280,8 +2177,8 @@ Animator:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4091171550301114833}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Avatar: {fileID: 9000000, guid: 067eed6340abfa94383b955a0cb27fad, type: 3}
+  m_Controller: {fileID: 22100000, guid: 6c7105796bb5be44b814f558c1f92353, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -3126,7 +3023,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3714645564597570411}
-  m_RootOrder: 29
+  m_RootOrder: 28
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!137 &2595144185990756609
 SkinnedMeshRenderer:

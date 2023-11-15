@@ -8,4 +8,16 @@ AnimatorOverrideController:
   m_PrefabAsset: {fileID: 0}
   m_Name: Stabbing
   m_Controller: {fileID: 9100000, guid: d6630de349217d34d832304e2dd7ba8b, type: 2}
-  m_Clips: []
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 00d9ee8056dd78c459cafedc2a13474c, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 82d5b5f0c15f39540a67037f33d533b1, type: 3}
+  - m_OriginalClip: {fileID: -203655887218126122, guid: 7f5e29deb3a35794da4c2256be679f63, type: 3}
+    m_OverrideClip: {fileID: 7400000, guid: 646cd2891ce439c40ab14ba68d566af9, type: 3}
+  - m_OriginalClip: {fileID: 7400000, guid: d9c347b8872c968489af87bd21d0f5b2, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 68b4dea7637932e489c91c7e036fc26e, type: 3}
+  - m_OriginalClip: {fileID: 7400000, guid: 0c71d416ff9851e4fa232288fcfa2f8e, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: a0f6e09848b999340a56c85c661fcc42, type: 3}
+  - m_OriginalClip: {fileID: 7400000, guid: efe8013ecda7ece4593c08afc47e1e1e, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 22e7ecb78cdbef944a68b2190a1a8463, type: 3}
+  - m_OriginalClip: {fileID: -203655887218126122, guid: 2ed7cb58dea0b044c9416ae8f07e6eb7, type: 3}
+    m_OverrideClip: {fileID: 7400000, guid: 2a7266b036b749a4fbf490c8e45ce27e, type: 3}

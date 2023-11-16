@@ -5,39 +5,22 @@ using UnityEngine;
 
 public class StealthKill : MonoBehaviour
 {
-    public StealthKilled _enemy;
-    public Transform _killPosition;
-    public float time;
+    //public StealthKilled _enemy;
     public Animator anim;
+    public bool stealthKill;
 
-    public StealthKilled Enemy
+    public void OnTriggerStay(Collider other)
     {
-        get { return _enemy; }
-        set { _enemy = value; }
-    }
-
-    public void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.F) && _enemy != null) 
+        if(other.CompareTag("Enemy"))
         {
-            this.transform.SetPositionAndRotation(_killPosition.position, _killPosition.rotation);
+            StealthKilled _enemy = other.GetComponentInChildren<StealthKilled>();
 
-            if(this.transform.position == _killPosition.position && this.transform.rotation == _killPosition.rotation) 
+            if (Input.GetKeyDown(KeyCode.F) && _enemy.canBeStealthKilled)
             {
-                Debug.Log("Stealth kill");
-
+                stealthKill = true;
                 anim.SetTrigger("Kill");
-
-                StartCoroutine(EndKillStealth());
             }
         }
     }
 
-    IEnumerator EndKillStealth()
-    {
-        yield return new WaitForSeconds(time);
-
-        _enemy = null;
-        _killPosition = null;
-    }
 }

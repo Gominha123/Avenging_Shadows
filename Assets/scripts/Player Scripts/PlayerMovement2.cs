@@ -122,7 +122,6 @@ public class PlayerMovement2 : MonoBehaviour
 
         SpeedControl();
         StateHandler();
-
     }
 
     private void FixedUpdate()

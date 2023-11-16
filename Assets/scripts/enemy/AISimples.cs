@@ -41,6 +41,7 @@ public class AISimples : MonoBehaviour
     private Rigidbody rb;
     private CapsuleCollider capsuleCollider;
     private bool isDying = false;
+    public bool canBeStealthKilled;
 
 
     // Define the delegate for state functions
@@ -125,6 +126,8 @@ public class AISimples : MonoBehaviour
         if (_stateAI != stateOfAi.dead)
         {
             currentStateFunction.Invoke();
+            if (_stateAI != stateOfAi.waiting || _stateAI != stateOfAi.patrolling) canBeStealthKilled = true;
+            else canBeStealthKilled = false;
         }
 
 

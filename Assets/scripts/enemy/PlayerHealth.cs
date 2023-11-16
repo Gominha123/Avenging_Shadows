@@ -26,7 +26,6 @@ public class PlayerHealth : MonoBehaviour
     bool damaged;
     Scene currentScene;
     public string sceneName;
-    internal bool isdead;
 
     public HealthSlider healthbar;
 

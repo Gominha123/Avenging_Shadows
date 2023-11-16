@@ -80,7 +80,6 @@ public class WeaponController : MonoBehaviour, IWeapon, IInteractable
         if (other.tag == "Enemy" && enableAttack && weaponItem.weaponType == WeaponType.weapon)
         {
             EnemyHealth enemy = other.GetComponent<EnemyHealth>();
-            Debug.Log("Here");
             //se tiver como comentário passar a codigo se não não dá damage
             enemy.TakeDamage(damage);
             durability--;

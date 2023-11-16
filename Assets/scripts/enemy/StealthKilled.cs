@@ -4,33 +4,49 @@ using UnityEngine;
 
 public class StealthKilled : MonoBehaviour
 {
-    Transform player;
-    public Animator anim;
-    public Transform killPosition;
+    EnemyHealth enemyHealth;
+    AISimples enemy;
+    Animator anim;
+    StealthKill player;
+    public bool canBeStealthKilled;
 
-    public void SetParent()
+    public void Start()
     {
-        anim.SetBool("Kill", true);
+        enemyHealth = GetComponentInParent<EnemyHealth>();
+        enemy = GetComponentInParent<AISimples>();
+        anim = GetComponentInParent<Animator>();
+        canBeStealthKilled = false;
     }
 
-    public void UnSetParent()
+    public void Update()
     {
-        anim.SetBool("Kill", false);
+        if (canBeStealthKilled)
+        {
+            if (player.stealthKill)
+            {
+                Debug.Log("Killed");
+                enemyHealth.health = 0;
+                anim.SetTrigger("Kill");
+                enemy.canBeStealthKilled = false;
+                canBeStealthKilled = false;
+            }
+        }
     }
 
     public void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && enemy.canBeStealthKilled)
         {
-            other.GetComponent<StealthKill>()._enemy = this;
-            other.GetComponent<StealthKill>()._killPosition = killPosition;
+            canBeStealthKilled = true;
+            player = other.GetComponent<StealthKill>();
         }
     }
 
     public void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && enemy.canBeStealthKilled)
         {
+            canBeStealthKilled = false;
             player = null;
         }
     }

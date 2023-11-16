@@ -814,6 +814,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6590033639726278291}
+  - component: {fileID: -6283887194193523493}
+  - component: {fileID: 8901532899603931681}
+  - component: {fileID: 849634492773926200}
   m_Layer: 10
   m_Name: BlueBlade
   m_TagString: Sword
@@ -828,9 +831,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9000297952787295317}
-  m_LocalRotation: {x: 0.70710677, y: -0, z: -0, w: -0.7071068}
-  m_LocalPosition: {x: 0, y: 1.823, z: -2.95}
-  m_LocalScale: {x: 100, y: 100.00003, z: 100.00003}
+  m_LocalRotation: {x: 1, y: 0, z: 0, w: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0.274}
+  m_LocalScale: {x: 70, y: 70, z: 70}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6603344825647836590}
@@ -842,4 +845,48 @@ Transform:
   - {fileID: 5282259451550907815}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 180, y: 0, z: 0}
+--- !u!65 &-6283887194193523493
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9000297952787295317}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.002159376, y: 0.0013351222, z: 0.020580776}
+  m_Center: {x: 0.00025012039, y: -0.000007386876, z: -0.0050728773}
+--- !u!114 &8901532899603931681
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9000297952787295317}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbfa7bccbb1dda549bd5cf95e00612c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item: {fileID: 11400000, guid: 27feb42b5fbba7b41acfc9ff26a8ee1e, type: 2}
+--- !u!114 &849634492773926200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9000297952787295317}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d8d4ba507747794e91c50a82cd5c2ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponItem: {fileID: 11400000, guid: 52da79f62ad25d2459e8e0a4af217db3, type: 2}
+  attackCooldown: 0
+  damage: 1
+  enableAttack: 0
+  durability: 1000
+  item: {fileID: 11400000, guid: 27feb42b5fbba7b41acfc9ff26a8ee1e, type: 2}

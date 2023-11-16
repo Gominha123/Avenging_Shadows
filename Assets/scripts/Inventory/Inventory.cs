@@ -184,9 +184,32 @@ public class Inventory : MonoBehaviour
         }
     }
 
-    public bool FindById(int id)
+    public bool FindById(int id, bool weapon)
     {
-        foreach (Item item in keyItems)
+        if (!weapon)
+        {
+            foreach (Item item in keyItems)
+            {
+                if (item.id == id) return true;
+
+            }
+            return false;
+        }
+        else
+        {
+            foreach (Item item in weaponItems)
+            {
+                if (item.id == id) return true;
+
+            }
+            return false;
+        }
+        
+    }
+
+    public bool FindByIdWeapon(int id)
+    {
+        foreach (Item item in weaponItems)
         {
             if (item.id == id) return true;
 

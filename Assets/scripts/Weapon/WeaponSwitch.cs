@@ -365,6 +365,8 @@ public class WeaponSwitch : MonoBehaviour
         {
             weapon.transform.SetAsLastSibling();
         }
+
+        equipedInv.ChangeCurrentWeaponIcon(selectedWeapon);
     }
 
     public void UpgradeWeapon(int i, GameObject tooth)

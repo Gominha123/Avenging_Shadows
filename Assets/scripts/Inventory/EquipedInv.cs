@@ -107,7 +107,7 @@ public class EquipedInv : MonoBehaviour
         foreach (Item item in items)
         {
             var weapon = transform.Find("Weapon" + count).GetComponent<UnityEngine.UI.Button>();
-            var icon = weapon.transform.Find("EquipedIcon" + count).GetComponent<UnityEngine.UI.Image>();
+            var icon = weapon.transform.Find("EquipedIcon").GetComponent<UnityEngine.UI.Image>();
             if (item != null )//nullItems[0] && item != nullItems[1])
             {
                 icon.sprite = item.icon;

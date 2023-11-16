@@ -83,10 +83,22 @@ public class WeaponController : MonoBehaviour, IWeapon, IInteractable
             //se tiver como comentário passar a codigo se não não dá damage
             enemy.TakeDamage(damage);
             durability--;
+            TeethDropRate(enemy);
             if(durability <= 0) {
                 StartCoroutine(DoAfterOneSeconds());
-                //this.GetComponentInParent<WeaponSwitch>().DeleteEquipedOnDurability(this.transform);
             }
+        }
+    }
+
+    public void TeethDropRate(EnemyHealth enemy)
+    {
+        int rangeValue = 40;
+        int dropValue = Random.Range(1, 100);
+        if(dropValue >= rangeValue) 
+        {
+            GameObject toothPrefab = (GameObject)Resources.Load("Weapons/Molar_Tooth");
+            GameObject tooth = Instantiate(toothPrefab);
+            tooth.transform.position = enemy.gameObject.transform.position;
         }
     }
 
@@ -102,8 +114,8 @@ public class WeaponController : MonoBehaviour, IWeapon, IInteractable
         {
             Inventory.Instance.Add(item, weaponItem);
 
-            Inventory.Instance.invWeaponDamage[Inventory.Instance.weaponCount - 1] = weaponItem.upgradeDamage;
-            Inventory.Instance.invWeaponDurability[Inventory.Instance.weaponCount - 1] = weaponItem.durability;
+            Inventory.Instance.invWeaponDamage[Inventory.Instance.weaponCount] = weaponItem.upgradeDamage;
+            Inventory.Instance.invWeaponDurability[Inventory.Instance.weaponCount] = weaponItem.durability;
 
             Destroy(gameObject);
         }

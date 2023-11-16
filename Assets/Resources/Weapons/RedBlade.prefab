@@ -124,6 +124,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3639742841873184428}
+  - component: {fileID: 1251521228455034391}
+  - component: {fileID: -7012281491008798699}
+  - component: {fileID: 4545194210528595641}
   m_Layer: 10
   m_Name: RedBlade
   m_TagString: Sword
@@ -138,9 +141,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1518009083550153834}
-  m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 0.335, y: 2.12, z: -2.95}
-  m_LocalScale: {x: 100, y: 100.00003, z: 100.00003}
+  m_LocalRotation: {x: -0.5, y: -0.5, z: -0.5, w: 0.5}
+  m_LocalPosition: {x: 0, y: 0, z: 0.104}
+  m_LocalScale: {x: 70, y: 70, z: 70}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5230872768446867288}
@@ -152,7 +155,51 @@ Transform:
   - {fileID: 8789515097076192651}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: -90}
+--- !u!114 &1251521228455034391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1518009083550153834}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d8d4ba507747794e91c50a82cd5c2ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponItem: {fileID: 11400000, guid: 52da79f62ad25d2459e8e0a4af217db3, type: 2}
+  attackCooldown: 0
+  damage: 1
+  enableAttack: 0
+  durability: 1000
+  item: {fileID: 11400000, guid: 3ea262ec97b4d024e9032bd21108d3e1, type: 2}
+--- !u!114 &-7012281491008798699
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1518009083550153834}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbfa7bccbb1dda549bd5cf95e00612c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item: {fileID: 11400000, guid: 3ea262ec97b4d024e9032bd21108d3e1, type: 2}
+--- !u!65 &4545194210528595641
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1518009083550153834}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.017612759, y: 0.0020493262, z: 0.0006667494}
+  m_Center: {x: 0.008715407, y: 0.00012638705, z: 0.000055504985}
 --- !u!1 &2030959912381010205
 GameObject:
   m_ObjectHideFlags: 0

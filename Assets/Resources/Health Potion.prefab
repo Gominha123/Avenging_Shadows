@@ -14,9 +14,9 @@ GameObject:
   - component: {fileID: 342298961174760182}
   - component: {fileID: 7767805953732459535}
   - component: {fileID: 8276892909697656855}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Health Potion
-  m_TagString: Untagged
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295

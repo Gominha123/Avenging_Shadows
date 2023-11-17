@@ -10,13 +10,13 @@ public class HorseInteraction : MonoBehaviour, IInteractable
     //[SerializeField] private InventoryManager inventory;
 
     public Item item;
-    private bool weapon;
+    public bool weapon = false;
     public string InteractablePrompt => prompt;
     public string scene;
 
     private void Awake()
     {
-        if(item.itemType == Item.ItemType.Weapon)
+        if (item.itemType == Item.ItemType.Weapon)
         {
             weapon = true;
         }
@@ -25,7 +25,7 @@ public class HorseInteraction : MonoBehaviour, IInteractable
 
     public void Update()
     {
-        if (Inventory.Instance.FindById(item.id, weapon))
+        if (Inventory.Instance.FindById(item.id, false))
         {
             prompt = "Press E to Leave";
         }
@@ -33,7 +33,7 @@ public class HorseInteraction : MonoBehaviour, IInteractable
 
     public void Interact()
     {
-        if (Inventory.Instance.FindById(item.id, weapon))
+        if (Inventory.Instance.FindById(item.id, false))
         {
             SceneManager.LoadScene(scene);
         }

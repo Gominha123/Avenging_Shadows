@@ -9,6 +9,8 @@ public class MapaDaNeve : MonoBehaviour
 
     private string objectiveText = "Choose a Weapon";
 
+    public HorseInteraction horse;
+
     public Item item;
     public Item item2;
 
@@ -26,6 +28,9 @@ public class MapaDaNeve : MonoBehaviour
         if (Inventory.Instance.FindById(item.id, true) || Inventory.Instance.FindById(item2.id, true))
         {
             objectiveTextUI.SetUp("Go Back to Your Horse and Leave");
+            Destroy(redBlade);
+            Destroy(blueBlade);
+            horse.weapon = true;
         }
     }
 }

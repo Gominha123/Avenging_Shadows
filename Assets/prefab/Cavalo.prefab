@@ -248,7 +248,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afdb3548415b4e04b85aca07fc491f20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventory: {fileID: 0}
+  prompt: Find the Map Before Leaving
+  item: {fileID: 11400000, guid: 452a01238213bdf4ab0dde6f58e6e768, type: 2}
+  weapon: 0
+  scene: vila com taverna
 --- !u!1 &1119988818212382566
 GameObject:
   m_ObjectHideFlags: 0

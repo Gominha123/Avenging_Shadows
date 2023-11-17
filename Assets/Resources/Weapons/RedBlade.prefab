@@ -173,7 +173,7 @@ MonoBehaviour:
   damage: 1
   enableAttack: 0
   durability: 1000
-  item: {fileID: 11400000, guid: 3ea262ec97b4d024e9032bd21108d3e1, type: 2}
+  item: {fileID: 11400000, guid: d882343342f44d8478873518d79d4a90, type: 2}
 --- !u!114 &-7012281491008798699
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -186,7 +186,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbfa7bccbb1dda549bd5cf95e00612c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item: {fileID: 11400000, guid: 3ea262ec97b4d024e9032bd21108d3e1, type: 2}
+  item: {fileID: 11400000, guid: d882343342f44d8478873518d79d4a90, type: 2}
 --- !u!65 &4545194210528595641
 BoxCollider:
   m_ObjectHideFlags: 0

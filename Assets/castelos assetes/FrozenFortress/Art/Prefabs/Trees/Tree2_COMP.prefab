@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 33000011029805136}
   - component: {fileID: 23000013498909714}
   - component: {fileID: 136000011496475496}
+  - component: {fileID: 2871324896857610126}
   m_Layer: 0
   m_Name: Tree2_COMP
   m_TagString: Untagged
@@ -72,8 +73,8 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 21000013181427504, guid: 47aff5cbe570b964f8ba8df91272c21f, type: 3}
-  - {fileID: 21000013694803438, guid: 47aff5cbe570b964f8ba8df91272c21f, type: 3}
+  - {fileID: 21000013181427504, guid: 959d97f7a1afda44fb5d56223c4943ba, type: 3}
+  - {fileID: 21000013694803438, guid: 959d97f7a1afda44fb5d56223c4943ba, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -86,7 +87,7 @@ MeshRenderer:
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
   m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
+  m_SelectedEditorRenderState: 0
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
@@ -109,3 +110,17 @@ CapsuleCollider:
   m_Height: 5.38639
   m_Direction: 1
   m_Center: {x: 0.02, y: 2.39, z: -0.03}
+--- !u!114 &2871324896857610126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000013472729836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5752bd7c5d1c2ec44b018b6cb497ea5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectiveTextUI: {fileID: 0}
+  item: {fileID: 0}

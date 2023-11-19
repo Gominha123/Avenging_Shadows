@@ -14,6 +14,8 @@ public class CampoDeTreinoObjective : MonoBehaviour
     public void Start()
     {
         objectiveTextUI.SetUp(objectiveText);
+        GameObject spawn = GameObject.Find("SpawnPoint");
+        Inventory.Instance.gameObject.transform.parent.transform.position = spawn.transform.position;
     }
 
     public void Update()   

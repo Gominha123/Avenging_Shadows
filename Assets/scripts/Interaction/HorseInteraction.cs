@@ -10,18 +10,8 @@ public class HorseInteraction : MonoBehaviour, IInteractable
     //[SerializeField] private InventoryManager inventory;
 
     public Item item;
-    public bool weapon = false;
     public string InteractablePrompt => prompt;
     public string scene;
-
-    private void Awake()
-    {
-        if (item.itemType == Item.ItemType.Weapon)
-        {
-            weapon = true;
-        }
-        else { weapon = false; }
-    }
 
     public void Update()
     {

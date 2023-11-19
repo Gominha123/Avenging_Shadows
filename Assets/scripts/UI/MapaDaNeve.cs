@@ -9,7 +9,7 @@ public class MapaDaNeve : MonoBehaviour
 
     private string objectiveText = "Choose a Weapon";
 
-    public HorseInteraction horse;
+    public NeveHorseInteraction horse;
 
     public Item item;
     public Item item2;
@@ -20,6 +20,8 @@ public class MapaDaNeve : MonoBehaviour
     public void Start()
     {
         objectiveTextUI.SetUp(objectiveText);
+        GameObject spawn = GameObject.Find("SpawnPoint");
+        Inventory.Instance.gameObject.transform.parent.transform.position = spawn.transform.position;
     }
 
     public void Update()

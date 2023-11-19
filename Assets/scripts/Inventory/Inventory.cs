@@ -56,8 +56,33 @@ public class Inventory : MonoBehaviour
 
     private void Awake()
     {
+        Debug.Log(Instance);
+        if(Instance != null)
+        {
+            Destroy(this.gameObject.transform.parent.gameObject);
+            GameObject spawn = GameObject.Find("SpawnPoint");
+            this.gameObject.transform.parent.transform.position = spawn.transform.position;
+            return;
+        }
+
         Instance = this;
+        GameObject.DontDestroyOnLoad(this.gameObject.transform.parent.gameObject);
     }
+
+    //private void Start()
+    //{
+    //    Debug.Log(Instance);
+    //    if(Instance != null)
+    //    {
+    //        Destroy(this.gameObject.transform.parent.gameObject);
+    //        GameObject spawn = GameObject.Find("SpawnPoint");
+    //        this.gameObject.transform.parent.transform.position = spawn.transform.position;
+    //        return;
+    //    }
+
+    //    Instance = this;
+    //    GameObject.DontDestroyOnLoad(this.gameObject.transform.parent.gameObject);
+    //}
 
     public int Count() { return items.Count; }
 

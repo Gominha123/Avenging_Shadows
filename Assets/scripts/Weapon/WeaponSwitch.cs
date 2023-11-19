@@ -370,6 +370,7 @@ public class WeaponSwitch : MonoBehaviour
         }
 
         equipedInv.ChangeCurrentWeaponIcon(selectedWeapon);
+        SelectWeapon();
     }
 
     public void UpgradeWeapon(int i, GameObject tooth, Item toothItem)
@@ -384,7 +385,7 @@ public class WeaponSwitch : MonoBehaviour
                 if (toothcontroller.weapon is WeaponDecorator decorator)
                 {
                     WeaponController weaponController = weapon.GetComponent<WeaponController>();
-                    if(weaponController.upCounter >= 1) 
+                    if(weaponController.upCounter >= 3) 
                     {
                         invDescription.SetUp(null, "Weapon is Already Fully Upgraded", false, false);
                         return;

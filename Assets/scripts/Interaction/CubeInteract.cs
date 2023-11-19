@@ -18,7 +18,7 @@ public class CubeInteract : MonoBehaviour, IInteractable
 
     private void Start()
     {
-        tempPrompt = prompt;
+        tempPrompt = "Press E to " + prompt;
     }
 
     //private void Update()
@@ -45,16 +45,16 @@ public class CubeInteract : MonoBehaviour, IInteractable
         else
         {
             tempPrompt = "Inventory is Full";
-            StartCoroutine(DoAfterTenSeconds());
+            StartCoroutine(DoAfterFiveSeconds());
         }
         
     }
 
-    IEnumerator DoAfterTenSeconds()
+    IEnumerator DoAfterFiveSeconds()
     {
-        yield return new WaitForSeconds(10);
+        yield return new WaitForSeconds(5);
 
-        tempPrompt = prompt;
+        tempPrompt = "Press E to " + prompt;
         
     }
 }

@@ -7642,6 +7642,7 @@ MonoBehaviour:
   isDead: 0
   sceneName: 
   healthbar: {fileID: 2045480134185522309}
+  interactionPromptUI: {fileID: 2458608417354853027}
 --- !u!114 &8449485672928539589
 MonoBehaviour:
   m_ObjectHideFlags: 0

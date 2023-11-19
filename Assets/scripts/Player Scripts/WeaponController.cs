@@ -45,16 +45,9 @@ public class WeaponController : MonoBehaviour, IWeapon, IInteractable
         }
         
     }
-
-    private void Update()
-    {
-        Debug.Log(upCounter + " upCount");
-        Debug.Log(damage + " dmg");
-    }
-
     public float UpdateDamage()
     {
-        if(upCounter <= 1)
+        if(upCounter <= 3)
         {
             upCounter++;
             return weapon.UpdateDamage();

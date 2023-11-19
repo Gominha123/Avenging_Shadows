@@ -29,6 +29,8 @@ public class PlayerHealth : MonoBehaviour
 
     public HealthSlider healthbar;
 
+    public InteractionPromptUI interactionPromptUI;
+
     public void Start()
     {
         //if (sceneName == "Level_Open_Remaster")
@@ -61,17 +63,23 @@ public class PlayerHealth : MonoBehaviour
             currentScene = SceneManager.GetActiveScene();
             sceneName = currentScene.name;
             SceneManager.LoadScene(currentScene.name);
-            transform.position = GameObject.FindWithTag("Spawn").transform.position;
+            GameObject spawnPoint = GameObject.FindWithTag("Spawn");
+            transform.position = spawnPoint.transform.position;
+            Item currentKeyItem = spawnPoint.GetComponent<ItemController>().item;
+            if(currentKeyItem != null)
+            {
+                Inventory.Instance.Remove(spawnPoint.GetComponent<ItemController>().item);
+            }
             anim.SetTrigger("Revive");
             hp = 100;
             healthbar.SetHealth(hp);
             isDead = false;
         }
 
-        //if(Input.GetKeyDown(KeyCode.R))
-        //{
-        //    TakeDamage(hp);
-        //}
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            TakeDamage(hp);
+        }
 
 
     }
@@ -93,6 +101,9 @@ public class PlayerHealth : MonoBehaviour
         {
             anim.SetTrigger("isDead");
             isDead = true;
+            interactionPromptUI.SetUp("You Died, Press L to Restart");
+            StartCoroutine(DoAfterFiveSeconds());
+
         }
     }
 
@@ -126,5 +137,13 @@ public class PlayerHealth : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
         invAmt = invLength;
+    }
+
+    IEnumerator DoAfterFiveSeconds()
+    {
+        yield return new WaitForSeconds(5);
+
+        interactionPromptUI.Close();
+
     }
 }

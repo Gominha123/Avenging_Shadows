@@ -7592,9 +7592,9 @@ MonoBehaviour:
   sprintKey: 304
   moveSpeed: 0
   walkSpeed: 2.5
-  sprintSpeed: 7
+  sprintSpeed: 5
   rSpeed: 0
-  crouchSpeed: 1.75
+  crouchSpeed: 1.5
   maxSlopeAngle: 45
   groundDrag: 1
   whatIsGround:
@@ -7698,7 +7698,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anim: {fileID: 2067218087704374631}
   stealthKill: 0
-  interactionPromptUI: {fileID: 2458608417354853027}
 --- !u!1 &6132928741695667820
 GameObject:
   m_ObjectHideFlags: 3

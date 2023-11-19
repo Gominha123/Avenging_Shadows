@@ -20,6 +20,7 @@ public class Inventory : MonoBehaviour
 
     public float[] invWeaponDamage = new float[2];
     public int[] invWeaponDurability = new int[2];
+    public int[] invWeaponUpgradedCount = new int[2];
 
     //public Item[] items = new Item[10];
 
@@ -361,7 +362,8 @@ public class Inventory : MonoBehaviour
                         DisableItemButtons();
                         equipedInventory.toothObject = teeth[0];
                         equipedInventory.ReturnButtonClickForUpgrade();
-                        Remove(upgradeItems[currentIndex]);
+                        //Remove(upgradeItems[currentIndex]);
+                        equipedInventory.toothItem = upgradeItems[currentIndex];
                         RemoveObject(teeth[0]);
                     }
                     break;
@@ -449,17 +451,35 @@ public class Inventory : MonoBehaviour
         }
     }
 
-    public void SetUpDamageDurability(float damage, int durability)
+    public void FirstWeaponEquip()
+    {
+        DisableItemButtons();
+        equipedInventory.tempItem = weaponItems[0];
+        equipedInventory.tempCurrentWeaponDamage = invWeaponDamage[0];
+        Debug.Log(invWeaponDamage[0]);
+        equipedInventory.tempCurrentWeaponDurability = invWeaponDurability[0];
+        equipedInventory.FirstWeaponEquip();
+        Remove(weaponItems[0]);
+        invWeaponDamage[0] = invWeaponDamage[1];
+        invWeaponDurability[0] = invWeaponDurability[1];
+        invWeaponDamage[1] = 0;
+        invWeaponDurability[1] = 0;
+    }
+
+    public void SetUpDamageDurability(float damage, int durability, int alreadyUpgraded)
     {
         if (invWeaponDamage[0] == 0)
         {
             invWeaponDamage[0] = damage;
             invWeaponDurability[0] = durability;
+            invWeaponUpgradedCount[0] = alreadyUpgraded;
+            
         }
         else
         {
             invWeaponDamage[1] = damage;
             invWeaponDurability[1] = durability;
+            invWeaponUpgradedCount[1] = alreadyUpgraded;
         }
     }
 

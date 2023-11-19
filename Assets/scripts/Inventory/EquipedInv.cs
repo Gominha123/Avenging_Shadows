@@ -12,13 +12,17 @@ public class EquipedInv : MonoBehaviour
 {
     public float tempCurrentWeaponDamage;
     public int tempCurrentWeaponDurability;
+    public int tempCurrentWeaponUpgrade;
     public float tempOldWeaponDamage;
     public int tempOldWeaponDurability;
+    public int tempOldWeaponUpgrade;
 
     public GameObject toothObject;
 
     public GameObject weaponHolder;
     public Item[] items = new Item[2];
+
+    public Item toothItem;
 
     //public readonly Item[] nullItems = new Item[2];
 
@@ -147,6 +151,16 @@ public class EquipedInv : MonoBehaviour
     //    currentWeaponIcon.sprite = sprites[index];
     //}
 
+    public void FirstWeaponEquip()
+    {
+        items[0] = tempItem;
+        weaponSwitch.DeleteWeapon(0);
+        weaponSwitch.AddWeapon(items[0].name, true, tempCurrentWeaponDamage, tempCurrentWeaponDurability, tempCurrentWeaponUpgrade);
+        invDescription.Close();
+        openInv.letDisable = true;
+        ShowEquiped();
+    }
+
     public void ReturnButtonClickForUpgrade()
     {
         StartCoroutine(GetItemSelectForUpgrade());
@@ -166,11 +180,11 @@ public class EquipedInv : MonoBehaviour
             {
                 weaponSwitch.GetWeaponItem(0);
                 Inventory.Instance.Add(items[0]);
-                Inventory.Instance.SetUpDamageDurability(tempOldWeaponDamage,tempOldWeaponDurability);
+                Inventory.Instance.SetUpDamageDurability(tempOldWeaponDamage,tempOldWeaponDurability, tempOldWeaponUpgrade);
             }
             items[0] = tempItem;
             weaponSwitch.DeleteWeapon(0);
-            weaponSwitch.AddWeapon(items[0].name, true, tempCurrentWeaponDamage, tempCurrentWeaponDurability);
+            weaponSwitch.AddWeapon(items[0].name, true, tempCurrentWeaponDamage, tempCurrentWeaponDurability, tempCurrentWeaponUpgrade);
             Inventory.Instance.ListItems();
             invDescription.Close();
             openInv.letDisable = true;
@@ -184,11 +198,11 @@ public class EquipedInv : MonoBehaviour
             {
                 weaponSwitch.GetWeaponItem(1);
                 Inventory.Instance.Add(items[1]);
-                Inventory.Instance.SetUpDamageDurability(tempOldWeaponDamage, tempOldWeaponDurability);
+                Inventory.Instance.SetUpDamageDurability(tempOldWeaponDamage, tempOldWeaponDurability, tempOldWeaponUpgrade);
             }
             items[1] = tempItem;
             weaponSwitch.DeleteWeapon(1);
-            weaponSwitch.AddWeapon(items[1].name, false, tempCurrentWeaponDamage, tempCurrentWeaponDurability);
+            weaponSwitch.AddWeapon(items[1].name, false, tempCurrentWeaponDamage, tempCurrentWeaponDurability, tempCurrentWeaponUpgrade);
             Inventory.Instance.ListItems();
             invDescription.Close();
             openInv.letDisable = true;
@@ -209,9 +223,9 @@ public class EquipedInv : MonoBehaviour
             if (items[0] != null)
             {
                 //tooth = WeaponFactory.Create(Tooth);
-                weaponSwitch.UpgradeWeapon(0, toothObject);
-                Inventory.Instance.ListItems();
                 invDescription.Close();
+                weaponSwitch.UpgradeWeapon(0, toothObject, toothItem);
+                Inventory.Instance.ListItems();
                 openInv.letDisable = true;
                 ShowEquiped();
             }
@@ -224,7 +238,7 @@ public class EquipedInv : MonoBehaviour
             {
                 //tooth = new ToothDecorator(tempItem.value);
                 //tooth = WeaponFactory.Create(Tooth);
-                weaponSwitch.UpgradeWeapon(1, toothObject);
+                weaponSwitch.UpgradeWeapon(1, toothObject, toothItem);
 
 
                 Inventory.Instance.ListItems();

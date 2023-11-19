@@ -33,7 +33,7 @@ public class ChestInteraction : MonoBehaviour, IInteractable
         switch (random)
         {
             case 0:
-                weaponPrefab = (GameObject)Resources.Load("Weapons/Spear");
+                weaponPrefab = (GameObject)Resources.Load("Weapons/Sword_OH Variant");
                 weapon = Instantiate(weaponPrefab);
                 weapon.transform.position = spawnPoint.transform.position;
                 weapon.transform.rotation = Quaternion.Euler(90f, 90f, 0f);

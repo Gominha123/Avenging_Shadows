@@ -35,6 +35,7 @@ public class WeaponController : MonoBehaviour, IWeapon, IInteractable
     public float damage;
     public bool enableAttack;
     public int durability;
+    public int upCounter = 0;
 
     private void Awake()
     {
@@ -45,9 +46,20 @@ public class WeaponController : MonoBehaviour, IWeapon, IInteractable
         
     }
 
+    private void Update()
+    {
+        Debug.Log(upCounter + " upCount");
+        Debug.Log(damage + " dmg");
+    }
+
     public float UpdateDamage()
     {
-        return weapon.UpdateDamage();
+        if(upCounter <= 1)
+        {
+            upCounter++;
+            return weapon.UpdateDamage();
+        }
+        return damage;
     }
 
     public void SetWeapon()
@@ -84,7 +96,7 @@ public class WeaponController : MonoBehaviour, IWeapon, IInteractable
             enemy.TakeDamage(damage);
             durability--;
             TeethDropRate(enemy);
-            if(durability <= 0) {
+            if(durability == 0) {
                 StartCoroutine(DoAfterOneSeconds());
             }
         }

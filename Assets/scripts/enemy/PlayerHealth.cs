@@ -31,8 +31,6 @@ public class PlayerHealth : MonoBehaviour
 
     public void Start()
     {
-        //currentScene = SceneManager.GetActiveScene();
-        //sceneName = currentScene.name;
         //if (sceneName == "Level_Open_Remaster")
         //{
         //    InvokeRepeating("GetHp", 30, 30);
@@ -57,6 +55,23 @@ public class PlayerHealth : MonoBehaviour
         {
             invAmt -= Time.deltaTime;
         }
+
+        if (isDead && Input.GetKeyDown(KeyCode.L))
+        {
+            currentScene = SceneManager.GetActiveScene();
+            sceneName = currentScene.name;
+            SceneManager.LoadScene(currentScene.name);
+            transform.position = GameObject.FindWithTag("Spawn").transform.position;
+            anim.SetTrigger("Revive");
+            hp = 100;
+            healthbar.SetHealth(hp);
+            isDead = false;
+        }
+
+        //if(Input.GetKeyDown(KeyCode.R))
+        //{
+        //    TakeDamage(hp);
+        //}
 
 
     }

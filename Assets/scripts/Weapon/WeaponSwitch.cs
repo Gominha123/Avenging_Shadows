@@ -13,6 +13,8 @@ public class WeaponSwitch : MonoBehaviour
 
     public EquipedInv equipedInv;
 
+    public InvDescription invDescription;
+
     PlayerMovement2 playerMovement;
     WeaponController weaponController;
     public InteractionPromptUI interactionPromptUI;
@@ -341,7 +343,7 @@ public class WeaponSwitch : MonoBehaviour
         }
     }
 
-    public void AddWeapon(string weaponName, bool firstSibling, float damage, int durability)
+    public void AddWeapon(string weaponName, bool firstSibling, float damage, int durability, int upgradeCount)
     {
         GameObject weaponPrefab = (GameObject)Resources.Load("Weapons/" + weaponName);
         GameObject weapon = Instantiate(weaponPrefab);
@@ -356,6 +358,7 @@ public class WeaponSwitch : MonoBehaviour
         wpcw.durability = durability;
         wpc.weaponItem = wpcw;
         wpc.SetWeapon();
+        wpc.upCounter = upgradeCount;
 
         if (firstSibling)
         {
@@ -369,7 +372,7 @@ public class WeaponSwitch : MonoBehaviour
         equipedInv.ChangeCurrentWeaponIcon(selectedWeapon);
     }
 
-    public void UpgradeWeapon(int i, GameObject tooth)
+    public void UpgradeWeapon(int i, GameObject tooth, Item toothItem)
     {
         int count = 0;
         onDeleteIndex = i;
@@ -381,10 +384,20 @@ public class WeaponSwitch : MonoBehaviour
                 if (toothcontroller.weapon is WeaponDecorator decorator)
                 {
                     WeaponController weaponController = weapon.GetComponent<WeaponController>();
-                    WeaponManager.Instance.SelectedWeapon = toothcontroller;
-                    WeaponManager.Instance.Decorate(weaponController);
-                    WeaponManager.Instance.SelectedWeapon.weapon.UpdateDamage();
-                    weaponController.damage = weaponController.UpdateDamage();
+                    if(weaponController.upCounter >= 1) 
+                    {
+                        invDescription.SetUp(null, "Weapon is Already Fully Upgraded", false, false);
+                        return;
+                    }
+                    else
+                    {
+                        WeaponManager.Instance.SelectedWeapon = toothcontroller;
+                        WeaponManager.Instance.Decorate(weaponController);
+                        WeaponManager.Instance.SelectedWeapon.weapon.UpdateDamage();
+                        weaponController.damage = weaponController.UpdateDamage();
+                        Inventory.Instance.Remove(toothItem);
+                    }
+                    
 
                 }
             }
@@ -419,6 +432,7 @@ public class WeaponSwitch : MonoBehaviour
                 WeaponController wpc = weapon.GetComponent<WeaponController>();
                 equipedInv.tempOldWeaponDamage = wpc.damage;
                 equipedInv.tempOldWeaponDurability = wpc.durability;
+                equipedInv.tempOldWeaponUpgrade = wpc.upCounter;
             }
             count++;
 

@@ -126,7 +126,7 @@ public class AISimples : MonoBehaviour
         if (_stateAI != stateOfAi.dead)
         {
             currentStateFunction.Invoke();
-            if (_stateAI != stateOfAi.waiting || _stateAI != stateOfAi.patrolling) canBeStealthKilled = true;
+            if (_stateAI == stateOfAi.waiting || _stateAI == stateOfAi.patrolling) canBeStealthKilled = true;
             else canBeStealthKilled = false;
         }
 
@@ -358,7 +358,7 @@ public class AISimples : MonoBehaviour
 
         if (isDying)
         {
-            Debug.Log("Entering Dead state");
+            //Debug.Log("Entering Dead state");
             Vector3 currentPosition = transform.position;
             rb.useGravity = false;
             rb.isKinematic = true;

@@ -77,6 +77,7 @@ public class PlayerMovement2 : MonoBehaviour
     Rigidbody rb;
     //BoxCollider boxCollider;
     CapsuleCollider capsuleCollider;
+    StealthKill stealthKill;
 
     public WeaponController wp;
 
@@ -99,6 +100,8 @@ public class PlayerMovement2 : MonoBehaviour
         capsuleCollider = GetComponent<CapsuleCollider>();
         hp = GetComponent<PlayerHealth>();
         wp = GetComponentInChildren<WeaponController>();
+        stealthKill = GetComponent<StealthKill>();
+
 
         rb.freezeRotation = true;
 
@@ -126,7 +129,7 @@ public class PlayerMovement2 : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (!attacking)
+        if (!attacking && !stealthKill.stealthKill)
         {
             MovePLayer();
             StepClimb();
@@ -304,7 +307,7 @@ public class PlayerMovement2 : MonoBehaviour
         }
         wp.enableAttack = attacking;
 
-        if (wp.enableAttack) rSpeed = rStop;
+        if (wp.enableAttack || stealthKill.stealthKill) rSpeed = rStop;
         else rSpeed = rMove;
 
 

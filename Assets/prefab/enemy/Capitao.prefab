@@ -2168,6 +2168,7 @@ MonoBehaviour:
   patrolPointsRotations: []
   _navMesh: {fileID: 3714645564597570403}
   lastAttackTime: 5
+  canBeStealthKilled: 0
 --- !u!95 &3714645564597570413
 Animator:
   serializedVersion: 5

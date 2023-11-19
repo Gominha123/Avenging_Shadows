@@ -88,7 +88,7 @@ public class FOVEnemies : MonoBehaviour
         float hearDistance = Vector3.Distance(transform.position, player.transform.position);
         if (pM.moveSpeed > pM.crouchSpeed && hearDistance < hearRadius)
         {
-            Debug.Log("I can hear you");
+            //Debug.Log("I can hear you");
             anim.SetTrigger("Hearing");
         }
     }

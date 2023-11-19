@@ -8,7 +8,7 @@ public class ChestInteraction : MonoBehaviour, IInteractable
     //[SerializeField] private InventoryManager inventory;
 
     public Item item;
-    public Animator animator;
+    Animator animator;
     public GameObject spawnPoint;
     public string InteractablePrompt => prompt;
 

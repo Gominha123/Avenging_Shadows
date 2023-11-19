@@ -7,6 +7,8 @@ public class CubeInteract : MonoBehaviour, IInteractable
 {
     [SerializeField] private string prompt;
 
+    InteractionPromptUI promptUI;
+
     private string tempPrompt;
 
     public Item item;
@@ -18,6 +20,7 @@ public class CubeInteract : MonoBehaviour, IInteractable
 
     private void Start()
     {
+        promptUI = GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<InteractionPromptUI>();
         tempPrompt = "Press E to " + prompt;
     }
 
@@ -44,6 +47,7 @@ public class CubeInteract : MonoBehaviour, IInteractable
         }
         else
         {
+            promptUI.Close();
             tempPrompt = "Inventory is Full";
             StartCoroutine(DoAfterFiveSeconds());
         }

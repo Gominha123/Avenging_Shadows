@@ -2013,6 +2013,7 @@ MonoBehaviour:
   timeBetweenAttacks: 2
   shootPoint: {fileID: 3990064913706526977}
   fovEnemies: {fileID: 3990064913412208668}
+  patrolPointsRotations: []
   attackTimer: 0
 --- !u!114 &3990064913412208668
 MonoBehaviour:
@@ -2042,6 +2043,7 @@ MonoBehaviour:
   visibleEnemies: []
   player: {fileID: 0}
   hearRadius: 10
+  downwardOffset: 0.3
 --- !u!195 &3990064913412208666
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -2076,7 +2078,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b4b6858bfe7dde4d97226f6fde6da0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 5
+  health: 25
   isDead: 0
 --- !u!95 &3077592680176380741
 Animator:

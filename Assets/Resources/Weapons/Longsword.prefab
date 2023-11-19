@@ -125,8 +125,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponItem: {fileID: 11400000, guid: 52da79f62ad25d2459e8e0a4af217db3, type: 2}
-  attackCooldown: 2
-  damage: 1
+  attackCooldown: 0
+  damage: 0
   enableAttack: 0
   durability: 0
   item: {fileID: 11400000, guid: fb113a35f4da63140b92a2bbb213757e, type: 2}

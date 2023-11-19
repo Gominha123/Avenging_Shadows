@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bc67b12448ff9aa419fd3fbc8a1b3439, type: 3}
-  m_Name: LongSword
+  m_Name: Blade
   m_EditorClassIdentifier: 
-  upgradeDamage: 15
-  durability: 50
+  upgradeDamage: 10
+  durability: -1
   weaponType: 0

@@ -2163,7 +2163,7 @@ MonoBehaviour:
   attackRange: 2
   waitTime: 6
   attackCooldown: 5
-  damage: 10
+  damage: 25
   waitingDistance: 10
   patrolPointsRotations: []
   _navMesh: {fileID: 3714645564597570403}
@@ -2388,7 +2388,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b4b6858bfe7dde4d97226f6fde6da0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
+  health: 300
   isDead: 0
 --- !u!1 &4168097017871454472
 GameObject:

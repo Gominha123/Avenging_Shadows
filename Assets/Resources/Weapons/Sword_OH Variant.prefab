@@ -67,5 +67,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3917128908550412969, guid: 259746fbc59909b4eb14377c46a80363, type: 3}
+      propertyPath: item
+      value: 
+      objectReference: {fileID: 11400000, guid: 462a91fd29d6fd049805f79419eee652, type: 2}
+    - target: {fileID: 8777008253941394336, guid: 259746fbc59909b4eb14377c46a80363, type: 3}
+      propertyPath: item
+      value: 
+      objectReference: {fileID: 11400000, guid: 462a91fd29d6fd049805f79419eee652, type: 2}
+    - target: {fileID: 8777008253941394336, guid: 259746fbc59909b4eb14377c46a80363, type: 3}
+      propertyPath: damage
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8777008253941394336, guid: 259746fbc59909b4eb14377c46a80363, type: 3}
+      propertyPath: durability
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8777008253941394336, guid: 259746fbc59909b4eb14377c46a80363, type: 3}
+      propertyPath: weaponItem
+      value: 
+      objectReference: {fileID: 11400000, guid: 1c376475b3b87bc49b0df1238830179c, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 259746fbc59909b4eb14377c46a80363, type: 3}

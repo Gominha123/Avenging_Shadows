@@ -7564,7 +7564,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b4b6858bfe7dde4d97226f6fde6da0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
+  health: 150
   isDead: 0
 --- !u!82 &3245891298234857037
 AudioSource:
@@ -7720,7 +7720,7 @@ MonoBehaviour:
   attackRange: 2
   waitTime: 6
   attackCooldown: 5
-  damage: 10
+  damage: 9
   waitingDistance: 10
   patrolPointsRotations: []
   _navMesh: {fileID: 8624224677984834944}

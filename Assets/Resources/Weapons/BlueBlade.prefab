@@ -884,9 +884,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d8d4ba507747794e91c50a82cd5c2ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponItem: {fileID: 11400000, guid: 52da79f62ad25d2459e8e0a4af217db3, type: 2}
+  weaponItem: {fileID: 11400000, guid: d1a9ca82e408f0e4f9b8c3b6423fe41f, type: 2}
   attackCooldown: 0
-  damage: 1
+  damage: 0
   enableAttack: 0
-  durability: 1000
+  durability: 0
   item: {fileID: 11400000, guid: 4aff4b75aef6a454aa29ed8f57928b51, type: 2}

@@ -1418,7 +1418,7 @@ MonoBehaviour:
   attackRange: 5
   waitTime: 6
   attackCooldown: 5
-  damage: 10
+  damage: 7
   waitingDistance: 10
   patrolPointsRotations: []
   _navMesh: {fileID: 6756984248371314319}

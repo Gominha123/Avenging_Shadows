@@ -1735,7 +1735,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b4b6858bfe7dde4d97226f6fde6da0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
+  health: 200
   isDead: 0
 --- !u!23 &871107676577668905
 MeshRenderer:
@@ -1984,11 +1984,12 @@ MonoBehaviour:
   attackRange: 2
   waitTime: 6
   attackCooldown: 5
-  damage: 10
+  damage: 15
   waitingDistance: 10
   patrolPointsRotations: []
   _navMesh: {fileID: 3538635701582753073}
   lastAttackTime: 5
+  canBeStealthKilled: 0
 --- !u!114 &3147327163853107420
 MonoBehaviour:
   m_ObjectHideFlags: 0

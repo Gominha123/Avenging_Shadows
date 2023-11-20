@@ -57,7 +57,6 @@ public class Inventory : MonoBehaviour
 
     private void Awake()
     {
-        Debug.Log(Instance);
         if(Instance != null)
         {
             Destroy(this.gameObject.transform.parent.gameObject);

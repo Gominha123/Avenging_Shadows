@@ -11,10 +11,9 @@ public class StealthKill : MonoBehaviour
 
     public void OnTriggerStay(Collider other)
     {
-        if(other.CompareTag("Enemy"))
+        if(other.CompareTag("Stealth"))
         {
             StealthKilled _enemy = other.GetComponentInChildren<StealthKilled>();
-
             if (Input.GetKeyDown(KeyCode.F) && _enemy.canBeStealthKilled)
             {
                 stealthKill = true;

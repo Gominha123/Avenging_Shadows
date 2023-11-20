@@ -52,7 +52,6 @@ public class WeaponController : MonoBehaviour, IWeapon, IInteractable
 
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         interactPromptUI = player.GetComponentInChildren<InteractionPromptUI>();
-        Debug.Log(interactPromptUI);
         
     }
     public float UpdateDamage()

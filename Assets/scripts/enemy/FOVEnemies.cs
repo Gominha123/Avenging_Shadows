@@ -175,30 +175,30 @@ public class FOVEnemies : MonoBehaviour
         temporaryCollisionList.Clear();
     }
 
-    private void OnDrawGizmosSelected()
-    {
-        if (collisionType == CollisionType.OverlapSphere)
-        {
-            if (drawSphere)
-            {
-                Gizmos.color = Color.white;
-                Gizmos.DrawWireSphere(enemyHead.position, visionDistance);
-            }
-            Gizmos.color = Color.green;
-            float angleToRay1 = (180.0f - fieldOfViewAngle) * 0.5f;
-            float angleToRay2 = fieldOfViewAngle + (180.0f - fieldOfViewAngle) * 0.5f;
-            Vector3 rayDirection1 = Quaternion.AngleAxis(angleToRay1, enemyHead.up) * (-transform.right);
-            Vector3 rayDirection2 = Quaternion.AngleAxis(angleToRay2, enemyHead.up) * (-transform.right);
-            Gizmos.DrawRay(enemyHead.position, rayDirection1 * visionDistance);
-            Gizmos.DrawRay(enemyHead.position, rayDirection2 * visionDistance);
-            //
-            UnityEditor.Handles.color = Color.green;
-            float angle = Vector3.Angle(transform.forward, rayDirection1);
-            Vector3 pos = enemyHead.position + (enemyHead.forward * visionDistance * Mathf.Cos(angle * Mathf.Deg2Rad));
-            UnityEditor.Handles.DrawWireDisc(pos, enemyHead.transform.forward, visionDistance * Mathf.Sin(angle * Mathf.Deg2Rad));
+    //private void OnDrawGizmosSelected()
+    //{
+    //    if (collisionType == CollisionType.OverlapSphere)
+    //    {
+    //        if (drawSphere)
+    //        {
+    //            Gizmos.color = Color.white;
+    //            Gizmos.DrawWireSphere(enemyHead.position, visionDistance);
+    //        }
+    //        Gizmos.color = Color.green;
+    //        float angleToRay1 = (180.0f - fieldOfViewAngle) * 0.5f;
+    //        float angleToRay2 = fieldOfViewAngle + (180.0f - fieldOfViewAngle) * 0.5f;
+    //        Vector3 rayDirection1 = Quaternion.AngleAxis(angleToRay1, enemyHead.up) * (-transform.right);
+    //        Vector3 rayDirection2 = Quaternion.AngleAxis(angleToRay2, enemyHead.up) * (-transform.right);
+    //        Gizmos.DrawRay(enemyHead.position, rayDirection1 * visionDistance);
+    //        Gizmos.DrawRay(enemyHead.position, rayDirection2 * visionDistance);
+    //        //
+    //        UnityEditor.Handles.color = Color.green;
+    //        float angle = Vector3.Angle(transform.forward, rayDirection1);
+    //        Vector3 pos = enemyHead.position + (enemyHead.forward * visionDistance * Mathf.Cos(angle * Mathf.Deg2Rad));
+    //        UnityEditor.Handles.DrawWireDisc(pos, enemyHead.transform.forward, visionDistance * Mathf.Sin(angle * Mathf.Deg2Rad));
 
-            Gizmos.color = Color.red;
-            Gizmos.DrawWireSphere(transform.position, hearRadius);
-        }
-    }
+    //        Gizmos.color = Color.red;
+    //        Gizmos.DrawWireSphere(transform.position, hearRadius);
+    //    }
+    //}
 }

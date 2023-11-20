@@ -6,15 +6,18 @@ public class HealthPotion : MonoBehaviour, IInteractable
 {
     [SerializeField] private string prompt;
 
+    InteractionPromptUI promptUI;
+
     public Item item;
 
     private string tempPrompt;
 
-    public string InteractablePrompt => "Press E to " + prompt;
+    public string InteractablePrompt => tempPrompt;
 
     private void Start()
     {
-        tempPrompt = prompt;
+        promptUI = GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<InteractionPromptUI>();
+        tempPrompt = "Press E to " + prompt;
     }
 
     public void Interact()
@@ -26,7 +29,8 @@ public class HealthPotion : MonoBehaviour, IInteractable
         }
         else
         {
-            prompt = "Inventory is Full";
+            promptUI.Close();
+            tempPrompt = "Inventory is Full";
             StartCoroutine(DoAfterTenSeconds());
         }
 
@@ -34,7 +38,7 @@ public class HealthPotion : MonoBehaviour, IInteractable
 
     IEnumerator DoAfterTenSeconds()
     {
-        yield return new WaitForSeconds(10);
+        yield return new WaitForSeconds(5);
 
         prompt = tempPrompt;
 

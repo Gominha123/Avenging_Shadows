@@ -36,6 +36,12 @@ public class WeaponController : MonoBehaviour, IWeapon, IInteractable
     public bool enableAttack;
     public int durability;
     public int upCounter = 0;
+    private InteractionPromptUI interactPromptUI;
+
+
+    public string prompt;
+
+    private string tempPrompt;
 
     private void Awake()
     {
@@ -43,6 +49,10 @@ public class WeaponController : MonoBehaviour, IWeapon, IInteractable
         {
             SetWeapon();
         }
+
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        interactPromptUI = player.GetComponentInChildren<InteractionPromptUI>();
+        Debug.Log(interactPromptUI);
         
     }
     public float UpdateDamage()
@@ -78,6 +88,7 @@ public class WeaponController : MonoBehaviour, IWeapon, IInteractable
     public void Start()
     {
         enableAttack = false;
+        tempPrompt = "Press E to Pick Up " + prompt;
     }
 
     public void OnTriggerEnter(Collider other)
@@ -109,9 +120,7 @@ public class WeaponController : MonoBehaviour, IWeapon, IInteractable
 
     public Item item;
 
-    private string prompt;
-
-    public string InteractablePrompt => "Press E to Pick Up" + prompt;
+    public string InteractablePrompt => tempPrompt;
 
     public void Interact()
     {
@@ -132,7 +141,8 @@ public class WeaponController : MonoBehaviour, IWeapon, IInteractable
         }
         else
         {
-            prompt = "Inventory is Full";
+            interactPromptUI.Close();
+            tempPrompt = "Inventory is Full";
             StartCoroutine(DoAfterFiveSeconds());
         }
         
@@ -143,7 +153,7 @@ public class WeaponController : MonoBehaviour, IWeapon, IInteractable
     {
         yield return new WaitForSeconds(5);
 
-        prompt = item.name;
+        tempPrompt = "Press E to Pick Up " + prompt;
 
     }
 

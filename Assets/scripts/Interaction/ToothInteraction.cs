@@ -6,9 +6,13 @@ public class ToothInteraction : MonoBehaviour, IInteractable
 {
     //[SerializeField] private string prompt;
 
+    InteractionPromptUI promptUI;
+
     public Item item;
 
     private string prompt;
+
+    private string tempPrompt;
 
 
     //public IWeapon tooth;
@@ -18,7 +22,14 @@ public class ToothInteraction : MonoBehaviour, IInteractable
     //    tooth = new ToothDecorator(item.value);
     //}
 
-    public string InteractablePrompt => "Press E to Pick Up";//+ prompt;
+    private void Start()
+    {
+        promptUI = GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<InteractionPromptUI>();
+        tempPrompt = "Press E to Pick Up Tooth";
+        prompt = tempPrompt;
+    }
+
+    public string InteractablePrompt => prompt;
 
     public void Interact()
     {
@@ -33,6 +44,7 @@ public class ToothInteraction : MonoBehaviour, IInteractable
         }
         else
         {
+            promptUI.Close();
             prompt = "Inventory is Full";
             StartCoroutine(DoAfterTenSeconds());
         }
@@ -43,7 +55,7 @@ public class ToothInteraction : MonoBehaviour, IInteractable
     {
         yield return new WaitForSeconds(10);
 
-        prompt = item.name;
+        prompt = tempPrompt;
 
     }
 }

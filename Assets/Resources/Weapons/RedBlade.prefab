@@ -173,7 +173,9 @@ MonoBehaviour:
   damage: 0
   enableAttack: 0
   durability: 0
+  upCounter: 0
   item: {fileID: 11400000, guid: d882343342f44d8478873518d79d4a90, type: 2}
+  prompt: Red Blade
 --- !u!114 &-7012281491008798699
 MonoBehaviour:
   m_ObjectHideFlags: 0

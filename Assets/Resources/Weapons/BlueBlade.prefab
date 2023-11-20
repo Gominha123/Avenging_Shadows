@@ -889,4 +889,6 @@ MonoBehaviour:
   damage: 0
   enableAttack: 0
   durability: 0
+  upCounter: 0
   item: {fileID: 11400000, guid: 4aff4b75aef6a454aa29ed8f57928b51, type: 2}
+  prompt: Blue Blade

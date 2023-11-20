@@ -277,7 +277,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7997198081823257076}
-  - component: {fileID: 6613851128233929200}
   - component: {fileID: 7161615299254493883}
   - component: {fileID: 3008244093385784958}
   - component: {fileID: 1839227500063791936}
@@ -304,19 +303,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6613851128233929200
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4527744868251487566}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 87542bb759f6e994cbd0d5d63277730d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  item: {fileID: 11400000, guid: 14321ec137956fe418b4f82cce3769f5, type: 2}
 --- !u!114 &7161615299254493883
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -359,6 +345,10 @@ MonoBehaviour:
   attackCooldown: 0
   damage: 0
   enableAttack: 0
+  durability: 0
+  upCounter: 0
+  item: {fileID: 11400000, guid: 14321ec137956fe418b4f82cce3769f5, type: 2}
+  prompt: Tooth
 --- !u!1 &6725843909327598693
 GameObject:
   m_ObjectHideFlags: 0

@@ -80,6 +80,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8777008253941394336, guid: 259746fbc59909b4eb14377c46a80363, type: 3}
+      propertyPath: prompt
+      value: One-Handed Sword
+      objectReference: {fileID: 0}
+    - target: {fileID: 8777008253941394336, guid: 259746fbc59909b4eb14377c46a80363, type: 3}
       propertyPath: durability
       value: 0
       objectReference: {fileID: 0}

@@ -129,4 +129,6 @@ MonoBehaviour:
   damage: 0
   enableAttack: 0
   durability: 0
+  upCounter: 0
   item: {fileID: 11400000, guid: fb113a35f4da63140b92a2bbb213757e, type: 2}
+  prompt: LongSword

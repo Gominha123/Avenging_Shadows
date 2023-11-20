@@ -11363,13 +11363,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d8d4ba507747794e91c50a82cd5c2ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponItem: {fileID: 0}
+  weaponItem: {fileID: 11400000, guid: b5f179058cd72af4d92a6f56d530ba41, type: 2}
   attackCooldown: 0
   damage: 0
   enableAttack: 0
   durability: 0
   upCounter: 0
-  item: {fileID: 0}
+  prompt: 
+  item: {fileID: 11400000, guid: e4c32ca8bf240854d8c9f71195762ab4, type: 2}
 --- !u!1 &9091749022009794202
 GameObject:
   m_ObjectHideFlags: 0

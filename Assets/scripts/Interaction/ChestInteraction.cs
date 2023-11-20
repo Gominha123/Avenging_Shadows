@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ChestInteraction : MonoBehaviour, IInteractable
 {
-    private string prompt = "Press E to Open Chest";
+    public string prompt = "Press E to Open Chest";
     //[SerializeField] private InventoryManager inventory;
 
     public Item item;
@@ -15,12 +15,15 @@ public class ChestInteraction : MonoBehaviour, IInteractable
     private void Start()
     {
         animator = GetComponent<Animator>();
+        Debug.Log(animator);
     }
 
     public void Interact()
     {
-        gameObject.layer = 0;
+        Debug.Log("here");
+        Debug.Log("here");
         animator.SetBool("HasOpened", true);
+        gameObject.layer = 0;
         StartCoroutine(DoAfterTwoSeconds());
     }
 

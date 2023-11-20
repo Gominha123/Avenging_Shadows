@@ -57,6 +57,7 @@ public class FOVEnemies : MonoBehaviour
         // The ~ operator inverts the bits (0 becomes 1, and vice versa)
         obstacleLayer = ~enemyLayers;
         anim = GetComponent<Animator>();
+        player  = GameObject.FindGameObjectWithTag("Player");
         pM = player.GetComponent<PlayerMovement2>();
     }
 

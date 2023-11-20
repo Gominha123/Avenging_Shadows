@@ -49,7 +49,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item: {fileID: 0}
-  animator: {fileID: 392043133458974873}
   spawnPoint: {fileID: 8431598622043869962}
 --- !u!95 &392043133458974873
 Animator:

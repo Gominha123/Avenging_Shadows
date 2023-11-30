@@ -127,8 +127,8 @@ public class WeaponController : MonoBehaviour, IWeapon, IInteractable
         {
             Inventory.Instance.Add(item, weaponItem);
 
-            Inventory.Instance.invWeaponDamage[Inventory.Instance.weaponCount] = weaponItem.upgradeDamage;
-            Inventory.Instance.invWeaponDurability[Inventory.Instance.weaponCount] = weaponItem.durability;
+            Inventory.Instance.invWeaponDamage[Inventory.Instance.weaponCount - 1] = weaponItem.upgradeDamage;
+            Inventory.Instance.invWeaponDurability[Inventory.Instance.weaponCount - 1] = weaponItem.durability;
 
             Destroy(gameObject);
         }

@@ -29,14 +29,14 @@ public class ChestInteraction : MonoBehaviour, IInteractable
 
     public void SpawnRandomItem()
     {
-        int random = Random.Range(0, 2);
+        int random = Random.Range(0, 3);
         GameObject weaponPrefab;
         GameObject weapon;
 
         switch (random)
         {
             case 0:
-                weaponPrefab = (GameObject)Resources.Load("Weapons/Sword_OH Variant");
+                weaponPrefab = (GameObject)Resources.Load("Weapons/Sword_OH");
                 weapon = Instantiate(weaponPrefab);
                 weapon.transform.position = spawnPoint.transform.position;
                 weapon.transform.rotation = Quaternion.Euler(90f, 90f, 0f);

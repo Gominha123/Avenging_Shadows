@@ -25,6 +25,10 @@ public class ChestInteraction : MonoBehaviour, IInteractable
         animator = GetComponent<Animator>();
         Debug.Log(animator);
     }
+    private void Update()
+    {
+        Debug.Log(animator.GetBool("HasOpened"));
+    }
 
     public void Interact()
     {

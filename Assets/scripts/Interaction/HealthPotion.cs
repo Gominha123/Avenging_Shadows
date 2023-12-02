@@ -26,6 +26,7 @@ public class HealthPotion : MonoBehaviour, IInteractable
         {
             Inventory.Instance.Add(item);
             Destroy(gameObject);
+            promptUI.Close();
         }
         else
         {

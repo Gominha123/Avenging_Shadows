@@ -10,10 +10,19 @@ public class PlansInteraction : MonoBehaviour
     public Item item;
     public string InteractablePrompt => prompt;
 
+    public InteractionPromptUI interactionPromptUI;
+
+    private void Awake()
+    {
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        interactionPromptUI = player.GetComponentInChildren<InteractionPromptUI>();
+    }
+
     public void Interact()
     {
 
         Inventory.Instance.Add(item);
         Destroy(gameObject);
+        interactionPromptUI.Close();
     }
 }

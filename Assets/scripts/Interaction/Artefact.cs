@@ -12,6 +12,14 @@ public class Artefact : MonoBehaviour, IInteractable
 
     public string InteractablePrompt => "Press E to Pick Up" + prompt;
 
+    public InteractionPromptUI interactionPromptUI;
+
+    private void Awake()
+    {
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        interactionPromptUI = player.GetComponentInChildren<InteractionPromptUI>();
+    }
+
     public void Interact()
     {
         if (Inventory.Instance.artifactCount < 4)
@@ -24,6 +32,8 @@ public class Artefact : MonoBehaviour, IInteractable
             prompt = "Inventory is Full";
             StartCoroutine(DoAfterTenSeconds());
         }
+
+        interactionPromptUI.Close();
 
     }
 

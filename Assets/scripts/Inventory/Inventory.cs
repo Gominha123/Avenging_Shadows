@@ -252,7 +252,7 @@ public class Inventory : MonoBehaviour
             switch (currentTypeIndex)
             {
                 case 0: invDesciption.SetUp(keyItems[currentIndex].itemName, keyItems[currentIndex].description, false, false); break; //keyitem
-                case 1: invDesciption.SetUp(weaponItems[currentIndex].itemName, weaponItems[currentIndex].description, true, true); break; //weapons
+                case 1: invDesciption.SetUp(weaponItems[currentIndex].itemName, weaponItems[currentIndex].description + "\nDamage: " + invWeaponDamage[currentIndex] + " Durability: " + invWeaponDurability[currentIndex] + " Upgradability: " + invWeaponUpgradedCount[currentIndex] + "/3", true, true); break; //weapons
                 case 2: invDesciption.SetUp(potionItems[currentIndex].itemName, potionItems[currentIndex].description, true, true); break; //potions
                 case 3: invDesciption.SetUp(upgradeItems[currentIndex].itemName, upgradeItems[currentIndex].description, true, true); break; //upgrade
                 case 4: invDesciption.SetUp(items[currentIndex].itemName, items[currentIndex].description, false, true);break; //artefact

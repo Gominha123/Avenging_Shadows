@@ -12,6 +12,14 @@ public class CartaInteract : MonoBehaviour, IInteractable
     public Item item;
     public string InteractablePrompt => prompt;
 
+    public InteractionPromptUI interactionPromptUI;
+
+    private void Awake()
+    {
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        interactionPromptUI = player.GetComponentInChildren<InteractionPromptUI>();
+    }
+
     public void Interact()
     {
         //if(!inventory.hasLetter)
@@ -24,5 +32,6 @@ public class CartaInteract : MonoBehaviour, IInteractable
 
         Inventory.Instance.Add(item);
         Destroy(gameObject);
+        interactionPromptUI.Close();
     }
 }

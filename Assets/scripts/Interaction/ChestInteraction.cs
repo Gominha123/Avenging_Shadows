@@ -12,6 +12,14 @@ public class ChestInteraction : MonoBehaviour, IInteractable
     public GameObject spawnPoint;
     public string InteractablePrompt => prompt;
 
+    public InteractionPromptUI interactionPromptUI;
+
+    private void Awake()
+    {
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        interactionPromptUI = player.GetComponentInChildren<InteractionPromptUI>();
+    }
+
     private void Start()
     {
         animator = GetComponent<Animator>();
@@ -20,11 +28,10 @@ public class ChestInteraction : MonoBehaviour, IInteractable
 
     public void Interact()
     {
-        Debug.Log("here");
-        Debug.Log("here");
         animator.SetBool("HasOpened", true);
         gameObject.layer = 0;
         StartCoroutine(DoAfterTwoSeconds());
+        interactionPromptUI.Close();
     }
 
     public void SpawnRandomItem()
@@ -33,13 +40,18 @@ public class ChestInteraction : MonoBehaviour, IInteractable
         GameObject weaponPrefab;
         GameObject weapon;
 
+        random = 0;
+
         switch (random)
         {
             case 0:
                 weaponPrefab = (GameObject)Resources.Load("Weapons/Sword_OH");
                 weapon = Instantiate(weaponPrefab);
-                weapon.transform.position = spawnPoint.transform.position;
-                weapon.transform.rotation = Quaternion.Euler(90f, 90f, 0f);
+                Vector3 x;
+                x = spawnPoint.transform.position;
+                x.x = 442F;
+                weapon.transform.position = x;
+                weapon.transform.rotation = Quaternion.Euler(180f, 90f, 0f);
                 break;
             case 1:
                 weaponPrefab = (GameObject)Resources.Load("Weapons/LongSword");

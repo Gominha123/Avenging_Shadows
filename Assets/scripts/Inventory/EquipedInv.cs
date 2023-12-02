@@ -94,14 +94,16 @@ public class EquipedInv : MonoBehaviour
     {
         button = 0;
         if (coroutine || items[0] == null) return;
-        invDescription.SetUpForEquiped(items[0].name, items[0].description);
+        weaponSwitch.GetWeaponItem(button);
+        invDescription.SetUpForEquiped(items[0].name, items[0].description + "\nDamage: " + tempOldWeaponDamage + " Durability: " + tempOldWeaponDurability + " Upgradability: " + tempOldWeaponUpgrade + "/3");
     }
 
     public void ButtonClick2()
     {
         button = 1;
         if (coroutine || items[1] == null) return;
-        invDescription.SetUpForEquiped(items[1].name, items[1].description);
+        weaponSwitch.GetWeaponItem(button);
+        invDescription.SetUpForEquiped(items[1].name, items[1].description + "\nDamage: " + tempOldWeaponDamage + " Durability: " + tempOldWeaponDurability + " Upgradability: " + tempOldWeaponUpgrade + "/3");
     }
 
     public void ShowEquiped()

@@ -131,12 +131,14 @@ public class WeaponController : MonoBehaviour, IWeapon, IInteractable
             Inventory.Instance.invWeaponDurability[Inventory.Instance.weaponCount - 1] = weaponItem.durability;
 
             Destroy(gameObject);
+            interactPromptUI.Close();
         }
         else if(Inventory.Instance.upgradeCount < 3 && weaponItem.weaponType == WeaponType.tooth) {
             Inventory.Instance.Add(item);
 
             gameObject.SetActive(false);
             Inventory.Instance.AddObject(gameObject);
+            interactPromptUI.Close();
         }
         else
         {

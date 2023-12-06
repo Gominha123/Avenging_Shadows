@@ -23,11 +23,11 @@ public class ChestInteraction : MonoBehaviour, IInteractable
     private void Start()
     {
         animator = GetComponent<Animator>();
-        Debug.Log(animator);
+        //Debug.Log(animator);
     }
     private void Update()
     {
-        Debug.Log(animator.GetBool("HasOpened"));
+        //Debug.Log(animator.GetBool("HasOpened"));
     }
 
     public void Interact()

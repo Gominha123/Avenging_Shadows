@@ -5,20 +5,29 @@ using UnityEngine;
 public class EnemyHealth : MonoBehaviour
 {
     public float health;
+    public float maxHealth;
     public bool isDead;
     Animator anim;
+    FloatingHealthBar healthBar;
+    
+    
+    public void Awake()
+    {
+        healthBar = GetComponentInChildren<FloatingHealthBar>();
+        anim = GetComponent<Animator>();
+    }
 
     public void Start()
     {
         //isDead = false;
-        anim = GetComponent<Animator>();
+        health = maxHealth;
+        healthBar.UpdateHealthBar(health, maxHealth);
     }
-
-
 
     public void TakeDamage(float damage)
     {
         health -= damage;
+        healthBar.UpdateHealthBar(health, maxHealth);
         //anim.SetBool("TakeDamage", true);
         anim.SetTrigger("TakeDamage");
         if (health <= 0)

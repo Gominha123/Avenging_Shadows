@@ -37,6 +37,7 @@ public class StealthKilled : MonoBehaviour
             interactionPromptUI.SetUp("Press F to Assassinate");
             if (player.stealthKill)
             {
+                //enemyHealth.health = 0;
                 enemyHealth.TakeDamage(enemyHealth.health);
                 anim.SetTrigger("Kill");
                 enemy.canBeStealthKilled = false;

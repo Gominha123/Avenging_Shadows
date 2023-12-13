@@ -60,20 +60,7 @@ public class PlayerHealth : MonoBehaviour
 
         if (isDead && Input.GetKeyDown(KeyCode.L))
         {
-            currentScene = SceneManager.GetActiveScene();
-            sceneName = currentScene.name;
-            SceneManager.LoadScene(currentScene.name);
-            GameObject spawnPoint = GameObject.FindWithTag("Spawn");
-            transform.position = spawnPoint.transform.position;
-            Item currentKeyItem = spawnPoint.GetComponent<ItemController>().item;
-            if(currentKeyItem != null)
-            {
-                Inventory.Instance.Remove(spawnPoint.GetComponent<ItemController>().item);
-            }
-            anim.SetTrigger("Revive");
-            hp = 100;
-            healthbar.SetHealth(hp);
-            isDead = false;
+            Revive();
         }
 
         if (Input.GetKeyDown(KeyCode.R))
@@ -82,6 +69,24 @@ public class PlayerHealth : MonoBehaviour
         }
 
 
+    }
+
+    public void Revive()
+    {
+        currentScene = SceneManager.GetActiveScene();
+        sceneName = currentScene.name;
+        SceneManager.LoadScene(currentScene.name);
+        GameObject spawnPoint = GameObject.FindWithTag("Spawn");
+        transform.position = spawnPoint.transform.position;
+        Item currentKeyItem = spawnPoint.GetComponent<ItemController>().item;
+        if (currentKeyItem != null)
+        {
+            Inventory.Instance.Remove(spawnPoint.GetComponent<ItemController>().item);
+        }
+        anim.SetTrigger("Revive");
+        hp = 100;
+        healthbar.SetHealth(hp);
+        isDead = false;
     }
 
     public void TakeDamage(int damage)

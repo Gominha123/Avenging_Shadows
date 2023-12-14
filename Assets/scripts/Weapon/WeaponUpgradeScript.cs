@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using static UnityEditor.Progress;
 
 public class WeaponUpgradeScript : MonoBehaviour
 {
@@ -11,14 +12,29 @@ public class WeaponUpgradeScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        rend = GetComponent<Renderer>();
+        rend = GetComponent<MeshRenderer>();
         rend.enabled = true;
-        mat[0] = rend.sharedMaterial;
-        Debug.Log(mat[0]);
+        rend.sharedMaterial = mat[0];
+        Upgrade();
     }
 
     void Upgrade()
     {
-        
+        rend.sharedMaterial = mat[1];
+        StartCoroutine(DoAfterFiveSeconds());
+    }
+
+    void StopUpgrade()
+    {
+        Debug.Log("here");
+        rend.sharedMaterial = mat[0];
+    }
+
+    IEnumerator DoAfterFiveSeconds()
+    {
+        yield return new WaitForSeconds(5);
+
+        StopUpgrade();
+
     }
 }

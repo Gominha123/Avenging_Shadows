@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: -179584833823931377}
   - component: {fileID: 63886924049106488}
   - component: {fileID: -1929958495508996403}
+  - component: {fileID: 8476682817938518}
   m_Layer: 10
   m_Name: Longsword
   m_TagString: BFSword
@@ -132,3 +133,18 @@ MonoBehaviour:
   upCounter: 0
   prompt: LongSword
   item: {fileID: 11400000, guid: fb113a35f4da63140b92a2bbb213757e, type: 2}
+--- !u!114 &8476682817938518
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 244185780078440454}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aadc68cffcc08de4898774e4cfa0ea7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mat:
+  - {fileID: 2100000, guid: ab6d617e78fdcb947bab40f8b5ba5541, type: 2}
+  - {fileID: 2100000, guid: 361a14c41d228cc43973e6ef70e5c0db, type: 2}

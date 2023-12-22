@@ -81,21 +81,33 @@ public class EquipedInv : MonoBehaviour
     public void RemoveEquiped()
     {
         //items[button] = nullItems[button];
-        if(weaponSwitch.isScrollable)
+        if(weaponSwitch.transform.childCount == 1)
+        {
+            invDescription.SetUpForEquiped("", "You only have this weapon make sure you dont lose it", false);
+            return;
+        }
+        else if(weaponSwitch.isScrollable)
         {
             items[button] = null;
         }
         weaponSwitch.DeleteEquiped(button);
-        invDescription.Close();
         ShowEquiped();
     }
 
-    public void ButtonClick1()
+    public void ButtonClick1()                  // tirar o discard red blade e blue
     {
         button = 0;
         if (coroutine || items[0] == null) return;
         weaponSwitch.GetWeaponItem(button);
-        invDescription.SetUpForEquiped(items[0].name, items[0].description + "\nDamage: " + tempOldWeaponDamage + " Durability: " + tempOldWeaponDurability + " Upgradability: " + tempOldWeaponUpgrade + "/3");
+        if (items[0].id == 12 || items[0].id == 13)
+        {
+            invDescription.SetUpForEquiped(items[0].name, items[0].description + "\nDamage: " + tempOldWeaponDamage + " Durability: " + "Infinite" + " Upgradability: " + tempOldWeaponUpgrade + "/3", false);
+        }
+        else
+        {
+            invDescription.SetUpForEquiped(items[0].name, items[0].description + "\nDamage: " + tempOldWeaponDamage + " Durability: " + tempOldWeaponDurability + " Upgradability: " + tempOldWeaponUpgrade + "/3", true);
+        }
+        
     }
 
     public void ButtonClick2()
@@ -103,7 +115,14 @@ public class EquipedInv : MonoBehaviour
         button = 1;
         if (coroutine || items[1] == null) return;
         weaponSwitch.GetWeaponItem(button);
-        invDescription.SetUpForEquiped(items[1].name, items[1].description + "\nDamage: " + tempOldWeaponDamage + " Durability: " + tempOldWeaponDurability + " Upgradability: " + tempOldWeaponUpgrade + "/3");
+        if (items[1].id == 12 || items[1].id == 13)
+        {
+            invDescription.SetUpForEquiped(items[0].name, items[0].description + "\nDamage: " + tempOldWeaponDamage + " Durability: " + "Infinite" + " Upgradability: " + tempOldWeaponUpgrade + "/3", false);
+        }
+        else
+        {
+            invDescription.SetUpForEquiped(items[0].name, items[0].description + "\nDamage: " + tempOldWeaponDamage + " Durability: " + tempOldWeaponDurability + " Upgradability: " + tempOldWeaponUpgrade + "/3", true);
+        }
     }
 
     public void ShowEquiped()

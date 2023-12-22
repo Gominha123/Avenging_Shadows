@@ -16,7 +16,9 @@ public class WeaponManager : MonoBehaviour
     {
         if(SelectedWeapon.weapon is WeaponDecorator decorator)
         {
+            Debug.Log(weaponController.weapon);
             decorator.Decorate(weaponController.weapon);
+            Debug.Log(decorator);
             weaponController.weapon = decorator;
         }
     }

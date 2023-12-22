@@ -59,7 +59,7 @@ public class WeaponController : MonoBehaviour, IWeapon, IInteractable
         if(upCounter <= 3)
         {
             upCounter++;
-            Debug.Log("here");
+            Debug.Log(weapon);
             return weapon.UpdateDamage();
         }
         return damage;

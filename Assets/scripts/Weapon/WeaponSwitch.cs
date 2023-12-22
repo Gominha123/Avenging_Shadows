@@ -145,7 +145,7 @@ public class WeaponSwitch : MonoBehaviour
         foreach (Transform weapon in transform)
         {
             //Debug.Log("Here");
-            if (count == i)
+            if (count == i )//&& weapon.name != "Hold")
             {
                 Destroy(weapon.gameObject);
                 return;
@@ -231,6 +231,11 @@ public class WeaponSwitch : MonoBehaviour
     public void DeleteEquiped(int i)
     {
         int count = 0;
+        if(transform.childCount == 1)
+        {
+            invDescription.SetUpForEquiped("", "You only have this weapon make sure you dont lose it", false);
+            return;
+        }
         GameObject obj = new GameObject("Hold");// + i);
         
 
@@ -242,8 +247,7 @@ public class WeaponSwitch : MonoBehaviour
                 if (transform.GetChild(1).name == "Hold")
                 {
                     Destroy(obj.gameObject);
-                    interactionPromptUI.SetUp("You only have this weapon make sure you dont lose it");
-                    StartCoroutine(DoAfterFiveSeconds());
+                    invDescription.SetUpForEquiped("", "You only have this weapon make sure you dont lose it", false);
                     return;
                 }
                 else
@@ -270,9 +274,10 @@ public class WeaponSwitch : MonoBehaviour
                         }
                         Destroy(weapon.gameObject);
                         obj.transform.parent = transform;
-                        obj.transform.SetAsFirstSibling();
+                        obj.transform.SetAsLastSibling();
                     }
                     isScrollable = false;
+                    invDescription.Close();
                     return;
                 }
                 
@@ -280,8 +285,7 @@ public class WeaponSwitch : MonoBehaviour
             if (weapon.name == "Hold")
             {
                 Destroy(obj.gameObject);
-                interactionPromptUI.SetUp("You only have this weapon make sure you dont lose it");
-                StartCoroutine(DoAfterFiveSeconds());
+                invDescription.SetUpForEquiped("", "You only have this weapon make sure you dont lose it", false);
                 return;
             }
             count++;
@@ -346,7 +350,7 @@ public class WeaponSwitch : MonoBehaviour
     {
         GameObject weaponPrefab = (GameObject)Resources.Load("Weapons/" + weaponName);
         GameObject weapon = Instantiate(weaponPrefab);
-        weapon.layer = 0;
+        weapon.layer = 6;
         Vector3 tempPos = weapon.transform.position;
         Quaternion tempRot = weapon.transform.rotation;
         weapon.transform.parent = transform;

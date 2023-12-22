@@ -26,7 +26,7 @@ public class WeaponUpgradeScript : MonoBehaviour
 
     void StopUpgrade()
     {
-        Debug.Log("here");
+        //Debug.Log("here");                                tirar de coment quando for para por a funcionar não sei porque está aqui
         rend.sharedMaterial = mat[0];
     }
 

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -59,12 +60,13 @@ public class InvDescription : MonoBehaviour
         isDisplayed = false;
     }
 
-    public void SetUpForEquiped(string nameItem, string descriptionItem)
+    public void SetUpForEquiped(string nameItem, string descriptionItem,bool deletable)
     {
         nameTextTMP.text = nameItem;
         descriptionTextTMP.text = descriptionItem;
         useButton.interactable = false;
         deleteButton.interactable = false;
+        deleteButtonEquiped.interactable = deletable;
         //uiPanel.SetActive(true);
         nameTextTMP.gameObject.SetActive(true);
         descriptionTextTMP.gameObject.SetActive(true);

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlansInteraction : MonoBehaviour
+public class PlansInteraction : MonoBehaviour, IInteractable
 {
     private string prompt = "Press E to Grab the Plans";
     //[SerializeField] private InventoryManager inventory;

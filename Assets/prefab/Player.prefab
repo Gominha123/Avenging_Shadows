@@ -8084,6 +8084,7 @@ GameObject:
   - component: {fileID: 9221519076874660452}
   - component: {fileID: 3728298612310861092}
   - component: {fileID: 8447677794445633723}
+  - component: {fileID: 708323093151557636}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -8255,6 +8256,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anim: {fileID: 2067218087704374631}
   stealthKill: 0
+--- !u!81 &708323093151557636
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6132928741460335239}
+  m_Enabled: 1
 --- !u!1 &6132928741695667820
 GameObject:
   m_ObjectHideFlags: 3

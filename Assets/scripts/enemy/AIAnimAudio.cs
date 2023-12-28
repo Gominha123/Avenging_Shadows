@@ -12,6 +12,8 @@ public class AIAnimAudio : MonoBehaviour
     private Rigidbody rb;
     private AudioSource _audioSource;
     private bool _isAudioPlaying;
+    private bool isAttacking = false;
+    private bool attackAnimationComplete = false;
 
     private Dictionary<AISimples.stateOfAi, AudioClip> audioClips = new Dictionary<AISimples.stateOfAi, AudioClip>();
 
@@ -39,11 +41,24 @@ public class AIAnimAudio : MonoBehaviour
     void UpdateAnimations()
     {
         AISimples.stateOfAi currentState = Navgador.GetCurrentState();
-        _animator.SetBool("Attack", currentState == AISimples.stateOfAi.attacking);
+
+        if (currentState == AISimples.stateOfAi.attacking)
+        {
+            // Se estiver dentro do alcance de ataque, apenas execute a animação de ataque
+            isAttacking = true;
+        }
+        else
+        {
+            // Fora do alcance de ataque, permita outras animações
+            isAttacking = false;
+            attackAnimationComplete = false; // Redefina a flag de conclusão da animação de ataque
+        }
+
+        _animator.SetBool("Attack", isAttacking);
         _animator.SetBool("Searching", currentState == AISimples.stateOfAi.searchingLostTarget);
         _animator.SetBool("Patrolling", currentState == AISimples.stateOfAi.patrolling);
         _animator.SetBool("Following", currentState == AISimples.stateOfAi.following);
-        _animator.SetBool("Waiting", currentState == AISimples.stateOfAi.waiting);   
+        _animator.SetBool("Waiting", currentState == AISimples.stateOfAi.waiting);
     }
 
     void UpdateAudio()

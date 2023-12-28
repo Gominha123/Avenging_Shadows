@@ -41,7 +41,9 @@ public class AISimples : MonoBehaviour
     private CapsuleCollider capsuleCollider;
     private bool isDying = false;
     public bool canBeStealthKilled;
-
+    private Animator _animator;
+    private bool attackAnimationComplete = false;
+    private bool isAttackAnimationComplete = false;
 
     // Define the delegate for state functions
     private delegate void StateFunction();
@@ -230,7 +232,10 @@ public class AISimples : MonoBehaviour
     {
         if (target != null)
         {
-            _navMesh.SetDestination(target.position);
+            if (!isAttacking)
+            {
+                _navMesh.SetDestination(target.position);
+            }
 
             if (!_head.visibleEnemies.Contains(target))
             {
@@ -244,19 +249,38 @@ public class AISimples : MonoBehaviour
                 // Player moved out of attack range, start pursuing
                 _stateAI = stateOfAi.following;
                 _navMesh.ResetPath(); // Clear the current path
+                isAttacking = false; // Resetar a flag de ataque
             }
             else if (lastAttackTime >= attackCooldown)
             {
                 // Perform the attack when the cooldown is met
-                Debug.Log("Attacking");
-                AttackPlayer(target.gameObject);
-                lastAttackTime = 0;
-            }
+                if (!isAttacking)
+                {
+                    Debug.Log("Attacking");
+                    AttackPlayer(target.gameObject);
+                    isAttacking = true; // Marcar que estamos atacando
+                }
 
-            // Check enemy health here
-            if (enemyHealth.health <= 0)
-            {
-                StartCoroutine(StartDeathDelay());
+                
+                    
+
+                    // Check enemy health here
+                    if (enemyHealth.health <= 0)
+                    {
+                        StartCoroutine(StartDeathDelay());
+                    }
+
+                    // Se ainda estivermos em range, continue atacando
+                    if (distanceToAlvo <= attackRange)
+                    {
+                        _navMesh.SetDestination(transform.position); // Ficar no local enquanto espera pelo próximo ataque
+                    }
+                    else
+                    {
+                        // Fora do alcance, volte a patrulhar
+                        _stateAI = stateOfAi.patrolling;
+                    }
+                
             }
         }
         else
@@ -267,6 +291,7 @@ public class AISimples : MonoBehaviour
 
         CheckForVisibleEnemies();
     }
+
     private IEnumerator StartDeathDelay()
     {
         yield return new WaitForSeconds(0.5f); // Ajuste o valor conforme necessário
@@ -335,16 +360,24 @@ public class AISimples : MonoBehaviour
         {
             PlayerHealth player = other.gameObject.GetComponent<PlayerHealth>();
 
-            if (player != null && lastAttackTime >= attackCooldown)
+            if (player != null)
             {
-                player.TakeDamage(damage);
-                lastAttackTime = 0f;
-                attackManager.RegisterAttackingEnemy(gameObject);
-                StartCoroutine(ResetAttackCooldown());
+                Debug.Log("Player object: " + other.gameObject.name);
+
+                if (lastAttackTime >= attackCooldown)
+                {
+                    player.TakeDamage(damage);
+                    lastAttackTime = 0f;
+                    attackManager.RegisterAttackingEnemy(gameObject);
+                    StartCoroutine(ResetAttackCooldown());
+                }
+            }
+            else
+            {
+                Debug.LogWarning("PlayerHealth component not found on the player object.");
             }
         }
     }
-
     private IEnumerator ResetAttackCooldown()
     {
         yield return new WaitForSeconds(attackCooldown);

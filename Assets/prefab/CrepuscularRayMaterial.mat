@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: CrepuscularRayMaterial
+  m_Shader: {fileID: 4800000, guid: 0e5226225e9bfc64f993b82e21d94654, type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _CameraDepthTexture:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MaskTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MaskTexture:
+        m_Texture: {fileID: 2800000, guid: cf19493dd9bd0c443a3066e2b47e24fa, type: 3}
+        m_Scale: {x: 1, y: 0}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _Angle: 180
+    - _ConeAngle: 155
+    - _CylinderHeight: 0.5
+    - _CylinderRadius: 0.5
+    - _Decay: 1
+    - _Density: 0.518
+    - _DepthThreshold: 0.5
+    - _Exposure: 0.908
+    - _LightRadius: 0.84
+    - _NumSamples: 1024
+    - _Radius: 1
+    - _RayIntensity: 0.406
+    - _Scale: 1
+    - _Weight: 0.454
+    m_Colors:
+    - _LightColor: {r: 1, g: 0.8961941, b: 0.5424528, a: 1}
+    - _LightPos: {r: 0.34625727, g: 1.2737656, b: 0.85697556, a: 0}
+    - _SunPosition: {r: 0.5, g: 0.5, b: 0, a: 1}
+    - _TargetPos: {r: 0.5, g: 0.5, b: 0, a: 1}
+  m_BuildTextureStacks: []

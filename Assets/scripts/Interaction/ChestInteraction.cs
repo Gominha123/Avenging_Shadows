@@ -23,13 +23,7 @@ public class ChestInteraction : MonoBehaviour, IInteractable
     private void Start()
     {
         animator = GetComponent<Animator>();
-        //Debug.Log(animator);
     }
-    private void Update()
-    {
-        //Debug.Log(animator.GetBool("HasOpened"));
-    }
-
     public void Interact()
     {
         animator.SetBool("HasOpened", true);
@@ -44,7 +38,7 @@ public class ChestInteraction : MonoBehaviour, IInteractable
         GameObject weaponPrefab;
         GameObject weapon;
 
-        random = 0;
+        random = 1;
 
         switch (random)
         {
@@ -52,16 +46,18 @@ public class ChestInteraction : MonoBehaviour, IInteractable
                 weaponPrefab = (GameObject)Resources.Load("Weapons/Sword_OH");
                 weapon = Instantiate(weaponPrefab);
                 Vector3 x;
-                x = spawnPoint.transform.position;
-                x.x = 442F;
-                weapon.transform.position = x;
-                weapon.transform.rotation = Quaternion.Euler(180f, 90f, 0f);
+                spawnPoint.transform.localPosition += new Vector3(0.5F, 0, 0);
+                weapon.transform.position = spawnPoint.transform.position;
+                weapon.transform.rotation = spawnPoint.transform.rotation;
+                weapon.transform.Rotate(new Vector3(0, -90f, 0));
+
                 break;
             case 1:
                 weaponPrefab = (GameObject)Resources.Load("Weapons/LongSword");
                 weapon = Instantiate(weaponPrefab);
                 weapon.transform.position = spawnPoint.transform.position;
-                weapon.transform.rotation = Quaternion.Euler(0f, 90f, 0f);
+                weapon.transform.rotation = spawnPoint.transform.rotation;
+                weapon.transform.Rotate(new Vector3(0, 90f, 0));
                 break;
             case 2:
                 weaponPrefab = (GameObject)Resources.Load("Health Potion");

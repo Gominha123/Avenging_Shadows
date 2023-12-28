@@ -93,17 +93,22 @@ public class WeaponController : MonoBehaviour, IWeapon, IInteractable
 
     public void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Enemy" && enableAttack && weaponItem.weaponType == WeaponType.weapon)
+        if(other.tag == "Enemy")
         {
-            EnemyHealth enemy = other.GetComponent<EnemyHealth>();
-            //se tiver como comentário passar a codigo se não não dá damage
-            enemy.TakeDamage(damage);
-            durability--;
-            TeethDropRate(enemy);
-            if(durability == 0) {
-                StartCoroutine(DoAfterOneSeconds());
-            }
+            Debug.Log("hit");
         }
+        //if (other.tag == "Enemy" && enableAttack && weaponItem.weaponType == WeaponType.weapon)
+        //{
+        //    Debug.Log("hello my friend");
+        //    EnemyHealth enemy = other.GetComponent<EnemyHealth>();
+        //    //se tiver como comentário passar a codigo se não não dá damage
+        //    enemy.TakeDamage(damage);
+        //    durability--;
+        //    TeethDropRate(enemy);
+        //    if(durability == 0) {
+        //        StartCoroutine(DoAfterOneSeconds());
+        //    }
+        //}
     }
 
     public void TeethDropRate(EnemyHealth enemy)

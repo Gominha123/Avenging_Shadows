@@ -62,13 +62,18 @@ public class PlayerMovement2 : MonoBehaviour
 
     public float stepHeight;
     public float stepSmooth;
-    [Space(30)]
+    [Space(10)]
+    [Header("SoundEffects")]
+    public AudioSource src;
 
 
     float horizontalInput;
     float verticalInput;
 
     Vector3 moveDirection;
+
+    [Space(10)]
+    [Header("Game Object Scripts")]
     public Transform orientation;
     public Animator anim;
     public Transform playerObj;
@@ -78,6 +83,7 @@ public class PlayerMovement2 : MonoBehaviour
     //BoxCollider boxCollider;
     CapsuleCollider capsuleCollider;
     StealthKill stealthKill;
+    WeaponSwitch weaponSwitch;
 
     public WeaponController wp;
 
@@ -101,6 +107,7 @@ public class PlayerMovement2 : MonoBehaviour
         hp = GetComponent<PlayerHealth>();
         wp = GetComponentInChildren<WeaponController>();
         stealthKill = GetComponent<StealthKill>();
+        weaponSwitch = GetComponentInChildren<WeaponSwitch>();
 
 
         rb.freezeRotation = true;
@@ -117,7 +124,7 @@ public class PlayerMovement2 : MonoBehaviour
 
     private void Update()
     {
-        if(hp.isDead) return;
+        if (hp.isDead) return;
         attacking = anim.GetBool("isAttacking");
         MyInput();
         Animations();

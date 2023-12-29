@@ -26,6 +26,7 @@ public class WeaponSwitch : MonoBehaviour
     private bool onDelete0 = false;
     private bool onDelete1 = false;
 
+    private int selectedAnim;
 
     public int onDeleteNum = 0;
 
@@ -33,7 +34,7 @@ public class WeaponSwitch : MonoBehaviour
     void Start()
     {
         playerMovement = GetComponentInParent<PlayerMovement2>();
-
+        selectedAnim = -1;
         StartingWeapons();
         SelectWeapon();
     }
@@ -414,14 +415,17 @@ public class WeaponSwitch : MonoBehaviour
         if (chooseWeaponVar == "BFSword")
         {
             playerMovement.anim.runtimeAnimatorController = animBFSword;
+            selectedAnim = 0;
         }
         else if (chooseWeaponVar == "Sword")
         {
             playerMovement.anim.runtimeAnimatorController = animSword;
+            selectedAnim = 1;
         }
         else if (chooseWeaponVar == "Spear")
         {
             playerMovement.anim.runtimeAnimatorController = animSpear;
+            selectedAnim = 2;
         }
     }
 

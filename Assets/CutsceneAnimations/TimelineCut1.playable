@@ -37,7 +37,7 @@ MonoBehaviour:
     m_Start: 0
     m_ClipIn: 0
     m_Asset: {fileID: 3388146863892650237}
-    m_Duration: 0.5
+    m_Duration: 13.983333333333333
     m_TimeScale: 1
     m_ParentTrack: {fileID: -8562347742840218353}
     m_EaseInDuration: 0
@@ -651,7 +651,7 @@ MonoBehaviour:
     m_Framerate: 60
     m_ScenePreview: 1
   m_DurationMode: 0
-  m_MarkerTrack: {fileID: 0}
+  m_MarkerTrack: {fileID: 6967015426427271441}
 --- !u!114 &1326200185360315212
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -968,7 +968,7 @@ MonoBehaviour:
     m_Start: 0.5
     m_ClipIn: 0
     m_Asset: {fileID: -2974290713533005019}
-    m_Duration: 14.6
+    m_Duration: 12.05
     m_TimeScale: 1
     m_ParentTrack: {fileID: 4923960726720357509}
     m_EaseInDuration: 0
@@ -1048,6 +1048,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fde0d25a170598d46a0b9dc16b4527a5, type: 3}
   m_Name: ActivationPlayableAsset
   m_EditorClassIdentifier: 
+--- !u!114 &6967015426427271441
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a16748d9461eae46a725db9776d5390, type: 3}
+  m_Name: Markers
+  m_EditorClassIdentifier: 
+  m_Version: 3
+  m_AnimClip: {fileID: 0}
+  m_Locked: 0
+  m_Muted: 0
+  m_CustomPlayableFullTypename: 
+  m_Curves: {fileID: 0}
+  m_Parent: {fileID: 11400000}
+  m_Children: []
+  m_Clips: []
+  m_Markers:
+    m_Objects: []
 --- !u!114 &8404479683953473495
 MonoBehaviour:
   m_ObjectHideFlags: 1

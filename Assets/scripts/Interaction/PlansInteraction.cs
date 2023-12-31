@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Playables;
 
 public class PlansInteraction : MonoBehaviour, IInteractable
 {
@@ -12,17 +13,24 @@ public class PlansInteraction : MonoBehaviour, IInteractable
 
     public InteractionPromptUI interactionPromptUI;
 
+    PlayableDirector playableDirector;
+
+    public GameObject playerPos;
+
     private void Awake()
     {
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         interactionPromptUI = player.GetComponentInChildren<InteractionPromptUI>();
+        playableDirector = GameObject.FindGameObjectWithTag("CutsceneDirector").GetComponent<PlayableDirector>();
     }
 
     public void Interact()
     {
 
         Inventory.Instance.Add(item);
-        Destroy(gameObject);
+        playerPos.transform.position = playerPos.transform.position;
+        playableDirector.Play();
+        //Destroy(gameObject);
         interactionPromptUI.Close();
     }
 }

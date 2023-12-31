@@ -17,9 +17,11 @@ public class PlansInteraction : MonoBehaviour, IInteractable
 
     public GameObject playerPos;
 
+    GameObject player;
+
     private void Awake()
     {
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        player = GameObject.FindGameObjectWithTag("Player");
         interactionPromptUI = player.GetComponentInChildren<InteractionPromptUI>();
         playableDirector = GameObject.FindGameObjectWithTag("CutsceneDirector").GetComponent<PlayableDirector>();
     }
@@ -28,9 +30,8 @@ public class PlansInteraction : MonoBehaviour, IInteractable
     {
 
         Inventory.Instance.Add(item);
-        playerPos.transform.position = playerPos.transform.position;
+        player.transform.position = playerPos.transform.position;
         playableDirector.Play();
-        //Destroy(gameObject);
         interactionPromptUI.Close();
     }
 }

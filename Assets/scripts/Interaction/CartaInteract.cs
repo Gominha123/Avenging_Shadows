@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Playables;
 
 public class CartaInteract : MonoBehaviour, IInteractable
 {
@@ -14,24 +15,25 @@ public class CartaInteract : MonoBehaviour, IInteractable
 
     public InteractionPromptUI interactionPromptUI;
 
+    PlayableDirector playableDirector;
+
+    public GameObject playerPos;
+
+    GameObject player;
+
     private void Awake()
     {
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        player = GameObject.FindGameObjectWithTag("Player");
         interactionPromptUI = player.GetComponentInChildren<InteractionPromptUI>();
+        playableDirector = GameObject.FindGameObjectWithTag("CutsceneDirector").GetComponent<PlayableDirector>();
     }
 
     public void Interact()
     {
-        //if(!inventory.hasLetter)
-        //{
-        //    Debug.Log("Grabed");
-        //    inventory.hasLetter = true;
-        //    prompt = null;
-        //    Destroy(gameObject);
-        //}
-
         Inventory.Instance.Add(item);
-        Destroy(gameObject);
+        player.transform.position = playerPos.transform.position;
+        player.transform.Rotate(new Vector3(0, 90, 0));
+        playableDirector.Play();
         interactionPromptUI.Close();
     }
 }

@@ -12,6 +12,15 @@ public class HorseInteraction : MonoBehaviour, IInteractable
     public string InteractablePrompt => prompt;
     public string scene;
 
+
+    public GameObject loadCanvas;
+    public GameObject slider;
+
+    private void Awake()
+    {
+        loadCanvas.SetActive(false);
+    }
+
     public void Update()
     {
         if (Inventory.Instance.FindById(item.id, false))
@@ -24,7 +33,18 @@ public class HorseInteraction : MonoBehaviour, IInteractable
     {
         if (Inventory.Instance.FindById(item.id, false))
         {
-            SceneManager.LoadScene(scene);
+            loadCanvas.SetActive(true);
+            slider.SetActive(true);
+            StartCoroutine(LoadAsync());
+        }
+    }
+
+    IEnumerator LoadAsync()
+    {
+        AsyncOperation loadOperaton = SceneManager.LoadSceneAsync(scene);
+        while(!loadOperaton.isDone)
+        {
+            yield return null;
         }
     }
 }

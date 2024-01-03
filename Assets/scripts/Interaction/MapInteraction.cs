@@ -18,7 +18,6 @@ public class MapInteraction : MonoBehaviour, IInteractable
     public GameObject playerPos;
 
     GameObject player;
-
     private void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player");

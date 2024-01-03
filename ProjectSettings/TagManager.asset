@@ -15,6 +15,7 @@ TagManager:
   - Spawn
   - Stealth
   - CutsceneDirector
+  - Canvas
   layers:
   - Default
   - TransparentFX

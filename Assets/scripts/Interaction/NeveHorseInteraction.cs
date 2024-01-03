@@ -12,6 +12,9 @@ public class NeveHorseInteraction : MonoBehaviour, IInteractable
     public string InteractablePrompt => prompt;
     public string scene;
 
+    public GameObject loadCanvas;
+    public GameObject slider;
+
     public void Update()
     {
         if (weapon)
@@ -24,7 +27,18 @@ public class NeveHorseInteraction : MonoBehaviour, IInteractable
     {
         if (weapon)
         {
-            SceneManager.LoadScene(scene);
+            loadCanvas.SetActive(true);
+            slider.SetActive(true);
+            StartCoroutine(LoadAsync());
+        }
+    }
+
+    IEnumerator LoadAsync()
+    {
+        AsyncOperation loadOperaton = SceneManager.LoadSceneAsync(scene);
+        while (!loadOperaton.isDone)
+        {
+            yield return null;
         }
     }
 }

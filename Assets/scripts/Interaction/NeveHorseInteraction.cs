@@ -15,6 +15,11 @@ public class NeveHorseInteraction : MonoBehaviour, IInteractable
     public GameObject loadCanvas;
     public GameObject slider;
 
+    private void Awake()
+    {
+        loadCanvas.SetActive(false);
+    }
+
     public void Update()
     {
         if (weapon)

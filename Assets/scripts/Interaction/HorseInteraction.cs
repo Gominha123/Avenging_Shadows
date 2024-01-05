@@ -35,7 +35,7 @@ public class HorseInteraction : MonoBehaviour, IInteractable
         {
             loadCanvas.SetActive(true);
             slider.SetActive(true);
-            StartCoroutine(LoadAsync());
+            StartCoroutine(DoAfterFiveSeconds());
         }
     }
 
@@ -46,5 +46,14 @@ public class HorseInteraction : MonoBehaviour, IInteractable
         {
             yield return null;
         }
+        loadCanvas.SetActive(false);
+    }
+
+    IEnumerator DoAfterFiveSeconds()
+    {
+        yield return new WaitForSeconds(5);
+
+        StartCoroutine (LoadAsync());
+
     }
 }

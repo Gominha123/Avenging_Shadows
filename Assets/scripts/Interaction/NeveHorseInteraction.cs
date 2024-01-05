@@ -45,5 +45,14 @@ public class NeveHorseInteraction : MonoBehaviour, IInteractable
         {
             yield return null;
         }
+        loadCanvas.SetActive(false);
+    }
+
+    IEnumerator DoAfterFiveSeconds()
+    {
+        yield return new WaitForSeconds(5);
+
+       StartCoroutine (LoadAsync());
+
     }
 }

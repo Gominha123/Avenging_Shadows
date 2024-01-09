@@ -9,8 +9,8 @@ public class EnemyHealth : MonoBehaviour
     public bool isDead;
     Animator anim;
     FloatingHealthBar healthBar;
-    
-    
+
+
     public void Awake()
     {
         healthBar = GetComponentInChildren<FloatingHealthBar>();
@@ -26,6 +26,7 @@ public class EnemyHealth : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
+
         health -= damage;
         healthBar.UpdateHealthBar(health, maxHealth);
         //anim.SetBool("TakeDamage", true);

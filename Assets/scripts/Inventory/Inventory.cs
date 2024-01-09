@@ -325,7 +325,7 @@ public class Inventory : MonoBehaviour
                         DisableItemButtons();
                         equipedInventory.tempItem = weaponItems[currentIndex];
                         equipedInventory.tempCurrentWeaponDamage = invWeaponDamage[currentIndex];
-                        //Debug.Log(invWeaponDamage[currentIndex]);
+                        Debug.Log(invWeaponDamage[currentIndex]);
                         equipedInventory.tempCurrentWeaponDurability = invWeaponDurability[currentIndex];
                         equipedInventory.ReturnButtonClick();
                         Remove(weaponItems[currentIndex]);

@@ -362,6 +362,7 @@ public class WeaponSwitch : MonoBehaviour
         wpcw.durability = durability;
         wpc.weaponItem = wpcw;
         wpc.SetWeapon();
+        wpc.damage = damage;
         wpc.upCounter = upgradeCount;
 
         if (firstSibling)
@@ -400,6 +401,7 @@ public class WeaponSwitch : MonoBehaviour
                         WeaponManager.Instance.Decorate(weaponController);
                         WeaponManager.Instance.SelectedWeapon.weapon.UpdateDamage();
                         weaponController.damage = weaponController.UpdateDamage();
+                        Debug.Log(weaponController.damage);
                         Inventory.Instance.Remove(toothItem);
                     }
                     

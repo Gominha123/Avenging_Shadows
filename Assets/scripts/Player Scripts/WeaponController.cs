@@ -52,8 +52,17 @@ public class WeaponController : MonoBehaviour, IWeapon, IInteractable
 
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         interactPromptUI = player.GetComponentInChildren<InteractionPromptUI>();
-        
     }
+
+
+    private void Update()
+    {
+        if(weaponItem.weaponType == WeaponType.weapon)
+        {
+            //Debug.Log(damage);
+        }
+    }
+
     public float UpdateDamage()
     {
         if(upCounter <= 3)
@@ -95,6 +104,7 @@ public class WeaponController : MonoBehaviour, IWeapon, IInteractable
     {
         if (other.tag == "Enemy" && enableAttack && weaponItem.weaponType == WeaponType.weapon)
         {
+            Debug.Log("hitdatni");
             EnemyHealth enemy = other.GetComponent<EnemyHealth>();
             //se tiver como comentário passar a codigo se não não dá damage
             enemy.TakeDamage(damage);
